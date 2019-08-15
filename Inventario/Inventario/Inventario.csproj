@@ -198,9 +198,14 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\insertar.cs" />
     <Compile Include="Controllers\ManageController.cs" />
 
+
+    <Compile Include="Controllers\MODINS_InsertarVentaController.cs" />
+
     <Compile Include="Controllers\MODREP_RepKardexController.cs" />
+
 
     <Compile Include="Controllers\MODSAL_RestaxVentaController.cs" />
 
@@ -210,6 +215,15 @@
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+
+
+    <Compile Include="MODINS_Insertar.aspx.cs">
+      <DependentUpon>MODINS_Insertar.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MODINS_Insertar.aspx.designer.cs">
+      <DependentUpon>MODINS_Insertar.aspx</DependentUpon>
+    </Compile>
 
     <Compile Include="Objetos\ObjRepKardex.cs" />
 
@@ -225,6 +239,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="MODINS_Insertar.aspx" />
     <Content Include="Scripts\ai.0.22.9-build00167.js" />
     <Content Include="Scripts\ai.0.22.9-build00167.min.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -279,7 +294,9 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
 
+    <Content Include="Views\MODINS_InsertarVenta\vMODINS_InsertarVenta.cshtml" />
     <Content Include="Views\MODREP_RepKardex\vMODREP_RepKardex.cshtml" />
+
 
     <Content Include="Views\MODSAL_restaxventa\vMODSAL_RestaxVenta.cshtml" />
 
