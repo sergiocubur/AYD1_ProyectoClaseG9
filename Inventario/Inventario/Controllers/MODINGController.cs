@@ -13,5 +13,11 @@ namespace Inventario.Controllers
         {
             return View();
         }
+
+        public ActionResult Index()
+        {
+
+            return View();
+        }
     }
 }

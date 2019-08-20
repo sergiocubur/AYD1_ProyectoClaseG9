@@ -1,0 +1,28 @@
+﻿@{
+    ViewBag.Title = "Ingresos";
+}
+
+<div class="jumbotron">
+    <h1>Ingresos</h1>
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <h2>Devoluciones</h2>
+        <p>
+            @Html.ActionLink("Nueva Devolución", "Devolucion", "MODING", new { area = "" }, new { @class = "btn btn-primary" })
+        </p>
+    </div>
+    <div class="col-md-4">
+        <h2>Compras</h2>
+        <p>
+            @Html.ActionLink("Nueva Compra", "Index", "Home", new { @class = "btn btn-primary" })
+        </p>
+    </div>
+    <div class="col-md-4">
+        <h2>Muestras</h2>
+        <p>
+            @Html.ActionLink("Nueva Muestra", "Index", "Home", new { @class = "btn btn-primary" })
+        </p>
+    </div>
+</div>
