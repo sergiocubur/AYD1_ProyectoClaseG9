@@ -1,0 +1,37 @@
+﻿
+@{
+}
+    <br />
+    <div class="row">
+        <div class="col-md-12 devolucion-factura" >
+            <form action="/" method="post" class="form-inline" role="form">
+                <div class="form-group">
+                    <label for="factura" class="sr-only">Factura</label>
+                    <input type="text" name="factura" class="form-control" placeholder="Factura" />
+                </div>
+                <input type="button" name="btnIngresarDevolucion" value="Ingresar" class="btn btn-primary" />
+            </form>
+        </div>
+        <div class="col-md-12 devolucion-ingreso">
+            <br />
+            <table class="table table-bordered table-responsive">
+                <thead>
+                    <tr>
+                        <th>Codigo</th>
+                        <th>Factura</th>
+                        <th>Estado</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tr>
+                    <td><a href="/MODING/Devolucion?devolucion=22">22</a></td>
+                    <td>2881</td>
+                    <td>3</td>
+                    <td>
+                        <a class="btn btn-success">Aprobar</a>
+                        <a class="btn btn-danger">Rechazar</a>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>

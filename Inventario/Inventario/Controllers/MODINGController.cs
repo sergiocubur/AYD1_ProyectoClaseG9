@@ -8,15 +8,21 @@ namespace Inventario.Controllers
 {
     public class MODINGController : Controller
     {
-        // GET: MODING
-        public ActionResult Devolucion()
+        [HttpGet]
+        public ActionResult Devoluciones()
         {
+            return View();
+        }
+        
+        [HttpGet]
+        public ActionResult Devolucion(int devolucion)
+        {
+            ViewBag.Devolucion = devolucion;
             return View();
         }
 
         public ActionResult Index()
         {
-
             return View();
         }
     }

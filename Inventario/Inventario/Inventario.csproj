@@ -271,6 +271,7 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\MODING\Devolucion.cshtml" />
     <Content Include="Views\MODING\Index.cshtml" />
+    <Content Include="Views\MODING\Devoluciones.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
