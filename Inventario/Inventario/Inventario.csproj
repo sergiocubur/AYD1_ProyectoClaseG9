@@ -272,6 +272,7 @@
     <Content Include="Views\MODING\Devolucion.cshtml" />
     <Content Include="Views\MODING\Index.cshtml" />
     <Content Include="Views\MODING\Devoluciones.cshtml" />
+    <Content Include="Views\MODING\Compras.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -13,11 +13,21 @@ namespace Inventario.Controllers
         {
             return View();
         }
-        
+
         [HttpGet]
         public ActionResult Devolucion(int devolucion)
         {
             ViewBag.Devolucion = devolucion;
+            return View();
+        }
+
+        public ActionResult Compras()
+        {
+            return View();
+        }
+
+        public ActionResult Compra(int compra)
+        {
             return View();
         }
 
