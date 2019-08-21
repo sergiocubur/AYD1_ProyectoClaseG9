@@ -50,5 +50,19 @@ namespace Inventario.Tests.Controllers
             // Assert
             Assert.IsNotNull(result);
         }
+
+        [TestMethod]
+        public void RestaxVentas()
+        {
+            // Arrange
+            MODSAL_RestaxVentaController controller = new MODSAL_RestaxVentaController();
+
+            int respuesta=controller.restar1(100, 50);            
+
+            // Assert
+            Assert.IsNotNull(respuesta);
+            Assert.AreNotEqual(100, respuesta);
+            //Assert.AreEqual(100,respuesta);
+        }
     }
 }
