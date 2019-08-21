@@ -28,6 +28,7 @@ namespace Inventario.Controllers
 
         public ActionResult Compra(int compra)
         {
+            ViewBag.compra = compra;
             return View();
         }
 
