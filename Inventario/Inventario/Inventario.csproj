@@ -213,6 +213,13 @@
     <Compile Include="MODINS_Insertar.aspx.designer.cs">
       <DependentUpon>MODINS_Insertar.aspx</DependentUpon>
     </Compile>
+    <Compile Include="MODRES_MalEstado.aspx.cs">
+      <DependentUpon>MODRES_MalEstado.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MODRES_MalEstado.aspx.designer.cs">
+      <DependentUpon>MODRES_MalEstado.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -224,6 +231,7 @@
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="MODINS_Insertar.aspx" />
+    <Content Include="MODRES_MalEstado.aspx" />
     <Content Include="Scripts\ai.0.22.9-build00167.js" />
     <Content Include="Scripts\ai.0.22.9-build00167.min.js" />
     <Content Include="Scripts\bootstrap.js" />

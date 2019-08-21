@@ -18,7 +18,7 @@ namespace Inventario
 
         protected void btnRestaVEntas_Click(object sender, EventArgs e)
         {
-            if (txtProducto.Text=="" || txtCantidad.Text == "")
+            /*if (txtProducto.Text=="" || txtCantidad.Text == "")
             {
                 Page.ClientScript.RegisterStartupScript(GetType(),"Show Modal Popup", "alert ('Debe llenar todos los campos');", true );
                 //txtError.Text = "Error: Debe llenar ambos campos";
@@ -66,7 +66,7 @@ namespace Inventario
                         cmd.Parameters.AddWithValue("@Cantidad", Int32.Parse(cantidad));
                     }
                 }
-            }              
+            } */             
             
         }
     }
