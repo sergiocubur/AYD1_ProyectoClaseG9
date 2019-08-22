@@ -1,7 +1,67 @@
-﻿
-@{
-    ViewBag.Title = "vMODREP_RepMovimientos";
+﻿@{
+    ViewBag.Title = "Reporte Movimientos";
 }
 
-<h2>vMODREP_RepMovimientos</h2>
+<div>
+    <div class="jumbotron text-center" style="margin-bottom:0">
+        <h2>Reporte de Movimientos</h2>
+    </div>
+
+    <div id="materiales-div">
+        @using (Html.BeginForm("mostrandoRepMovimientos", "MODREP_RepMovimientos", FormMethod.Post))
+        {
+            <div class="form-group">
+                <label for="Fecha1">De la fecha:</label>
+                <input type="date" class="form-control" name=fechaIni id="fechaIni" placeholder="dd/mm/aaaa">
+                <label for="Fecha2">A la fecha:</label>
+                <input type="date" class="form-control" name=fechaFin id="fechaFin" placeholder="dd/mm/aaaa">
+                <br />
+                <label for="tipoMov">Tipo de Reporte:</label>
+                <select id="tipoMovimiento" name="tipoMovimiento">
+                    <option value="in">Entradas</option>
+                    <option value="out">Salidas</option>
+                </select>
+                <br />
+            </div>
+            <input id="btn" name="btn" type="submit" value="Generar Reporte" class="btn btn-primary" />
+            <br />
+        }
+        <br />
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <td> <label>Fecha Ingreso</label></td>
+                    <td><label>Cantidad Ingresada</label></td>
+                    <td><label>Descripcion</label></td>
+                    <td><label>Fecha Egreso</label></td>
+                    <td><label>Cantidad Egresada</label></td>
+                    <td><label>Precio Unitario</label></td>
+                </tr>
+            </thead>
+
+            <tbody>
+                @{
+                    if (Session["LOG_MOVIMIENTOS"] != null)
+                    {
+                        List<Inventario.Objetos.ObjRepKardex> listaMovimientos = Session["LOG_MOVIMIENTOS"] as List<Inventario.Objetos.ObjRepKardex>;
+
+                        foreach (Inventario.Objetos.ObjRepKardex ObjRepMov in listaMovimientos)
+                        {
+                            <tr>
+                                <td>@ObjRepMov.fechaIngreso</td>
+                                <td>@ObjRepMov.cantIngreso</td>
+                                <td>@ObjRepMov.descripcion</td>
+                                <td>@ObjRepMov.fechaEgreso</td>
+                                <td>@ObjRepMov.cantEgreso</td>
+                                <td>@ObjRepMov.precioUnitario</td>
+                            </tr>
+                        }
+                    }
+                }
+            </tbody>
+        </table>
+    </div>
+
+
+</div>
 

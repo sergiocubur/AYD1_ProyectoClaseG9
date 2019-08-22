@@ -1,7 +1,68 @@
-﻿
-@{
-    ViewBag.Title = "vMODREP_RepCompras";
+﻿@{
+    ViewBag.Title = "Reporte Compras";
 }
 
-<h2>vMODREP_RepCompras</h2>
+<div>
+    <div class="jumbotron text-center" style="margin-bottom:0">
+        <h2>Reporte de Compras</h2>
+    </div>
+
+    <div id="materiales-div">
+        @using (Html.BeginForm("mostrandoRepCompras", "MODREP_RepCompras", FormMethod.Post))
+        {
+            <div class="form-group">
+                <label for="Fecha1">De la fecha:</label>
+                <input type="date" class="form-control" name=fechaIni id="fechaIni" placeholder="dd/mm/aaaa">
+                <label for="Fecha2">A la fecha:</label>
+                <input type="date" class="form-control" name=fechaFin id="fechaFin" placeholder="dd/mm/aaaa">
+                <br />
+                <label for="tipoCom">Tipo de Compras:</label>
+                <select id="tipoCompras" name="tipoCompras">
+                    <option value="nac">Nacionales</option>
+                    <option value="int">Internacionales</option>
+                </select>
+                <br />
+            </div>
+            <input id="btn" name="btn" type="submit" value="Generar Reporte" class="btn btn-primary" />
+            <br />
+        }
+        <br />
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <td> <label>Fecha Ingreso</label></td>
+                    <td><label>Cantidad Ingresada</label></td>
+                    <td><label>Descripcion</label></td>
+                    <td><label>Fecha Egreso</label></td>
+                    <td><label>Cantidad Egresada</label></td>
+                    <td><label>Precio Unitario</label></td>
+                </tr>
+            </thead>
+
+            <tbody>
+                @{
+                    if (Session["LOG_COMPRAS"] != null)
+                    {
+                        List<Inventario.Objetos.ObjRepKardex> listaCompras = Session["LOG_COMPRAS"] as List<Inventario.Objetos.ObjRepKardex>;
+
+                        foreach (Inventario.Objetos.ObjRepKardex ObjRepCompras in listaCompras)
+                        {
+                            <tr>
+                                <td>@ObjRepCompras.fechaIngreso</td>
+                                <td>@ObjRepCompras.cantIngreso</td>
+                                <td>@ObjRepCompras.descripcion</td>
+                                <td>@ObjRepCompras.fechaEgreso</td>
+                                <td>@ObjRepCompras.cantEgreso</td>
+                                <td>@ObjRepCompras.precioUnitario</td>
+                            </tr>
+                        }
+                    }
+                }
+
+            </tbody>
+        </table>
+    </div>
+
+
+</div>
 
