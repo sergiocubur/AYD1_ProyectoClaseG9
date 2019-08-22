@@ -12,7 +12,16 @@
     <div>
     
     </div>
-        <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
+        <asp:Label ID="Label1" runat="server" Text="Producto"></asp:Label>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <asp:Label ID="Label2" runat="server" Text="Cantidad"></asp:Label>
+        <br />
+        <br />
+        <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <asp:TextBox ID="TextBox2" runat="server" Width="61px"></asp:TextBox>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <asp:Button ID="Button1" runat="server" Text="Restar" />
     </form>
 </body>
 </html>
