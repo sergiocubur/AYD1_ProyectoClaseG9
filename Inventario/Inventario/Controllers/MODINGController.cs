@@ -32,6 +32,17 @@ namespace Inventario.Controllers
             return View();
         }
 
+        public ActionResult Muestras()
+        {
+            return View();
+        }
+
+        public ActionResult Muestra(int muestra)
+        {
+            ViewBag.muestra = muestra;
+            return View();
+        }
+
         public ActionResult Index()
         {
             return View();

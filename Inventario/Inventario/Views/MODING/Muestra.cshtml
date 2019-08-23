@@ -1,9 +1,9 @@
-﻿@{
-    ViewBag.Title = "Ingresos";
+﻿
+@{
 }
-<hr />
-@Html.ActionLink("Regresar", "Compras", "MODING", new { area = "" }, new { @class = "btn btn-primary" })
-<h1>Codigo de compra: @ViewBag.compra</h1>
+<br />
+@Html.ActionLink("Regresar", "Muestras", "MODING", new { area = "" }, new { @class = "btn btn-primary" })
+<h1>Codigo de muestra: @ViewBag.muestra</h1>
 <div class="row">
     <div class="col-md-12 devolucion-factura" style="display:none;">
         <form action="/" method="post" class="form-inline" role="form">
