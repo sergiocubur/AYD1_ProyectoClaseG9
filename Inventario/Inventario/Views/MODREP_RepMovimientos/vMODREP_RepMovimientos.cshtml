@@ -30,12 +30,11 @@
         <table class="table table-bordered">
             <thead>
                 <tr>
-                    <td> <label>Fecha Ingreso</label></td>
-                    <td><label>Cantidad Ingresada</label></td>
+                    <td> <label>Cliente/Proveedor</label></td>
                     <td><label>Descripcion</label></td>
-                    <td><label>Fecha Egreso</label></td>
-                    <td><label>Cantidad Egresada</label></td>
-                    <td><label>Precio Unitario</label></td>
+                    <td><label>Fecha</label></td>
+                    <td><label>Cantidad</label></td>
+                    <td><label>Total</label></td>
                 </tr>
             </thead>
 
@@ -48,12 +47,11 @@
                         foreach (Inventario.Objetos.ObjRepKardex ObjRepMov in listaMovimientos)
                         {
                             <tr>
-                                <td>@ObjRepMov.fechaIngreso</td>
-                                <td>@ObjRepMov.cantIngreso</td>
+                                <td>@ObjRepMov.cliente_proveedor</td>
                                 <td>@ObjRepMov.descripcion</td>
-                                <td>@ObjRepMov.fechaEgreso</td>
-                                <td>@ObjRepMov.cantEgreso</td>
-                                <td>@ObjRepMov.precioUnitario</td>
+                                <td>@ObjRepMov.fecha</td>
+                                <td>@ObjRepMov.cantidad</td>
+                                <td>@ObjRepMov.total</td>
                             </tr>
                         }
                     }

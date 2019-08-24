@@ -30,12 +30,13 @@
         <table class="table table-bordered">
             <thead>
                 <tr>
-                    <td> <label>Fecha Ingreso</label></td>
-                    <td><label>Cantidad Ingresada</label></td>
+                    <td> <label>Proveedor</label></td>
                     <td><label>Descripcion</label></td>
-                    <td><label>Fecha Egreso</label></td>
-                    <td><label>Cantidad Egresada</label></td>
-                    <td><label>Precio Unitario</label></td>
+                    <td><label>Pais</label></td>
+                    <td><label>Fecha</label></td>
+                    <td><label>Cantidad</label></td>
+                    <td><label>Costo</label></td>
+                    <td><label>Total</label></td>
                 </tr>
             </thead>
 
@@ -48,12 +49,13 @@
                         foreach (Inventario.Objetos.ObjRepKardex ObjRepCompras in listaCompras)
                         {
                             <tr>
-                                <td>@ObjRepCompras.fechaIngreso</td>
-                                <td>@ObjRepCompras.cantIngreso</td>
+                                <td>@ObjRepCompras.cliente_proveedor</td>
                                 <td>@ObjRepCompras.descripcion</td>
-                                <td>@ObjRepCompras.fechaEgreso</td>
-                                <td>@ObjRepCompras.cantEgreso</td>
-                                <td>@ObjRepCompras.precioUnitario</td>
+                                <td>@ObjRepCompras.pais</td>
+                                <td>@ObjRepCompras.fecha</td>
+                                <td>@ObjRepCompras.cantidad</td>
+                                <td>@ObjRepCompras.costo</td>
+                                <td>@ObjRepCompras.total</td>
                             </tr>
                         }
                     }
