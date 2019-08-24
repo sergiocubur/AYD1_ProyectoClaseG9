@@ -202,6 +202,7 @@
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MODINS_InsertarVentaController.cs" />
     <Compile Include="Controllers\MODREP_RepKardexController.cs" />
+    <Compile Include="Controllers\MODRES_RestaME.cs" />
     <Compile Include="Controllers\MODSAL_RestaxVentaController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -293,6 +294,7 @@
     <Content Include="Views\MODINS_InsertarVenta\vMODINS_InsertarVenta.cshtml" />
     <Content Include="Views\MODREP_RepKardex\vMODREP_RepKardex.cshtml" />
     <Content Include="Views\MODSAL_restaxventa\vMODSAL_RestaxVenta.cshtml" />
+    <Content Include="Views\MODRES_RestaME\MODRES_ResME.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

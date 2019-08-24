@@ -18,8 +18,6 @@ namespace Inventario
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-            string fecha = "";
-            int idpr = 0, id = 0; ;
             if (txtProducto.Text == "" || txtCantidad.Text == "")
             {
                 Page.ClientScript.RegisterStartupScript(GetType(), "Show Modal Popup", "alert ('Debe llenar todos los campos');", true);
@@ -31,7 +29,7 @@ namespace Inventario
                 string product = txtProducto.Text;
                 string cantidad = txtCantidad.Text;
                 //conexion con = new conexion("ISIDRO", "GuateEduca");
-                SqlConnection con = new SqlConnection("Data Source=RODOLFO-HP\SQL2017;Initial Catalog=AnalisisP1;Integrated Security=True");
+                SqlConnection con = new SqlConnection("Data Source=RODOLFO-HP\\SQL2017;Initial Catalog=AnalisisP1;Integrated Security=True");
                 try
                 {
                     con.Open();
@@ -40,7 +38,26 @@ namespace Inventario
                 {
                     Page.ClientScript.RegisterStartupScript(GetType(), "Show Modal Popup", "alert ('Error no hay conexion');", true);
                 }
-                using (SqlCommand cmd = new SqlCommand())
+
+                SqlCommand cmd = new SqlCommand("RestaVenta", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.Add("@Producto", SqlDbType.VarChar).Value = product;
+                cmd.Parameters.Add("@Cantidad", SqlDbType.Int).Value = cantidad;
+                
+                int rowsAffected = cmd.ExecuteNonQuery();
+
+                if (rowsAffected > 0)
+                {
+                    Page.ClientScript.RegisterStartupScript(GetType(), "Show Modal Popup", "alert ('Resta Realizada');", true);
+                }
+                else
+                {
+                    Page.ClientScript.RegisterStartupScript(GetType(), "Show Modal Popup", "alert ('Operacion Denegada');", true);
+                }
+
+                con.Close();
+                /*using (SqlCommand cmd = new SqlCommand())
                 {
                     cmd.Connection = con;
                     cmd.CommandType = CommandType.Text;
@@ -91,6 +108,7 @@ namespace Inventario
                     cmd.Parameters.AddWithValue("@idPr", idpr);
                     cmd.Parameters.AddWithValue("@idIng", id);
                 }
+                con.Close();*/
             }
         }
     }
