@@ -1,4 +1,4 @@
-﻿
+﻿@model List<Inventario.Objetos.ObjDevolucion>
 @{
 }
 <br />
@@ -20,20 +20,26 @@
             <thead>
                 <tr>
                     <th>Codigo</th>
-                    <th>Factura</th>
+                    <th>Factura asociada</th>
+                    <th>Fecha</th>
+                    <th>Descripcion</th>
                     <th>Estado</th>
-                    <th></th>
+                    <th>Usuario Ingresa</th>
                 </tr>
             </thead>
-            <tr>
-                <td><a href="/MODING/Devolucion?devolucion=22">22</a></td>
-                <td>2881</td>
-                <td>3</td>
-                <td>
-                    <a class="btn btn-success">Aprobar</a>
-                    <a class="btn btn-danger">Rechazar</a>
-                </td>
-            </tr>
+            <tbody>
+                 @foreach (var devolucion in Model)
+                 {
+                <tr>
+                    <td>@devolucion.idingreso</td>
+                    <td>@devolucion.factura_asociada</td>
+                    <td>@devolucion.fecha_ingreso</td>
+                    <td>@devolucion.descripcion</td>
+                    <td>@devolucion.estado</td>
+                    <td>@devolucion.usuario_ingresa</td>
+                </tr>
+                 }
+            </tbody>
         </table>
     </div>
 </div>
