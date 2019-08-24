@@ -31,7 +31,7 @@
                  @foreach (var devolucion in Model)
                  {
                 <tr>
-                    <td>@devolucion.idingreso</td>
+                    <td><a href="/MODING/Devolucion?devolucion=@devolucion.idingreso">@devolucion.idingreso.ToString()</a></td>
                     <td>@devolucion.factura_asociada</td>
                     <td>@devolucion.fecha_ingreso</td>
                     <td>@devolucion.descripcion</td>

@@ -21,7 +21,6 @@ namespace Inventario.Controllers
             return View(devoluciones);
         }
 
-        [HttpGet]
         public ActionResult Devolucion(int devolucion)
         {
             ViewBag.Devolucion = devolucion;
