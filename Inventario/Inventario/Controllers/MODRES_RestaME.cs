@@ -22,7 +22,7 @@ namespace Inventario.Controllers
         {
             if (txtProducto.Text == "" || txtCantidad.Text == "")
             {
-                Page.ClientScript.RegisterStartupScript(GetType(), "Show Modal Popup", "alert ('Debe llenar todos los campos');", true);
+                Console.WriteLine( "Show Modal Popup", "alert ('Debe llenar todos los campos');");
             }
             else
             {
@@ -36,7 +36,7 @@ namespace Inventario.Controllers
                 }
                 catch (SqlException)
                 {
-                    Page.ClientScript.RegisterStartupScript(GetType(), "Show Modal Popup", "alert ('Error no hay conexion');", true);
+                    Console.WriteLine("Show Modal Popup", "alert ('Error no hay conexion');");
                 }
 
                 SqlCommand cmd = new SqlCommand("RestaVenta", con);
@@ -49,11 +49,11 @@ namespace Inventario.Controllers
 
                 if (rowsAffected > 0)
                 {
-                    Page.ClientScript.RegisterStartupScript(GetType(), "Show Modal Popup", "alert ('Resta Realizada');", true);
+                    Console.WriteLine("Show Modal Popup", "alert ('Resta Realizada');");
                 }
                 else
                 {
-                    Page.ClientScript.RegisterStartupScript(GetType(), "Show Modal Popup", "alert ('Operacion Denegada');", true);
+                    Console.WriteLine("Show Modal Popup", "alert ('Operacion Denegada');");
                 }
 
                 con.Close();
