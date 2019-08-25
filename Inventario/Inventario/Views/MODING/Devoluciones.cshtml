@@ -6,21 +6,21 @@
 <div class="row">
     <br />
     <div class="col-md-12 devolucion-factura">
-        <form action="/" method="post" class="form-inline" role="form">
+        @using (Html.BeginForm("insertarDevolucion","MODING",FormMethod.Post,new { @class="frm" }))
+        { 
             <div class="form-group">
-                <label for="factura" class="sr-only">Factura</label>
-                <input type="text" name="factura" class="form-control" placeholder="Factura" />
-            </div>
-            <input type="button" name="btnIngresarDevolucion" value="Ingresar" class="btn btn-primary" />
-        </form>
-    </div>
+                <label for="descripcion" class="sr-only">Descripcion</label>
+                <textarea class="form-control" name="descripcion" placeholder="Descripcion"></textarea>
+            </div>            
+            <input type="submit" name="btnIngresarDevolucion" value="Ingresar" class="btn btn-primary" />
+        }
+</div>
     <div class="col-md-12 devolucion-ingreso">
         <br />
         <table class="table table-bordered table-responsive">
             <thead>
                 <tr>
                     <th>Codigo</th>
-                    <th>Factura asociada</th>
                     <th>Fecha</th>
                     <th>Descripcion</th>
                     <th>Estado</th>
@@ -32,7 +32,6 @@
                  {
                 <tr>
                     <td><a href="/MODING/Devolucion?devolucion=@devolucion.idingreso">@devolucion.idingreso.ToString()</a></td>
-                    <td>@devolucion.factura_asociada</td>
                     <td>@devolucion.fecha_ingreso</td>
                     <td>@devolucion.descripcion</td>
                     <td>@devolucion.estado</td>

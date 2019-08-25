@@ -1,4 +1,4 @@
-﻿
+﻿@model List<Inventario.Objetos.ObjMuestra>
 @{
 }
 <br />
@@ -38,11 +38,14 @@
                     <th>Cantidad</th>
                 </tr>
             </thead>
-            <tr>
-                <td>0001</td>
-                <td>Mueble refinado 2 cat</td>
-                <td>3</td>
-            </tr>
+            <tbody>
+                @foreach (var muestra in Model)
+                {
+                    <tr>
+                        <td>@muestra.descripcion</td>
+                    </tr>
+                }
+            </tbody>
         </table>
     </div>
 </div>

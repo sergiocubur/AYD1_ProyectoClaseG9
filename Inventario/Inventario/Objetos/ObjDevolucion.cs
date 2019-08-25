@@ -13,17 +13,17 @@ namespace Inventario.Objetos
         public string tipo_movimiento { get; set; }
         public string estado { get; set; }
         public string usuario_ingresa { get; set; }
-        public string factura_asociada { get; set; }
 
-        public ObjDevolucion(int idingreso,string factura_asociada, string fecha_ingreso,string descripcion,string estado, string usuario_ingresa)
+        public ObjDevolucion(int idingreso, string fecha_ingreso,string descripcion,string estado, string usuario_ingresa)
         {
             this.idingreso = idingreso;
-            this.factura_asociada = factura_asociada;
             this.fecha_ingreso = fecha_ingreso;
             this.descripcion = descripcion;
             this.tipo_movimiento = "DEVOLUCION";
             this.estado = estado;
             this.usuario_ingresa = usuario_ingresa;
-        }        
+        }
+
+        public ObjDevolucion() { }
     }
 }
