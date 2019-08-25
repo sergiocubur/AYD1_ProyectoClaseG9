@@ -16,12 +16,6 @@ namespace Inventario.Controllers
         public ActionResult Devoluciones()
         {
             List<Objetos.ObjDevolucion> devoluciones = new List<Objetos.ObjDevolucion>();
-            //Objetos.ObjDevolucion devolucion1 = new Objetos.ObjDevolucion(1,"V7-999827","10/08/2019","Ingreso por mal estado","I","Ludwin");
-            //Objetos.ObjDevolucion devolucion2 = new Objetos.ObjDevolucion(2,"A9-398889","15/08/2019", "Ingreso por mal estado", "I", "Marcos");
-            //Objetos.ObjDevolucion devolucion3 = new Objetos.ObjDevolucion(3,"J8-929909", "16/08/2019", "Ingreso por cambio de producto", "I", "Monica");
-            //devoluciones.Add(devolucion1);
-            //devoluciones.Add(devolucion2);
-            //devoluciones.Add(devolucion3);
             DataTable tabla = consulta("SELECT * FROM MOVIMIENTO WHERE tipo_movimiento='DEVOLUCION'");
             if (tabla != null)
             {
@@ -61,20 +55,37 @@ namespace Inventario.Controllers
 
         public ActionResult Muestras()
         {
-            return View();
+            List<Objetos.ObjMuestra> muestras = new List<Objetos.ObjMuestra>();
+            //Objetos.ObjMuestra devolucion1 = new Objetos.ObjMuestra(1, "V7-999827", "10/08/2019", "Muestra para showroom", "I", "Ludwin");
+            //Objetos.ObjMuestra devolucion2 = new Objetos.ObjMuestra(2, "A9-398889", "15/08/2019", "Muestra para Zona 12", "I", "Marcos");
+            //Objetos.ObjMuestra devolucion3 = new Objetos.ObjMuestra(3, "J8-929909", "16/08/2019", "Muestra para Comercial 2", "I", "Monica");
+            //muestras.Add(devolucion1);
+            //muestras.Add(devolucion2);
+            //muestras.Add(devolucion3);
+            DataTable tabla = consulta("SELECT * FROM MOVIMIENTO WHERE tipo_movimiento='MUESTRA'");
+            if (tabla != null)
+            {
+                if (tabla.Rows.Count > 0)
+                {
+                    foreach (DataRow muestra in tabla.Rows)
+                    {
+                        ObjMuestra dev = new ObjMuestra();
+                        dev.idingreso = int.Parse(muestra["idingreso"].ToString());
+                        dev.fecha_ingreso = muestra["fecha_ingreso"].ToString();
+                        dev.descripcion = muestra["descripcion"].ToString();
+                        dev.estado = muestra["estado"].ToString();
+                        dev.usuario_ingresa = "Ludwin"; //devolucion["usuario_ingresa"].ToString();
+                        muestras.Add(dev);
+                    }
+                }
+            }
+            return View(muestras);
         }
 
         public ActionResult Muestra(int muestra)
         {
-            List<Objetos.ObjMuestra> muestras = new List<Objetos.ObjMuestra>();
             ViewBag.muestra = muestra;
-            Objetos.ObjMuestra devolucion1 = new Objetos.ObjMuestra(1, "V7-999827", "10/08/2019", "Muestra para showroom", "I", "Ludwin");
-            Objetos.ObjMuestra devolucion2 = new Objetos.ObjMuestra(2, "A9-398889", "15/08/2019", "Muestra para Zona 12", "I", "Marcos");
-            Objetos.ObjMuestra devolucion3 = new Objetos.ObjMuestra(3, "J8-929909", "16/08/2019", "Muestra para Comercial 2", "I", "Monica");
-            muestras.Add(devolucion1);
-            muestras.Add(devolucion2);
-            muestras.Add(devolucion3);
-            return View(muestras);
+            return View();
         }
 
         public ActionResult Index()
@@ -113,6 +124,13 @@ namespace Inventario.Controllers
         {
             consulta("INSERT INTO MOVIMIENTO(fecha_ingreso,descripcion,tipo_movimiento,estado,usuario_ingresa) VALUES(getdate(),'"+descripcion+ "','DEVOLUCION','I',1)");
             return RedirectToAction("Devoluciones");
+        }
+
+        [HttpPost]
+        public ActionResult insertarMuestra(string descripcion, string usuario_ingresa)
+        {
+            consulta("INSERT INTO MOVIMIENTO(fecha_ingreso,descripcion,tipo_movimiento,estado,usuario_ingresa) VALUES(getdate(),'" + descripcion + "','MUESTRA','I',1)");
+            return RedirectToAction("Muestras");
         }
     }
 }

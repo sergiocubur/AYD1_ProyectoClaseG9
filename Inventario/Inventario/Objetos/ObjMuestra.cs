@@ -25,5 +25,10 @@ namespace Inventario.Objetos
             this.estado = estado;
             this.usuario_ingresa = usuario_ingresa;
         }
+
+        public ObjMuestra()
+        {
+
+        }
     }
 }
