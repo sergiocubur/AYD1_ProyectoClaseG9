@@ -200,17 +200,26 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\insertar.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+
+    <Compile Include="Controllers\MODREP_RepComprasController.cs" />
+    <Compile Include="Controllers\MODREP_RepKardexController.cs" />
+    <Compile Include="Controllers\MODREP_RepMovimientosController.cs" />
+    <Compile Include="Controllers\MODREP_ReportesController.cs" />
+    <Compile Include="Controllers\MODSAL_RestaxVentaController.cs" />
+
     <Compile Include="Controllers\MODINS_InsertarVentaController.cs" />
     <Compile Include="Controllers\MODREP_RepKardexController.cs" />
     <Compile Include="Controllers\MODSAL_RestaxVentaController.cs" />
     <Compile Include="Controllers\productoesController.cs" />
     <Compile Include="Controllers\PruebaDataBaseController.cs" />
+
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+
     <Compile Include="Models\MODPROD_model.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -237,6 +246,7 @@
     <Compile Include="MODINS_Insertar.aspx.designer.cs">
       <DependentUpon>MODINS_Insertar.aspx</DependentUpon>
     </Compile>
+
     <Compile Include="Objetos\ObjRepKardex.cs" />
     <Compile Include="Objetos\ObjRestaxVenta.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -320,6 +330,13 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+
+    <Content Include="Views\MODREP_RepKardex\vMODREP_RepKardex.cshtml" />
+    <Content Include="Views\MODREP_RepCompras\vMODREP_RepCompras.cshtml" />
+    <Content Include="Views\MODSAL_RestaxVenta\vMODSAL_RestaxVenta.cshtml" />
+    <Content Include="Views\MODREP_RepMovimientos\vMODREP_RepMovimientos.cshtml" />
+    <Content Include="Views\MODREP_Reportes\vMODREP_Reportes.cshtml" />
+
     <Content Include="Views\MODINS_InsertarVenta\vMODINS_InsertarVenta.cshtml" />
     <Content Include="Views\MODREP_RepKardex\vMODREP_RepKardex.cshtml" />
     <Content Include="Views\MODSAL_restaxventa\vMODSAL_RestaxVenta.cshtml" />
@@ -328,6 +345,7 @@
     <Content Include="Views\productoes\Details.cshtml" />
     <Content Include="Views\productoes\Edit.cshtml" />
     <Content Include="Views\productoes\Index.cshtml" />
+
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

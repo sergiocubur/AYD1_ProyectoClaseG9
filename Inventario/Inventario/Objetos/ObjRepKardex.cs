@@ -7,21 +7,36 @@ namespace Inventario.Objetos
 {
     public class ObjRepKardex
     {
-        public string fechaIngreso { get; set; }
+        /*
+       +tipo       (ingreso|egreso (nacionales|internacionales)(entradas|salidas)
+       +cliente/proveedor
+       +fecha
+       +cantidad
+       +descripcion
+       +total
+       +pais
+       +precio costo
+        */
+        public string tipo { get; set; }
+        public string cliente_proveedor { get; set; }
+        public string fecha { get; set; }
+        public string cantidad { get; set; }
         public string descripcion { get; set; }
-        public int cantIngreso { get; set; }
-        public int cantEgreso { get; set; }
-        public double precioUnitario { get; set; }
-        public string fechaEgreso { get; set; }
+        public string total { get; set; }
+        public string pais { get; set; }
+        public string costo { get; set; }
 
-        public ObjRepKardex(string fechaI, string desc, int cantI, int cantE, double precioU, string fechaE)
+        public ObjRepKardex()
         {
-            fechaIngreso = fechaI;
-            descripcion = desc;
-            cantIngreso = cantI;
-            cantEgreso = cantE;
-            precioUnitario = precioU;
-            fechaEgreso = fechaE;
+            tipo = "-";
+            cliente_proveedor = "-";
+            fecha = "-";
+            cantidad = "-";
+            descripcion = "-";
+            total = "-";
+            pais = "-";
+            costo = "-";
+
         }
     }
 }
