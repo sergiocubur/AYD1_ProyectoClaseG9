@@ -1,0 +1,64 @@
+﻿@{
+    ViewBag.Title = "Reporte Kardex";
+}
+
+<div>
+    <div class="jumbotron text-center" style="margin-bottom:0">
+        <h2>Reporte Kardex</h2>
+    </div>
+
+    <div id="materiales-div">
+        @using (Html.BeginForm("mostrandoRepKardex", "MODREP_RepKardex", FormMethod.Post))
+        {
+            <div class="form-group">
+                <label for="Fecha1">De la fecha:</label>
+                <input type="date" class="form-control" name=fechaIni id="fechaIni" placeholder="dd/mm/aaaa">
+                <label for="Fecha2">A la fecha:</label>
+                <input type="date" class="form-control" name=fechaFin id="fechaFin" placeholder="dd/mm/aaaa">
+            </div>
+                    <input id="btn" name="btn" type="submit" value="Generar Reporte" class="btn btn-primary" />
+                        <br />
+        }
+        <br />
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <td> <label>Tipo</label></td>
+                    <td><label>Cliente/Proveedor</label></td>
+                    <td><label>Fecha</label></td>
+                    <td><label>Cantidad</label></td>
+                    <td><label>Descripcion</label></td>
+                    <td><label>Total</label></td>
+                </tr>
+            </thead>
+
+            <tbody>
+                @{
+                    if (Session["LOG_KARDEX"] != null)
+                    {
+                        List<Inventario.Objetos.ObjRepKardex> listaKardex = Session["LOG_KARDEX"] as List<Inventario.Objetos.ObjRepKardex>;
+
+                        foreach (Inventario.Objetos.ObjRepKardex ObjRepKardex in listaKardex)
+                        {
+                            <tr>
+                                <td>@ObjRepKardex.tipo</td>
+                                <td>@ObjRepKardex.cliente_proveedor</td>
+                                <td>@ObjRepKardex.fecha</td>
+                                <td>@ObjRepKardex.cantidad</td>
+                                <td>@ObjRepKardex.descripcion</td>
+                                <td>@ObjRepKardex.total</td>
+                            </tr>
+                        }
+                    }
+                }
+
+            </tbody>
+        </table>
+        <br />
+        <br />
+        <a href="@Url.Action("vMODREP_Reportes", "MODREP_Reportes")" class="btn  btn-warning">Regresar</a>
+    </div>
+
+
+</div>
+
