@@ -66,8 +66,7 @@ namespace Inventario
                         cmd.Parameters.AddWithValue("@Cantidad", Int32.Parse(cantidad));
                     }
                 }
-            }              
-            
+            }
         }
     }
 }
