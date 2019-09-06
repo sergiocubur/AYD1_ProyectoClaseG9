@@ -201,7 +201,10 @@
     <Compile Include="Controllers\insertar.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MODINS_InsertarVentaController.cs" />
+    <Compile Include="Controllers\MODREP_RepComprasController.cs" />
     <Compile Include="Controllers\MODREP_RepKardexController.cs" />
+    <Compile Include="Controllers\MODREP_RepMovimientosController.cs" />
+    <Compile Include="Controllers\MODREP_ReportesController.cs" />
     <Compile Include="Controllers\MODSAL_RestaxVentaController.cs" />
     <Compile Include="Controllers\productoesController.cs" />
     <Compile Include="Controllers\PruebaDataBaseController.cs" />
@@ -328,6 +331,9 @@
     <Content Include="Views\productoes\Details.cshtml" />
     <Content Include="Views\productoes\Edit.cshtml" />
     <Content Include="Views\productoes\Index.cshtml" />
+    <Content Include="Views\MODREP_RepCompras\vMODREP_RepCompras.cshtml" />
+    <Content Include="Views\MODREP_RepMovimientos\vMODREP_RepMovimientos.cshtml" />
+    <Content Include="Views\MODREP_Reportes\vMODREP_Reportes.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
