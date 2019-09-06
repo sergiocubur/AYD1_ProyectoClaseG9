@@ -200,6 +200,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\insertar.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\MODINGController.cs" />
     <Compile Include="Controllers\MODINS_InsertarVentaController.cs" />
     <Compile Include="Controllers\MODREP_RepComprasController.cs" />
     <Compile Include="Controllers\MODREP_RepKardexController.cs" />
@@ -240,6 +241,8 @@
     <Compile Include="MODINS_Insertar.aspx.designer.cs">
       <DependentUpon>MODINS_Insertar.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Objetos\ObjDevolucion.cs" />
+    <Compile Include="Objetos\ObjMuestra.cs" />
     <Compile Include="Objetos\ObjRepKardex.cs" />
     <Compile Include="Objetos\ObjRestaxVenta.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -331,6 +334,13 @@
     <Content Include="Views\productoes\Details.cshtml" />
     <Content Include="Views\productoes\Edit.cshtml" />
     <Content Include="Views\productoes\Index.cshtml" />
+    <Content Include="Views\MODING\Compra.cshtml" />
+    <Content Include="Views\MODING\Compras.cshtml" />
+    <Content Include="Views\MODING\Devolucion.cshtml" />
+    <Content Include="Views\MODING\Devoluciones.cshtml" />
+    <Content Include="Views\MODING\Index.cshtml" />
+    <Content Include="Views\MODING\Muestra.cshtml" />
+    <Content Include="Views\MODING\Muestras.cshtml" />
     <Content Include="Views\MODREP_RepCompras\vMODREP_RepCompras.cshtml" />
     <Content Include="Views\MODREP_RepMovimientos\vMODREP_RepMovimientos.cshtml" />
     <Content Include="Views\MODREP_Reportes\vMODREP_Reportes.cshtml" />
