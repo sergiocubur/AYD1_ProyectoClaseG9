@@ -204,42 +204,29 @@
     <Compile Include="Controllers\MODINS_InsertarVentaController.cs" />
     <Compile Include="Controllers\MODREP_RepComprasController.cs" />
     <Compile Include="Controllers\MODREP_RepKardexController.cs" />
+    <Compile Include="Controllers\MODRES_RestaME.cs" />
     <Compile Include="Controllers\MODREP_RepMovimientosController.cs" />
     <Compile Include="Controllers\MODREP_ReportesController.cs" />
     <Compile Include="Controllers\MODSAL_RestaxVentaController.cs" />
-    <Compile Include="Controllers\productoesController.cs" />
-    <Compile Include="Controllers\PruebaDataBaseController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
-    <Compile Include="Models\MODPROD_model.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>MODPROD_model.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\MODPROD_model.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>MODPROD_model.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\MODPROD_model.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>MODPROD_model.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="Models\producto.cs">
-      <DependentUpon>MODPROD_model.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\ViewModels\ListProductoViewModel.cs" />
     <Compile Include="MODINS_Insertar.aspx.cs">
       <DependentUpon>MODINS_Insertar.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="MODINS_Insertar.aspx.designer.cs">
       <DependentUpon>MODINS_Insertar.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MODRES_MEstado.aspx.cs">
+      <DependentUpon>MODRES_MEstado.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MODRES_MEstado.aspx.designer.cs">
+      <DependentUpon>MODRES_MEstado.aspx</DependentUpon>
     </Compile>
     <Compile Include="Objetos\ObjDevolucion.cs" />
     <Compile Include="Objetos\ObjMuestra.cs" />
@@ -255,30 +242,14 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="Models\MODPROD_model.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>MODPROD_model.edmx</DependentUpon>
-      <LastGenOutput>MODPROD_model.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="Models\MODPROD_model.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>MODPROD_model.edmx</DependentUpon>
-      <LastGenOutput>MODPROD_model.cs</LastGenOutput>
-    </Content>
     <Content Include="MODINS_Insertar.aspx" />
+    <Content Include="MODRES_MEstado.aspx" />
     <Content Include="Scripts\ai.0.22.9-build00167.js" />
     <Content Include="Scripts\ai.0.22.9-build00167.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <EntityDeploy Include="Models\MODPROD_model.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>MODPROD_model.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Models\MODPROD_model.edmx.diagram">
-      <DependentUpon>MODPROD_model.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -329,6 +300,7 @@
     <Content Include="Views\MODINS_InsertarVenta\vMODINS_InsertarVenta.cshtml" />
     <Content Include="Views\MODREP_RepKardex\vMODREP_RepKardex.cshtml" />
     <Content Include="Views\MODSAL_restaxventa\vMODSAL_RestaxVenta.cshtml" />
+    <Content Include="Views\MODRES_RestaME\MODRES_ResME.cshtml" />
     <Content Include="Views\productoes\Create.cshtml" />
     <Content Include="Views\productoes\Delete.cshtml" />
     <Content Include="Views\productoes\Details.cshtml" />
@@ -347,8 +319,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\MODPROD\" />
-    <Folder Include="Views\PruebaDataBase\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -357,9 +327,6 @@
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
-  </ItemGroup>
-  <ItemGroup>
-    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
