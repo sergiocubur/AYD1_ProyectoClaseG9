@@ -198,8 +198,8 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\insertar.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+<<<<<<< HEAD
     <Compile Include="Controllers\MODINGController.cs" />
     <Compile Include="Controllers\MODINS_InsertarVentaController.cs" />
     <Compile Include="Controllers\MODREP_RepComprasController.cs" />
@@ -207,6 +207,8 @@
     <Compile Include="Controllers\MODRES_RestaME.cs" />
     <Compile Include="Controllers\MODREP_RepMovimientosController.cs" />
     <Compile Include="Controllers\MODREP_ReportesController.cs" />
+=======
+>>>>>>> master
     <Compile Include="Controllers\MODSAL_RestaxVentaController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -214,6 +216,7 @@
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+<<<<<<< HEAD
     <Compile Include="MODINS_Insertar.aspx.cs">
       <DependentUpon>MODINS_Insertar.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -232,6 +235,8 @@
     <Compile Include="Objetos\ObjMuestra.cs" />
     <Compile Include="Objetos\ObjProducto.cs" />
     <Compile Include="Objetos\ObjRepKardex.cs" />
+=======
+>>>>>>> master
     <Compile Include="Objetos\ObjRestaxVenta.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -244,8 +249,11 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+<<<<<<< HEAD
     <Content Include="MODINS_Insertar.aspx" />
     <Content Include="MODRES_MEstado.aspx" />
+=======
+>>>>>>> master
     <Content Include="Scripts\ai.0.22.9-build00167.js" />
     <Content Include="Scripts\ai.0.22.9-build00167.min.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -299,9 +307,8 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\MODINS_InsertarVenta\vMODINS_InsertarVenta.cshtml" />
-    <Content Include="Views\MODREP_RepKardex\vMODREP_RepKardex.cshtml" />
     <Content Include="Views\MODSAL_restaxventa\vMODSAL_RestaxVenta.cshtml" />
+<<<<<<< HEAD
     <Content Include="Views\MODRES_RestaME\MODRES_ResME.cshtml" />
     <Content Include="Views\MODING\Compra.cshtml" />
     <Content Include="Views\MODING\Compras.cshtml" />
@@ -316,6 +323,8 @@
     <Content Include="Views\MODPRODU\agregar.cshtml" />
     <Content Include="Views\MODPRODU\Index.cshtml" />
     <Content Include="Views\MODPRODU\editar.cshtml" />
+=======
+>>>>>>> master
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -327,9 +336,6 @@
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
-  </ItemGroup>
-  <ItemGroup>
-    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
