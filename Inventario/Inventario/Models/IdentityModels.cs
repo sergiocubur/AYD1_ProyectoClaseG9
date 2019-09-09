@@ -29,5 +29,7 @@ namespace Inventario.Models
         {
             return new ApplicationDbContext();
         }
+
+        public System.Data.Entity.DbSet<Inventario.Models.ApplicationUser> ApplicationUsers { get; set; }
     }
 }
