@@ -1,0 +1,23 @@
+﻿@{
+    ViewBag.Title = "Editar";
+}
+
+@using (Html.BeginForm("editar_producto", "MODPRODU", FormMethod.Post))
+{
+    <div class="form-group">
+        <label for="idproducto">Código:</label>
+        <input type="hidden" class="form-control" name=idproducto id="idproducto" value="@ViewData["idproducto"]">
+
+        <label for="descripcion">Descripción:</label>
+        <input type="text" class="form-control" name=descripcion id="descripcion" value="@ViewData["descripcion"]">
+
+        <label for="precio_compra">Precio de compra:</label>
+        <input type="number" class="form-control" name=precio_compra id="precio_compra" value="@ViewData["precio_costo"]">
+
+        <label for="precio_venta">Precio de venta:</label>
+        <input type="number" class="form-control" name=precio_venta id="precio_venta" value="@ViewData["precio_venta"]">
+    </div>
+    <input id="btn" name="btn" type="submit" value="Guardar" class="btn btn-primary" />
+    <br />
+}
+

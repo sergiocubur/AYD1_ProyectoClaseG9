@@ -19,7 +19,7 @@ namespace Inventario.Controllers
 
         // GET: MODRES_RestaME
         public ActionResult vMODRES_ResME() //(List<Objetos.ObjRepKardex> lista)
-        {
+        {/*
             if (txtProducto.Text == "" || txtCantidad.Text == "")
             {
                 Console.WriteLine( "Show Modal Popup", "alert ('Debe llenar todos los campos');");
@@ -57,8 +57,8 @@ namespace Inventario.Controllers
                 }
 
                 con.Close();
-            }
-                return View();
+            }*/
+            return View();
         }
     }
 }
