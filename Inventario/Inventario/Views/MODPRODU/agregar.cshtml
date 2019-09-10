@@ -1,0 +1,24 @@
+﻿
+@{
+    ViewBag.Title = "agregar";
+}
+
+@using (Html.BeginForm("agregar_producto", "MODPRODU", FormMethod.Post))
+{
+<div class="form-group">
+    <label for="idproducto">Código:</label>
+    <input type="number" class="form-control" name=idproducto id="idproducto" >
+
+    <label for="descripcion">Descripción:</label>
+    <input type="text" class="form-control" name=descripcion id="descripcion" >
+
+    <label for="precio_compra">Precio de compra:</label>
+    <input type="number" class="form-control" name=precio_compra id="precio_compra" >
+
+    <label for="precio_venta">Precio de venta:</label>
+    <input type="number" class="form-control" name=precio_venta id="precio_venta" >
+</div>
+    <input id="btn" name="btn" type="submit" value="Agregar" class="btn btn-primary" />
+    <br />
+}
+
