@@ -18,47 +18,39 @@ namespace Inventario.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: MODRES_RestaME
-        public ActionResult vMODRES_ResME() //(List<Objetos.ObjRepKardex> lista)
+        [HttpPost]
+        public ActionResult vMODRES_ResME(string producto, int cantidad) //(List<Objetos.ObjRepKardex> lista)
         {
-            if (txtProducto.Text == "" || txtCantidad.Text == "")
+            SqlConnection con = new SqlConnection("Data Source=RODOLFO-HP\\SQL2017;Initial Catalog=AnalisisP1;Integrated Security=True");
+            try
             {
-                Console.WriteLine( "Show Modal Popup", "alert ('Debe llenar todos los campos');");
+                con.Open();
+            }
+            catch (SqlException)
+            {
+                Console.WriteLine("Show Modal Popup", "alert ('Error no hay conexion');");
+            }
+
+            SqlCommand cmd = new SqlCommand("RestaVenta", con);
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            cmd.Parameters.Add("@Producto", SqlDbType.VarChar).Value = producto;
+            cmd.Parameters.Add("@Cantidad", SqlDbType.Int).Value = cantidad;
+
+            int rowsAffected = cmd.ExecuteNonQuery();
+
+            if (rowsAffected > 0)
+            {
+                Console.WriteLine("Show Modal Popup", "alert ('Resta Realizada');");
             }
             else
             {
-                string product = txtProducto.Text;
-                string cantidad = txtCantidad.Text;
-                //conexion con = new conexion("ISIDRO", "GuateEduca");
-                SqlConnection con = new SqlConnection("Data Source=RODOLFO-HP\\SQL2017;Initial Catalog=AnalisisP1;Integrated Security=True");
-                try
-                {
-                    con.Open();
-                }
-                catch (SqlException)
-                {
-                    Console.WriteLine("Show Modal Popup", "alert ('Error no hay conexion');");
-                }
-
-                SqlCommand cmd = new SqlCommand("RestaVenta", con);
-                cmd.CommandType = CommandType.StoredProcedure;
-
-                cmd.Parameters.Add("@Producto", SqlDbType.VarChar).Value = product;
-                cmd.Parameters.Add("@Cantidad", SqlDbType.Int).Value = cantidad;
-
-                int rowsAffected = cmd.ExecuteNonQuery();
-
-                if (rowsAffected > 0)
-                {
-                    Console.WriteLine("Show Modal Popup", "alert ('Resta Realizada');");
-                }
-                else
-                {
-                    Console.WriteLine("Show Modal Popup", "alert ('Operacion Denegada');");
-                }
-
-                con.Close();
+                Console.WriteLine("Show Modal Popup", "alert ('Operacion Denegada');");
             }
-                return View();
+
+            con.Close();
+
+            return View();
         }
     }
 }

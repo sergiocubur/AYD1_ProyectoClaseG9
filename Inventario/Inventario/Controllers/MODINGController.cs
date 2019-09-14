@@ -96,7 +96,7 @@ namespace Inventario.Controllers
 
         public static DataTable consulta(string consulta)
         {
-            string credenciales = "server=LAPTOP-LUDWIN;database=AnalisisP1;integrated security=true";
+            string credenciales = "server=LAPTOP-SCUBUR;database=AnalisisP1;integrated security=true";
             SqlConnection conexion = new SqlConnection(credenciales);
             SqlDataAdapter adaptador = new SqlDataAdapter();
             DataTable ds = new DataTable();
