@@ -15,6 +15,27 @@
         <asp:Label ID="Label1" runat="server" Text="Modificar Usuario"></asp:Label>
         <br />
         <br />
+        Usuario&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <asp:TextBox ID="txtCodigo" runat="server"></asp:TextBox>
+        <br />
+        <br />
+        <br />
+        Password&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <asp:TextBox ID="txtPass" runat="server"></asp:TextBox>
+        <br />
+        <br />
+        Apellido&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <asp:TextBox ID="txtApellido" runat="server"></asp:TextBox>
+        <br />
+        <br />
+        Estado&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <asp:TextBox ID="txtEstado" runat="server"></asp:TextBox>
+        <br />
+        <br />
+        Tipo&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <asp:TextBox ID="txtTipo" runat="server"></asp:TextBox>
+        <br />
+        <br />
         Fecha de Alta&nbsp;&nbsp;&nbsp;&nbsp;
         <asp:TextBox ID="txtFecha" runat="server"></asp:TextBox>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
