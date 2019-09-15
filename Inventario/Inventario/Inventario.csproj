@@ -234,6 +234,8 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\insertar.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\MODINI_LogeadoController.cs" />
+    <Compile Include="Controllers\MODINI_LoginController.cs" />
     <Compile Include="Controllers\MODINS_InsertarVentaController.cs" />
     <Compile Include="Controllers\MODREP_RepComprasController.cs" />
     <Compile Include="Controllers\MODREP_RepKardexController.cs" />
@@ -368,6 +370,8 @@
     <Content Include="Views\MODREP_RepCompras\vMODREP_RepCompras.cshtml" />
     <Content Include="Views\MODREP_RepMovimientos\vMODREP_RepMovimientos.cshtml" />
     <Content Include="Views\MODREP_Reportes\vMODREP_Reportes.cshtml" />
+    <Content Include="Views\MODINI_Login\vMODINI_Login.cshtml" />
+    <Content Include="Views\MODINI_Logeado\vMODINI_Logeado.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

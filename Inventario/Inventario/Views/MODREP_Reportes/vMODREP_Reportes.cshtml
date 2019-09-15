@@ -1,5 +1,9 @@
 ﻿@{
     ViewBag.Title = "Reportes";
+    if (Session["codeU"] == null || Session["nameU"] == null)
+    {
+        Response.Redirect("~/MODINI_Login/vMODINI_Login");
+    }
 }
 
 <head>
