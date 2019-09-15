@@ -69,7 +69,11 @@ namespace Inventario.Tests.Controllers
         public void VerificarImputs_CrearUsuario()
         {
             MODUSRController controller = new MODUSRController();
-            int respuesta = controller.comprobarForm();
+            string dpi = "algo";
+            string apellido = "algo";
+            string codUsuario = "algo";
+            string password = "algo";
+            int respuesta = controller.comprobarForm(dpi,apellido,codUsuario,password);
 
             Assert.IsNotNull(respuesta);
             Assert.AreNotEqual(0, respuesta);
@@ -78,7 +82,9 @@ namespace Inventario.Tests.Controllers
         public void largoPassword_CrearUsuario()
         {
             MODUSRController controller = new MODUSRController();
-            int respuesta = controller.largoPassword();
+            
+            string password = "123456";
+            int respuesta = controller.largoPassword(password);
 
             Assert.IsNotNull(respuesta);
             Assert.AreNotEqual(0, respuesta);
@@ -87,7 +93,9 @@ namespace Inventario.Tests.Controllers
         public void numeroPassword_CrearUsuario()
         {
             MODUSRController controller = new MODUSRController();
-            int respuesta = controller.numeroPassword();
+            
+            string password = "1numero";
+            int respuesta = controller.numeroPassword(password);
 
             Assert.IsNotNull(respuesta);
             Assert.AreNotEqual(0, respuesta);
@@ -96,7 +104,8 @@ namespace Inventario.Tests.Controllers
         public void simboloPassword_CrearUsuario()
         {
             MODUSRController controller = new MODUSRController();
-            int respuesta = controller.simboloPassword();
+            string password = "!simbolo";
+            int respuesta = controller.simboloPassword(password);
 
             Assert.IsNotNull(respuesta);
             Assert.AreNotEqual(0, respuesta);
@@ -105,7 +114,9 @@ namespace Inventario.Tests.Controllers
         public void mayuscula_CrearUsuario()
         {
             MODUSRController controller = new MODUSRController();
-            int respuesta = controller.mayusculaPassword();
+            
+            string password = "Mayuscula";
+            int respuesta = controller.mayusculaPassword(password);
 
             Assert.IsNotNull(respuesta);
             Assert.AreNotEqual(0, respuesta);
@@ -114,7 +125,9 @@ namespace Inventario.Tests.Controllers
         public void largoCodUsuario_CrearUsuario()
         {
             MODUSRController controller = new MODUSRController();
-            int respuesta = controller.largoCodUsuario();
+            
+            string codUsuario = "1234";
+            int respuesta = controller.largoCodUsuario(codUsuario);
 
             Assert.IsNotNull(respuesta);
             Assert.AreNotEqual(0, respuesta);
@@ -123,7 +136,8 @@ namespace Inventario.Tests.Controllers
         public void largoDpi_CrearUsuario()
         {
             MODUSRController controller = new MODUSRController();
-            int respuesta = controller.largoDpi();
+            string dpi = "1234567890123";
+            int respuesta = controller.largoDpi(dpi);
 
             Assert.IsNotNull(respuesta);
             Assert.AreNotEqual(0, respuesta);

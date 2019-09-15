@@ -332,10 +332,12 @@
     <Content Include="Views\MODPRODU\agregar.cshtml" />
     <Content Include="Views\MODPRODU\Index.cshtml" />
     <Content Include="Views\MODPRODU\editar.cshtml" />
+    <Content Include="Views\MODUSR\Index.cshtml" />
+    <Content Include="Views\MODUSR\Add.cshtml" />
+    <Content Include="Views\MODUSR\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\MODUSR\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
