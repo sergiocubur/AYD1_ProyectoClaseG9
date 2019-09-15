@@ -232,6 +232,7 @@
     <Compile Include="Controllers\MODREP_RepMovimientosController.cs" />
     <Compile Include="Controllers\MODREP_ReportesController.cs" />
     <Compile Include="Controllers\MODSAL_RestaxVentaController.cs" />
+    <Compile Include="Controllers\MODUSRController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -245,6 +246,7 @@
     <Compile Include="MODRES_MEstado.aspx.designer.cs">
       <DependentUpon>MODRES_MEstado.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Objetos\ObjUsuario.cs" />
     <Compile Include="Objetos\ObjDevolucion.cs" />
     <Compile Include="Objetos\ObjMuestra.cs" />
     <Compile Include="Objetos\ObjProducto.cs" />
@@ -333,6 +335,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\MODUSR\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

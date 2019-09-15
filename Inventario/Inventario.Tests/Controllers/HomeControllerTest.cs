@@ -64,5 +64,69 @@ namespace Inventario.Tests.Controllers
             Assert.AreNotEqual(100, respuesta);
             //Assert.AreEqual(100,respuesta);
         }
+
+        [TestMethod]
+        public void VerificarImputs_CrearUsuario()
+        {
+            MODUSRController controller = new MODUSRController();
+            int respuesta = controller.comprobarForm();
+
+            Assert.IsNotNull(respuesta);
+            Assert.AreNotEqual(0, respuesta);
+        }
+        [TestMethod]
+        public void largoPassword_CrearUsuario()
+        {
+            MODUSRController controller = new MODUSRController();
+            int respuesta = controller.largoPassword();
+
+            Assert.IsNotNull(respuesta);
+            Assert.AreNotEqual(0, respuesta);
+        }
+        [TestMethod]
+        public void numeroPassword_CrearUsuario()
+        {
+            MODUSRController controller = new MODUSRController();
+            int respuesta = controller.numeroPassword();
+
+            Assert.IsNotNull(respuesta);
+            Assert.AreNotEqual(0, respuesta);
+        }
+        [TestMethod]
+        public void simboloPassword_CrearUsuario()
+        {
+            MODUSRController controller = new MODUSRController();
+            int respuesta = controller.simboloPassword();
+
+            Assert.IsNotNull(respuesta);
+            Assert.AreNotEqual(0, respuesta);
+        }
+        [TestMethod]
+        public void mayuscula_CrearUsuario()
+        {
+            MODUSRController controller = new MODUSRController();
+            int respuesta = controller.mayusculaPassword();
+
+            Assert.IsNotNull(respuesta);
+            Assert.AreNotEqual(0, respuesta);
+        }
+        [TestMethod]
+        public void largoCodUsuario_CrearUsuario()
+        {
+            MODUSRController controller = new MODUSRController();
+            int respuesta = controller.largoCodUsuario();
+
+            Assert.IsNotNull(respuesta);
+            Assert.AreNotEqual(0, respuesta);
+        }
+        [TestMethod]
+        public void largoDpi_CrearUsuario()
+        {
+            MODUSRController controller = new MODUSRController();
+            int respuesta = controller.largoDpi();
+
+            Assert.IsNotNull(respuesta);
+            Assert.AreNotEqual(0, respuesta);
+        }
     }
 }
