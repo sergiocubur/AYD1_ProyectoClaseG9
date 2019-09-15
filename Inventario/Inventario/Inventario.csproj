@@ -232,6 +232,7 @@
     <Compile Include="Controllers\MODREP_RepMovimientosController.cs" />
     <Compile Include="Controllers\MODREP_ReportesController.cs" />
     <Compile Include="Controllers\MODSAL_RestaxVentaController.cs" />
+    <Compile Include="Controllers\MODUSRController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -245,6 +246,7 @@
     <Compile Include="MODRES_MEstado.aspx.designer.cs">
       <DependentUpon>MODRES_MEstado.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Objetos\ObjUsuario.cs" />
     <Compile Include="Objetos\ObjDevolucion.cs" />
     <Compile Include="Objetos\ObjMuestra.cs" />
     <Compile Include="Objetos\ObjProducto.cs" />
@@ -330,6 +332,9 @@
     <Content Include="Views\MODPRODU\agregar.cshtml" />
     <Content Include="Views\MODPRODU\Index.cshtml" />
     <Content Include="Views\MODPRODU\editar.cshtml" />
+    <Content Include="Views\MODUSR\Index.cshtml" />
+    <Content Include="Views\MODUSR\Add.cshtml" />
+    <Content Include="Views\MODUSR\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
