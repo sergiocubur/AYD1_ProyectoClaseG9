@@ -1,0 +1,45 @@
+﻿
+@{
+    ViewBag.Title = "Menu Principal";
+    if (Session["codeU"] == null || Session["nameU"] == null)
+    {
+        Response.Redirect("~/MODINI_Login/vMODINI_Login");
+    }
+}
+<div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-collapse collapse">
+
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    @Html.ActionLink("Hola " + Session["nameU"] + "! - (" + Session["codeU"] + ")", "vMODINI_Logeado", "MODINI_Logeado", routeValues: null, htmlAttributes: new { title = "Manage" })
+                </li>
+                <li>@Html.ActionLink("Cerrar Sesión", "CerrarSesion", "MODINI_Login", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div>
+    <div class="jumbotron text-center" style="margin-bottom:0">
+        <h1>Menu Principal</h1>
+    </div>
+
+
+    <div id="form-div" style="text-align:center">
+        <br />
+        <h2>Ir a:</h2>
+        <br />
+        <a href="@Url.Action("index", "MODPRODU")" class="btn btn-primary">Productos</a>
+        <br /><br />
+        <a href="@Url.Action("index", "MODING")" class="btn btn-primary">Ingresos</a>
+        <br /><br />
+        <a href="@Url.Action("vMODSAL_RestaxVenta", "MODSAL_RestaxVenta")" class="btn btn-primary">Salidas</a>
+        <br /><br />
+        <a href="@Url.Action("index", "MODUSR")" class="btn btn-primary">Usuarios</a>
+        <br /><br />
+        <a href="@Url.Action("vMODREP_Reportes", "MODREP_Reportes")" class="btn btn-primary">Reportes del Sistema</a>
+        <br /><br /><br />
+    </div>
+
+</div>

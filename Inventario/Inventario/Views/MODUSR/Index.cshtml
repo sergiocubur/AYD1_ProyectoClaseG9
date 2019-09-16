@@ -1,0 +1,42 @@
+﻿@model List<Inventario.Objetos.ObjUsuario>
+@{
+    if (Session["codeU"] == null || Session["nameU"] == null)
+    {
+        Response.Redirect("~/MODINI_Login/vMODINI_Login");
+    }
+
+}
+
+<a href="@Url.Action("Add", "MODUSR")" class="btn  btn-primary">Agregar</a>
+<div class="row">
+    <div class="col-md-12 usuario">
+        <br />
+        <table class="table table-bordered table-responsive">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Apellido</th>
+                    <th>Código</th>
+                    <th>DPI</th>
+                    <th>Fecha de alta</th>
+                    <th>Estado</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var usuario in Model)
+                {
+                    <tr>
+                        <td><a href="/MODUSR/Edit/@usuario.idusuario.ToString()">@usuario.idusuario.ToString()</a></td>
+                        <td>@usuario.apellido</td>
+                        <td>@usuario.codUsuario</td>
+                        <td>@usuario.dpi</td>
+                        <td>@usuario.fecha_alta</td>
+                        <td>@usuario.estado</td>
+                        <td><a href="/MODUSR/delete/@usuario.idusuario.ToString()"><span class="label label-warning">Eliminar</span></a></td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

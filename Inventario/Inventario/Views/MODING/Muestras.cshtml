@@ -1,5 +1,9 @@
 ﻿@model List<Inventario.Objetos.ObjMuestra>
 @{
+    if (Session["codeU"] == null || Session["nameU"] == null)
+    {
+        Response.Redirect("~/MODINI_Login/vMODINI_Login");
+    }
 }
 <br />
 @Html.ActionLink("Regresar", "Index", "MODING", new { area = "" }, new { @class = "btn btn-primary" })
@@ -33,7 +37,7 @@
                 @foreach (var muestra in Model)
                 {
                     <tr>
-                        <td><a href="/MODING/Devolucion?devolucion=@muestra.idingreso">@muestra.idingreso.ToString()</a></td>
+                        <td><a href="/MODING/Muestra?muestra=@muestra.idingreso">@muestra.idingreso.ToString()</a></td>
                         <td>@muestra.fecha_ingreso</td>
                         <td>@muestra.descripcion</td>
                         <td>@muestra.estado</td>

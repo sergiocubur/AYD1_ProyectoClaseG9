@@ -1,0 +1,71 @@
+﻿@{
+    ViewBag.Title = "Iniciar Sesión";
+}
+
+<head>
+    <style>
+        #form-div {
+            position: absolute;
+            left: 40.5%;
+            top: 33%;
+            border: 1px double #ccc;
+            padding: 0px 50px;
+        }
+
+        .mylabel {
+            color: red;
+        }
+    </style>
+</head>
+
+<div>
+    <div class="jumbotron text-center" style="margin-bottom:0">
+        <h2>@ViewBag.Title</h2>
+    </div>
+    <br /> <br /> <br />
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 col-md-offset-4">
+
+                @using (Html.BeginForm("Autorizar", "MODINI_Login", FormMethod.Post))
+                {
+                    <div class="login-panel panel panel-default">
+
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Ingrese sus datos</h3>
+                        </div>
+
+                        <div class="panel-body">
+                            <fieldset>
+                                <div class="form-group">
+                                    <label for="Usuario">Código de usuario:</label>
+                                    <input class="form-control" placeholder="Z123" name="user" type="text" autofocus id="user">
+                                </div>
+                                <div class="form-group">
+                                    <label for="pass">Contraseña:</label>
+                                    <input class="form-control" placeholder="Password" name="password" type="password" id="password">
+                                </div>
+                                @{
+                                    if (Session["Error"] != null)
+                                    {
+                                        <label class="mylabel" for="err">@Session["Error"]</label>
+                                        <br />
+                                    }
+                                }
+                                <input id="btn" name="btn" type="submit" value="Ingresar" class="btn btn-lg btn-success btn-block" />
+                            </fieldset>
+                        </div>
+                    </div>
+               }
+
+            </div>
+        </div>
+    </div>
+
+
+
+</div>
+<br />
+<br />
+<br />
+

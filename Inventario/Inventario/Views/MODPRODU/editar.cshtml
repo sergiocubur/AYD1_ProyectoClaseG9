@@ -1,5 +1,9 @@
 ﻿@{
     ViewBag.Title = "Editar";
+    if (Session["codeU"] == null || Session["nameU"] == null)
+    {
+        Response.Redirect("~/MODINI_Login/vMODINI_Login");
+    }
 }
 
 @using (Html.BeginForm("editar_producto", "MODPRODU", FormMethod.Post))

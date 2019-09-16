@@ -1,6 +1,10 @@
 ﻿
 @{
     ViewBag.Title = "agregar";
+    if (Session["codeU"] == null || Session["nameU"] == null)
+    {
+        Response.Redirect("~/MODINI_Login/vMODINI_Login");
+    }
 }
 
 @using (Html.BeginForm("agregar_producto", "MODPRODU", FormMethod.Post))

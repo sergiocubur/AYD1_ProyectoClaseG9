@@ -1,0 +1,27 @@
+﻿
+@{
+    ViewBag.Title = "agregar";
+    if (Session["codeU"] == null || Session["nameU"] == null)
+    {
+        Response.Redirect("~/MODINI_Login/vMODINI_Login");
+    }
+}
+
+@using (Html.BeginForm("agregar_usuario", "MODUSR", FormMethod.Post))
+{
+<div class="form-group">
+    <label for="dpi">DPI:</label>
+    <input type="text" class="form-control" name=dpi id="dpi">
+
+    <label for="apellido">Apellido:</label>
+    <input type="text" class="form-control" name=apellido id="apellido">
+    
+    <label for="codUsuario">Código:</label>
+    <input type="text" class="form-control" name=codUsuario id="codUsuario">
+
+    <label for="password">Contraseña:</label>
+    <input type="text" class="form-control" name=password id="password">
+</div>
+    <input id="btn" name="btn" type="submit" value="Agregar" class="btn btn-primary" />
+    <br />
+}

@@ -1,5 +1,9 @@
 ﻿@{
     ViewBag.Title = "Ingresos";
+    if (Session["codeU"] == null || Session["nameU"] == null)
+    {
+        Response.Redirect("~/MODINI_Login/vMODINI_Login");
+    }
 }
 
 <div class="jumbotron">
