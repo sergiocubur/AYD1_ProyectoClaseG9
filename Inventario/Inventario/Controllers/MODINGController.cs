@@ -39,7 +39,7 @@ namespace Inventario.Controllers
         public ActionResult Devolucion(int devolucion)
         {
             ViewBag.Devolucion = devolucion;
-            List<Objetos.ObjDetDevolucion> detalles = new List<Objetos.ObjDetDevolucion>();
+            List<Objetos.ObjDetMovimiento> detalles = new List<Objetos.ObjDetMovimiento>();
             DataTable tabla = consulta("SELECT a.*, b.descripcion FROM det_movimiento a join producto b on a.producto_idproducto = b.idproducto WHERE movimiento_idingreso =" +devolucion );
             if (tabla != null)
             {
@@ -47,7 +47,7 @@ namespace Inventario.Controllers
                 {
                     foreach (DataRow detalle in tabla.Rows)
                     {
-                        ObjDetDevolucion det = new ObjDetDevolucion();
+                        ObjDetMovimiento det = new ObjDetMovimiento();
                         det.cantidad = int.Parse(detalle["cantidad"].ToString());
                         det.movimiento_idingreso = int.Parse(detalle["movimiento_idingreso"].ToString());
                         det.producto_idproducto = int.Parse(detalle["producto_idproducto"].ToString());
@@ -96,7 +96,24 @@ namespace Inventario.Controllers
         public ActionResult Muestra(int muestra)
         {
             ViewBag.muestra = muestra;
-            return View();
+            List<Objetos.ObjDetMovimiento> detalles = new List<Objetos.ObjDetMovimiento>();
+            DataTable tabla = consulta("SELECT a.*, b.descripcion FROM det_movimiento a join producto b on a.producto_idproducto = b.idproducto WHERE movimiento_idingreso =" + muestra);
+            if (tabla != null)
+            {
+                if (tabla.Rows.Count > 0)
+                {
+                    foreach (DataRow detalle in tabla.Rows)
+                    {
+                        ObjDetMovimiento det = new ObjDetMovimiento();
+                        det.cantidad = int.Parse(detalle["cantidad"].ToString());
+                        det.movimiento_idingreso = int.Parse(detalle["movimiento_idingreso"].ToString());
+                        det.producto_idproducto = int.Parse(detalle["producto_idproducto"].ToString());
+                        det.descripcion = detalle["descripcion"].ToString();
+                        detalles.Add(det);
+                    }
+                }
+            }
+            return View(detalles);
         }
 
         public ActionResult Index()
@@ -139,19 +156,37 @@ namespace Inventario.Controllers
         }
 
         [HttpPost]
-        public ActionResult insertarDetDevolucion(int cantidad,int producto,int movimiento)
+        public ActionResult insertarDetalle(int cantidad, int producto, int movimiento, int modulo)
         {
+            consulta("INSERT INTO det_movimiento(cantidad,movimiento_idingreso,producto_idproducto) VALUES(" + cantidad + "," + movimiento + "," + producto + ")");
 
 
-            consulta("INSERT INTO det_movimiento(cantidad,movimiento_idingreso,producto_idproducto) VALUES("+cantidad+","+movimiento+","+producto+")");
-            return RedirectToRoute(
-                new
-                {
-                    controller = "MODING",
-                    action = "Devolucion",
-                    devolucion = movimiento
-                }
-            );
+            if (modulo == 0)
+            {
+                return RedirectToRoute(
+                    new
+                    {
+                        controller = "MODING",
+                        action = "Devolucion",
+                        devolucion = movimiento
+                    }
+                );
+            }
+            else if (modulo == 1)
+            {
+                return RedirectToRoute(
+                    new
+                    {
+                        controller = "MODING",
+                        action = "Muestra",
+                        muestra = movimiento
+                    }
+                );
+            }
+            else
+            {
+                return RedirectToAction("Devoluciones");
+            }
         }
 
         [HttpPost]
