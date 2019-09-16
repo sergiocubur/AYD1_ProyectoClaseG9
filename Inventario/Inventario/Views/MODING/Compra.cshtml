@@ -1,48 +1,45 @@
-﻿@{
+﻿@model List<Inventario.Objetos.ObjDetMovimiento>
+@{
     ViewBag.Title = "Ingresos";
 }
 <hr />
 @Html.ActionLink("Regresar", "Compras", "MODING", new { area = "" }, new { @class = "btn btn-primary" })
 <h1>Codigo de compra: @ViewBag.compra</h1>
 <div class="row">
-    <div class="col-md-12 devolucion-factura" style="display:none;">
-        <form action="/" method="post" class="form-inline" role="form">
-            <div class="form-group">
-                <label for="factura" class="sr-only">Factura</label>
-                <input type="text" name="factura" class="form-control" placeholder="Factura" />
-            </div>
-            <input type="button" name="btnValidarFactura" value="Validar" class="btn btn-primary" />
-        </form>
-    </div>
-    <div class="col-md-12 devolucion-ingreso">
-        <div>
-            <form action="/" method="post" class="form-inline" role="form">
-                <div class="form-group">
-                    <label for="producto" class="sr-only">Producto</label>
-                    <input type="text" name="factura" class="form-control" placeholder="Codigo Producto" />
-                </div>
-                <div class="form-group">
-                    <label for="cantidad" class="sr-only">Cantidad</label>
-                    <input type="text" name="factura" class="form-control" placeholder="Cantidad" />
-                </div>
-                <input type="button" name="btnIngresarFactura" value="Ingresar" class="btn btn-primary" />
-                <input type="submit" name="btnGuardar" value="Guardar Ingreso" class="btn btn-success" />
-            </form>
+    @using (Html.BeginForm("insertarDetalle", "MODING", FormMethod.Post, new { @class = "frm" }))
+    {
+        <div class="form-group">
+            <label for="cantidad" class="sr-only">Producto</label>
+            <input type="number" class="form-control" name="producto" placeholder="Producto" />
         </div>
-        <br />
+        <div class="form-group">
+            <label for="cantidad" class="sr-only">Cantidad</label>
+            <input type="number" class="form-control" name="cantidad" placeholder="Cantidad" />
+        </div>
+        <div class="form-group">
+            <input type="hidden" class="form-control" name="movimiento" placeholder="Movimiento" value="@ViewBag.compra" />
+            <input type="hidden" class="form-control" name="modulo" value="2" />
+        </div>
+
+        <input type="submit" name="btnIngresarDevolucion" value="Ingresar" class="btn btn-primary" />
+    }
+    <div class="col-md-12 devolucion-ingreso">
         <table class="table table-bordered table-responsive">
             <thead>
                 <tr>
                     <th>Codigo</th>
-                    <th>Descripción</th>
+                    <th>Producto</th>
                     <th>Cantidad</th>
                 </tr>
             </thead>
-            <tr>
-                <td>0001</td>
-                <td>Mueble refinado 2 cat</td>
-                <td>3</td>
-            </tr>
+            @foreach (var detalle in Model)
+            {
+                <tr>
+                    <td>@detalle.producto_idproducto</td>
+                    <td>@detalle.descripcion</td>
+                    <td>@detalle.cantidad</td>
+                </tr>
+            }
         </table>
     </div>
 </div>

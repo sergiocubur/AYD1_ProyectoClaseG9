@@ -256,6 +256,7 @@
     <Compile Include="MODRES_MEstado.aspx.designer.cs">
       <DependentUpon>MODRES_MEstado.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Objetos\ObjDetMovimiento.cs" />
     <Compile Include="Objetos\ObjUsuario.cs" />
     <Compile Include="Objetos\ObjDevolucion.cs" />
     <Compile Include="Objetos\ObjMuestra.cs" />
