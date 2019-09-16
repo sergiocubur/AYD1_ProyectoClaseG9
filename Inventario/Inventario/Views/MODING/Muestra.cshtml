@@ -1,5 +1,9 @@
 ﻿@model List<Inventario.Objetos.ObjDetMovimiento>
 @{
+    if (Session["codeU"] == null || Session["nameU"] == null)
+    {
+        Response.Redirect("~/MODINI_Login/vMODINI_Login");
+    }
 }
 <br />
 @Html.ActionLink("Regresar", "Muestras", "MODING", new { area = "" }, new { @class = "btn btn-primary" })

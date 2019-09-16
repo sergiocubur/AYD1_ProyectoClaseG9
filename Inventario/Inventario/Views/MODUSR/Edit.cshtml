@@ -1,6 +1,10 @@
 ﻿
 @{
     ViewBag.Title = "Editar";
+    if (Session["codeU"] == null || Session["nameU"] == null)
+    {
+        Response.Redirect("~/MODINI_Login/vMODINI_Login");
+    }
 }
 
 <h2>Editar</h2>

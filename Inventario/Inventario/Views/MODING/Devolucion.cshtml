@@ -1,6 +1,10 @@
 ﻿@model List<Inventario.Objetos.ObjDetMovimiento>
 @{
     ViewBag.Title = "Ingresos";
+    if (Session["codeU"] == null || Session["nameU"] == null)
+    {
+        Response.Redirect("~/MODINI_Login/vMODINI_Login");
+    }
 }
 <hr />
 @Html.ActionLink("Regresar", "Devoluciones", "MODING", new { area = "" }, new { @class = "btn btn-primary" })

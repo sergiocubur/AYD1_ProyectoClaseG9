@@ -1,5 +1,10 @@
 ﻿@model List<Inventario.Objetos.ObjUsuario>
 @{
+    if (Session["codeU"] == null || Session["nameU"] == null)
+    {
+        Response.Redirect("~/MODINI_Login/vMODINI_Login");
+    }
+
 }
 
 <a href="@Url.Action("Add", "MODUSR")" class="btn  btn-primary">Agregar</a>
