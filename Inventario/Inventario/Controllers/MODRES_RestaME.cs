@@ -20,9 +20,9 @@ namespace Inventario.Controllers
         // GET: MODRES_RestaME
         [HttpPost]
         public ActionResult vMODRES_ResME(string producto, int cantidad) //(List<Objetos.ObjRepKardex> lista)
-        {
-            SqlConnection con = new SqlConnection("Data Source=RODOLFO-HP\\SQL2017;Initial Catalog=AnalisisP1;Integrated Security=True");
-            try
+        {/*
+            if (txtProducto.Text == "" || txtCantidad.Text == "")
+
             {
                 con.Open();
             }
@@ -39,6 +39,7 @@ namespace Inventario.Controllers
 
             int rowsAffected = cmd.ExecuteNonQuery();
 
+
             if (rowsAffected > 0)
             {
                 Console.WriteLine("Show Modal Popup", "alert ('Resta Realizada');");
@@ -49,7 +50,7 @@ namespace Inventario.Controllers
             }
 
             con.Close();
-
+            }*/
             return View();
         }
     }

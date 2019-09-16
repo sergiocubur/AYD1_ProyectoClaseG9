@@ -39,29 +39,75 @@ namespace Inventario.Controllers
         public ActionResult Devolucion(int devolucion)
         {
             ViewBag.Devolucion = devolucion;
-            return View();
+            List<Objetos.ObjDetMovimiento> detalles = new List<Objetos.ObjDetMovimiento>();
+            DataTable tabla = consulta("SELECT a.*, b.descripcion FROM det_movimiento a join producto b on a.producto_idproducto = b.idproducto WHERE movimiento_idingreso =" +devolucion );
+            if (tabla != null)
+            {
+                if (tabla.Rows.Count > 0)
+                {
+                    foreach (DataRow detalle in tabla.Rows)
+                    {
+                        ObjDetMovimiento det = new ObjDetMovimiento();
+                        det.cantidad = int.Parse(detalle["cantidad"].ToString());
+                        det.movimiento_idingreso = int.Parse(detalle["movimiento_idingreso"].ToString());
+                        det.producto_idproducto = int.Parse(detalle["producto_idproducto"].ToString());
+                        det.descripcion = detalle["descripcion"].ToString();
+                        detalles.Add(det);
+                    }
+                }
+            }
+            return View(detalles);
         }
 
         public ActionResult Compras()
         {
-            return View();
+            List<Objetos.ObjDevolucion> compras = new List<Objetos.ObjDevolucion>();
+            DataTable tabla = consulta("SELECT * FROM MOVIMIENTO WHERE tipo_movimiento='COMPRA'");
+            if (tabla != null)
+            {
+                if (tabla.Rows.Count > 0)
+                {
+                    foreach (DataRow compra in tabla.Rows)
+                    {
+                        ObjDevolucion dev = new ObjDevolucion();
+                        dev.idingreso = int.Parse(compra["idingreso"].ToString());
+                        dev.fecha_ingreso = compra["fecha_ingreso"].ToString();
+                        dev.descripcion = compra["descripcion"].ToString();
+                        dev.estado = compra["estado"].ToString();
+                        dev.usuario_ingresa = "Ludwin"; 
+                        compras.Add(dev);
+                    }
+                }
+            }
+            return View(compras);
         }
 
         public ActionResult Compra(int compra)
         {
             ViewBag.compra = compra;
-            return View();
+            List<Objetos.ObjDetMovimiento> detalles = new List<Objetos.ObjDetMovimiento>();
+            DataTable tabla = consulta("SELECT a.*, b.descripcion FROM det_movimiento a join producto b on a.producto_idproducto = b.idproducto WHERE movimiento_idingreso =" + compra);
+            if (tabla != null)
+            {
+                if (tabla.Rows.Count > 0)
+                {
+                    foreach (DataRow detalle in tabla.Rows)
+                    {
+                        ObjDetMovimiento det = new ObjDetMovimiento();
+                        det.cantidad = int.Parse(detalle["cantidad"].ToString());
+                        det.movimiento_idingreso = int.Parse(detalle["movimiento_idingreso"].ToString());
+                        det.producto_idproducto = int.Parse(detalle["producto_idproducto"].ToString());
+                        det.descripcion = detalle["descripcion"].ToString();
+                        detalles.Add(det);
+                    }
+                }
+            }
+            return View(detalles);
         }
 
         public ActionResult Muestras()
         {
             List<Objetos.ObjMuestra> muestras = new List<Objetos.ObjMuestra>();
-            //Objetos.ObjMuestra devolucion1 = new Objetos.ObjMuestra(1, "V7-999827", "10/08/2019", "Muestra para showroom", "I", "Ludwin");
-            //Objetos.ObjMuestra devolucion2 = new Objetos.ObjMuestra(2, "A9-398889", "15/08/2019", "Muestra para Zona 12", "I", "Marcos");
-            //Objetos.ObjMuestra devolucion3 = new Objetos.ObjMuestra(3, "J8-929909", "16/08/2019", "Muestra para Comercial 2", "I", "Monica");
-            //muestras.Add(devolucion1);
-            //muestras.Add(devolucion2);
-            //muestras.Add(devolucion3);
             DataTable tabla = consulta("SELECT * FROM MOVIMIENTO WHERE tipo_movimiento='MUESTRA'");
             if (tabla != null)
             {
@@ -85,7 +131,24 @@ namespace Inventario.Controllers
         public ActionResult Muestra(int muestra)
         {
             ViewBag.muestra = muestra;
-            return View();
+            List<Objetos.ObjDetMovimiento> detalles = new List<Objetos.ObjDetMovimiento>();
+            DataTable tabla = consulta("SELECT a.*, b.descripcion FROM det_movimiento a join producto b on a.producto_idproducto = b.idproducto WHERE movimiento_idingreso =" + muestra);
+            if (tabla != null)
+            {
+                if (tabla.Rows.Count > 0)
+                {
+                    foreach (DataRow detalle in tabla.Rows)
+                    {
+                        ObjDetMovimiento det = new ObjDetMovimiento();
+                        det.cantidad = int.Parse(detalle["cantidad"].ToString());
+                        det.movimiento_idingreso = int.Parse(detalle["movimiento_idingreso"].ToString());
+                        det.producto_idproducto = int.Parse(detalle["producto_idproducto"].ToString());
+                        det.descripcion = detalle["descripcion"].ToString();
+                        detalles.Add(det);
+                    }
+                }
+            }
+            return View(detalles);
         }
 
         public ActionResult Index()
@@ -123,15 +186,68 @@ namespace Inventario.Controllers
         [HttpPost]
         public ActionResult insertarDevolucion(string descripcion, string usuario_ingresa)
         {
-            consulta("INSERT INTO MOVIMIENTO(fecha_ingreso,descripcion,tipo_movimiento,estado,usuario_ingresa) VALUES(getdate(),'" + descripcion + "','DEVOLUCION','I',1)");
+            consulta("INSERT INTO MOVIMIENTO(fecha_ingreso,descripcion,tipo_movimiento,estado,usuario_idusuario,proveedor,pais_idpais) VALUES(getdate(),'" + descripcion + "','DEVOLUCION',0,1,'',1)");
             return RedirectToAction("Devoluciones");
+        }
+
+        [HttpPost]
+        public ActionResult insertarDetalle(int cantidad, int producto, int movimiento, int modulo)
+        {
+            consulta("INSERT INTO det_movimiento(cantidad,movimiento_idingreso,producto_idproducto) VALUES(" + cantidad + "," + movimiento + "," + producto + ")");
+
+
+            if (modulo == 0)
+            {
+                return RedirectToRoute(
+                    new
+                    {
+                        controller = "MODING",
+                        action = "Devolucion",
+                        devolucion = movimiento
+                    }
+                );
+            }
+            else if (modulo == 1)
+            {
+                return RedirectToRoute(
+                    new
+                    {
+                        controller = "MODING",
+                        action = "Muestra",
+                        muestra = movimiento
+                    }
+                );
+            }
+            else if (modulo == 2)
+            {
+                return RedirectToRoute(
+                    new
+                    {
+                        controller = "MODING",
+                        action = "Compra",
+                        compra = movimiento
+                    }
+                );
+            }
+            else
+            {
+                return RedirectToAction("Devoluciones");
+            }
         }
 
         [HttpPost]
         public ActionResult insertarMuestra(string descripcion, string usuario_ingresa)
         {
-            consulta("INSERT INTO MOVIMIENTO(fecha_ingreso,descripcion,tipo_movimiento,estado,usuario_ingresa) VALUES(getdate(),'" + descripcion + "','MUESTRA','I',1)");
+            consulta("INSERT INTO MOVIMIENTO(fecha_ingreso,descripcion,tipo_movimiento,estado,usuario_idusuario,proveedor,pais_idpais) VALUES(getdate(),'" + descripcion + "','MUESTRA',0,1,'',1)");
             return RedirectToAction("Muestras");
         }
+
+        [HttpPost]
+        public ActionResult insertarCompra(string descripcion, string usuario_ingresa)
+        {
+            consulta("INSERT INTO MOVIMIENTO(fecha_ingreso,descripcion,tipo_movimiento,estado,usuario_idusuario,proveedor,pais_idpais) VALUES(getdate(),'" + descripcion + "','COMPRA',0,1,'',1)");
+            return RedirectToAction("Compras");
+        }
+
     }
 }
