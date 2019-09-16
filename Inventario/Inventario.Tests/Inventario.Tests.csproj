@@ -112,26 +112,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MODUS_FeatureModify.feature.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>MODUS_FeatureModify.feature</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Controllers\HomeControllerTest.cs" />
-    <Compile Include="MODRES_TPME.cs" />
-    <Compile Include="UsersSteps.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="MODUS_FeatureModify.feature">
-      <Generator>SpecFlowSingleFileGenerator</Generator>
-      <LastGenOutput>MODUS_FeatureModify.feature.cs</LastGenOutput>
-    </None>
     <None Include="packages.config" />
-    <None Include="Users.feature" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Inventario\Inventario.csproj">
