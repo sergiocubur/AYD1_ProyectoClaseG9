@@ -111,5 +111,48 @@ namespace Inventario
                 con.Close();*/
             }
         }
-    }
+
+        public int consulta(string product, int cantidad)
+        {
+            if (cantidad == 0 || product == "")
+            {
+                Page.ClientScript.RegisterStartupScript(GetType(), "Show Modal Popup", "alert ('Debe llenar todos los campos');", true);
+                //txtError.Text = "Error: Debe llenar ambos campos";
+                return 0;
+            }
+            else
+            {
+
+                //conexion con = new conexion("ISIDRO", "GuateEduca");
+                SqlConnection con = new SqlConnection("Data Source=RODOLFO-HP\\SQL2017;Initial Catalog=AnalisisP1;Integrated Security=True");
+                try
+                {
+                    con.Open();
+                }
+                catch (SqlException)
+                {
+                    Page.ClientScript.RegisterStartupScript(GetType(), "Show Modal Popup", "alert ('Error no hay conexion');", true);
+                }
+
+                SqlCommand cmd = new SqlCommand("RestaVenta", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.Add("@Producto", SqlDbType.VarChar).Value = product;
+                cmd.Parameters.Add("@Cantidad", SqlDbType.Int).Value = cantidad;
+
+                int rowsAffected = cmd.ExecuteNonQuery();
+
+                if (rowsAffected > 0)
+                {
+                    Page.ClientScript.RegisterStartupScript(GetType(), "Show Modal Popup", "alert ('Resta Realizada');", true);
+                }
+                else
+                {
+                    Page.ClientScript.RegisterStartupScript(GetType(), "Show Modal Popup", "alert ('Operacion Denegada');", true);
+                }
+
+                con.Close();
+                return 1;
+            }
+        }
 }
