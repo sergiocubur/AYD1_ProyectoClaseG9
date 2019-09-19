@@ -186,6 +186,9 @@ namespace Inventario.Controllers
         [HttpPost]
         public ActionResult insertarDevolucion(string descripcion, string usuario_ingresa)
         {
+            if (this.comprobarinputForm(descripcion) + this.comprobarinputForm(usuario_ingresa) > 0) {
+                return null;
+            }
             consulta("INSERT INTO MOVIMIENTO(fecha_ingreso,descripcion,tipo_movimiento,estado,usuario_idusuario,proveedor,pais_idpais) VALUES(getdate(),'" + descripcion + "','DEVOLUCION',0,1,'',1)");
             return RedirectToAction("Devoluciones");
         }
@@ -247,6 +250,16 @@ namespace Inventario.Controllers
         {
             consulta("INSERT INTO MOVIMIENTO(fecha_ingreso,descripcion,tipo_movimiento,estado,usuario_idusuario,proveedor,pais_idpais) VALUES(getdate(),'" + descripcion + "','COMPRA',0,1,'',1)");
             return RedirectToAction("Compras");
+        }
+
+
+        /*Metodos para pruebas*/
+        public int comprobarinputForm(string input)
+        {
+            if (String.IsNullOrEmpty(input))
+                return 1;
+
+            return 0;
         }
 
     }
