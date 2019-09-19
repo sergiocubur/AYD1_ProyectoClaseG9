@@ -3,16 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Web.Mvc;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using NUnit.Framework;
 using Inventario;
 using Inventario.Controllers;
 
 namespace Inventario.Tests.Controllers
 {
-    [TestClass]
+    
     public class HomeControllerTest
     {
-        [TestMethod]
+        [Test]
         public void Index()
         {
             // Arrange
@@ -25,7 +25,7 @@ namespace Inventario.Tests.Controllers
             Assert.IsNotNull(result);
         }
 
-        [TestMethod]
+        [Test]
         public void About()
         {
             // Arrange
@@ -38,7 +38,7 @@ namespace Inventario.Tests.Controllers
             Assert.AreEqual("Your application description page.", result.ViewBag.Message);
         }
 
-        [TestMethod]
+        [Test]
         public void Contact()
         {
             // Arrange
@@ -51,7 +51,7 @@ namespace Inventario.Tests.Controllers
             Assert.IsNotNull(result);
         }
 
-        [TestMethod]
+        [Test]
         public void RestaxVentas()
         {
             // Arrange
@@ -65,7 +65,7 @@ namespace Inventario.Tests.Controllers
             //Assert.AreEqual(100,respuesta);
         }
 
-        [TestMethod]
+        [Test]
         public void VerificarImputs_CrearUsuario()
         {
             MODUSRController controller = new MODUSRController();
@@ -78,7 +78,7 @@ namespace Inventario.Tests.Controllers
             Assert.IsNotNull(respuesta);
             Assert.AreNotEqual(0, respuesta);
         }
-        [TestMethod]
+        [Test]
         public void largoPassword_CrearUsuario()
         {
             MODUSRController controller = new MODUSRController();
@@ -89,7 +89,7 @@ namespace Inventario.Tests.Controllers
             Assert.IsNotNull(respuesta);
             Assert.AreNotEqual(0, respuesta);
         }
-        [TestMethod]
+        [Test]
         public void numeroPassword_CrearUsuario()
         {
             MODUSRController controller = new MODUSRController();
@@ -100,7 +100,7 @@ namespace Inventario.Tests.Controllers
             Assert.IsNotNull(respuesta);
             Assert.AreNotEqual(0, respuesta);
         }
-        [TestMethod]
+        [Test]
         public void simboloPassword_CrearUsuario()
         {
             MODUSRController controller = new MODUSRController();
@@ -110,7 +110,7 @@ namespace Inventario.Tests.Controllers
             Assert.IsNotNull(respuesta);
             Assert.AreNotEqual(0, respuesta);
         }
-        [TestMethod]
+        [Test]
         public void mayuscula_CrearUsuario()
         {
             MODUSRController controller = new MODUSRController();
@@ -121,7 +121,7 @@ namespace Inventario.Tests.Controllers
             Assert.IsNotNull(respuesta);
             Assert.AreNotEqual(0, respuesta);
         }
-        [TestMethod]
+        [Test]
         public void largoCodUsuario_CrearUsuario()
         {
             MODUSRController controller = new MODUSRController();
@@ -132,7 +132,7 @@ namespace Inventario.Tests.Controllers
             Assert.IsNotNull(respuesta);
             Assert.AreNotEqual(0, respuesta);
         }
-        [TestMethod]
+        [Test]
         public void largoDpi_CrearUsuario()
         {
             MODUSRController controller = new MODUSRController();
