@@ -159,7 +159,8 @@ namespace Inventario.Controllers
 
         public static DataTable consulta(string consulta)
         {
-            string credenciales = "server=LAPTOP-SCUBUR;database=AnalisisP1;integrated security=true";
+            //string credenciales = "server=LAPTOP-SCUBUR;database=AnalisisP1;integrated security=true";
+            string credenciales = "server=DESARROLLO-LAP;database=AnalisisP1;integrated security=true";
             SqlConnection conexion = new SqlConnection(credenciales);
             SqlDataAdapter adaptador = new SqlDataAdapter();
             DataTable ds = new DataTable();
@@ -186,10 +187,11 @@ namespace Inventario.Controllers
         [HttpPost]
         public ActionResult insertarDevolucion(string descripcion, string usuario_ingresa)
         {
-            if (this.comprobarinputForm(descripcion) + this.comprobarinputForm(usuario_ingresa) > 0) {
-                return null;
-            }
-            consulta("INSERT INTO MOVIMIENTO(fecha_ingreso,descripcion,tipo_movimiento,estado,usuario_idusuario,proveedor,pais_idpais) VALUES(getdate(),'" + descripcion + "','DEVOLUCION',0,1,'',1)");
+            //string usuario= Session["idU"].ToString();
+            //if (this.comprobarinputForm(descripcion) + this.comprobarinputForm(usuario) > 0) {
+            //    return null;
+            //}
+            consulta("INSERT INTO MOVIMIENTO(fecha_ingreso,descripcion,tipo_movimiento,estado,usuario_idusuario,pais_idpais) VALUES(getdate(),'" + descripcion + "','DEVOLUCION',0,1,1)");
             return RedirectToAction("Devoluciones");
         }
 
@@ -241,14 +243,14 @@ namespace Inventario.Controllers
         [HttpPost]
         public ActionResult insertarMuestra(string descripcion, string usuario_ingresa)
         {
-            consulta("INSERT INTO MOVIMIENTO(fecha_ingreso,descripcion,tipo_movimiento,estado,usuario_idusuario,proveedor,pais_idpais) VALUES(getdate(),'" + descripcion + "','MUESTRA',0,1,'',1)");
+            consulta("INSERT INTO MOVIMIENTO(fecha_ingreso,descripcion,tipo_movimiento,estado,usuario_idusuario,pais_idpais) VALUES(getdate(),'" + descripcion + "','MUESTRA',0,1,1)");
             return RedirectToAction("Muestras");
         }
 
         [HttpPost]
         public ActionResult insertarCompra(string descripcion, string usuario_ingresa)
         {
-            consulta("INSERT INTO MOVIMIENTO(fecha_ingreso,descripcion,tipo_movimiento,estado,usuario_idusuario,proveedor,pais_idpais) VALUES(getdate(),'" + descripcion + "','COMPRA',0,1,'',1)");
+            consulta("INSERT INTO MOVIMIENTO(fecha_ingreso,descripcion,tipo_movimiento,estado,usuario_idusuario,pais_idpais) VALUES(getdate(),'" + descripcion + "','COMPRA',0,1,1)");
             return RedirectToAction("Compras");
         }
 
