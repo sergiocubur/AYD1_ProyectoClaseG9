@@ -7,7 +7,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Inventario;
 using Inventario.Controllers;
 
-namespace Inventario.Tests.Controllers
+namespace practica2_grupo7.Tests.Controllers
 {
     [TestClass]
     public class HomeControllerTest
@@ -49,98 +49,6 @@ namespace Inventario.Tests.Controllers
 
             // Assert
             Assert.IsNotNull(result);
-        }
-
-        [TestMethod]
-        public void RestaxVentas()
-        {
-            // Arrange
-            MODSAL_RestaxVentaController controller = new MODSAL_RestaxVentaController();
-
-            int respuesta=controller.restar1(100, 50);            
-
-            // Assert
-            Assert.IsNotNull(respuesta);
-            Assert.AreNotEqual(100, respuesta);
-            //Assert.AreEqual(100,respuesta);
-        }
-
-        [TestMethod]
-        public void VerificarImputs_CrearUsuario()
-        {
-            MODUSRController controller = new MODUSRController();
-            string dpi = "algo";
-            string apellido = "algo";
-            string codUsuario = "algo";
-            string password = "algo";
-            int respuesta = controller.comprobarForm(dpi,apellido,codUsuario,password);
-
-            Assert.IsNotNull(respuesta);
-            Assert.AreNotEqual(0, respuesta);
-        }
-        [TestMethod]
-        public void largoPassword_CrearUsuario()
-        {
-            MODUSRController controller = new MODUSRController();
-            
-            string password = "123456";
-            int respuesta = controller.largoPassword(password);
-
-            Assert.IsNotNull(respuesta);
-            Assert.AreNotEqual(0, respuesta);
-        }
-        [TestMethod]
-        public void numeroPassword_CrearUsuario()
-        {
-            MODUSRController controller = new MODUSRController();
-            
-            string password = "1numero";
-            int respuesta = controller.numeroPassword(password);
-
-            Assert.IsNotNull(respuesta);
-            Assert.AreNotEqual(0, respuesta);
-        }
-        [TestMethod]
-        public void simboloPassword_CrearUsuario()
-        {
-            MODUSRController controller = new MODUSRController();
-            string password = "!simbolo";
-            int respuesta = controller.simboloPassword(password);
-
-            Assert.IsNotNull(respuesta);
-            Assert.AreNotEqual(0, respuesta);
-        }
-        [TestMethod]
-        public void mayuscula_CrearUsuario()
-        {
-            MODUSRController controller = new MODUSRController();
-            
-            string password = "Mayuscula";
-            int respuesta = controller.mayusculaPassword(password);
-
-            Assert.IsNotNull(respuesta);
-            Assert.AreNotEqual(0, respuesta);
-        }
-        [TestMethod]
-        public void largoCodUsuario_CrearUsuario()
-        {
-            MODUSRController controller = new MODUSRController();
-            
-            string codUsuario = "1234";
-            int respuesta = controller.largoCodUsuario(codUsuario);
-
-            Assert.IsNotNull(respuesta);
-            Assert.AreNotEqual(0, respuesta);
-        }
-        [TestMethod]
-        public void largoDpi_CrearUsuario()
-        {
-            MODUSRController controller = new MODUSRController();
-            string dpi = "1234567890123";
-            int respuesta = controller.largoDpi(dpi);
-
-            Assert.IsNotNull(respuesta);
-            Assert.AreNotEqual(0, respuesta);
         }
     }
 }

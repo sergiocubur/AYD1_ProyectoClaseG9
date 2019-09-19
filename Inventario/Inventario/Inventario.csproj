@@ -49,12 +49,11 @@
   <ItemGroup>
     <Reference Include="BoDi, Version=1.4.1.0, Culture=neutral, PublicKeyToken=ff7cd5ea2744b496, processorArchitecture=MSIL">
       <HintPath>..\packages\BoDi.1.4.1\lib\net45\BoDi.dll</HintPath>
-    <Private>True</Private>
+      <Private>True</Private>
     </Reference>
     <Reference Include="Gherkin, Version=6.0.0.0, Culture=neutral, PublicKeyToken=86496cfa5b4a5851, processorArchitecture=MSIL">
       <HintPath>..\packages\Gherkin.6.0.0\lib\net45\Gherkin.dll</HintPath>
       <Private>True</Private>
-
     </Reference>
     <Reference Include="Microsoft.AI.Agent.Intercept, Version=1.2.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.1.2.1\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
@@ -236,14 +235,12 @@
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MODINI_LogeadoController.cs" />
     <Compile Include="Controllers\MODINI_LoginController.cs" />
-    <Compile Include="Controllers\MODINS_InsertarVentaController.cs" />
     <Compile Include="Controllers\MODINGController.cs" />
     <Compile Include="Controllers\MODREP_RepComprasController.cs" />
     <Compile Include="Controllers\MODREP_RepKardexController.cs" />
     <Compile Include="Controllers\MODRES_RestaME.cs" />
     <Compile Include="Controllers\MODREP_RepMovimientosController.cs" />
     <Compile Include="Controllers\MODREP_ReportesController.cs" />
-    <Compile Include="Controllers\MODSAL_RestaxVentaController.cs" />
     <Compile Include="Controllers\MODUSRController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -329,7 +326,6 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\MODSAL_restaxventa\vMODSAL_RestaxVenta.cshtml" />
     <Content Include="Views\MODRES_RestaME\MODRES_ResME.cshtml" />
     <Content Include="Views\MODING\Compra.cshtml" />
     <Content Include="Views\MODING\Compras.cshtml" />
