@@ -147,9 +147,7 @@ namespace Inventario.Tests.Controllers
         public void los_input_devolucion_no_pueden_ser_vacios()
         {
             MODINGController controller = new MODINGController();
-
-            string respuesta = controller.insertarDevolucion("","");
-            Assert.IsNull(respuesta);
+            Assert.IsNull(controller.insertarDevolucion(String.Empty, String.Empty));
             //Assert.AreNotEqual(0, respuesta);
         }
 
