@@ -13,5 +13,10 @@ namespace Inventario.Controllers
         {
             return View();
         }
+
+        public bool conectarBD(string Consulta)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

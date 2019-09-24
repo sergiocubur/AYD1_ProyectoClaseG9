@@ -13,13 +13,22 @@ namespace Inventario.Tests.Controllers
     public class MODSAL_RestarPorVentaTest
     {
        [TestMethod]
-        public void RetornoDeVista()
+        public void vMODSAL_RestarPorVenta_Test()
         {
             MODSAL_RestarPorVentaController controller = new MODSAL_RestarPorVentaController();
             ViewResult result = controller.vMODSAL_RestarPorVenta() as ViewResult;
             // Assert
             Assert.IsNotNull(result);
         }
+        [TestMethod]
+        public void consultarBD_TestRestarPorVenta()
+        {
+            MODSAL_RestarPorVentaController controller = new MODSAL_RestarPorVentaController();
+            var result = controller.conectarBD("select * from movimiento;");
+            // Assert
+            Assert.IsNotNull(result);
+        }
+
 
     }
 }
