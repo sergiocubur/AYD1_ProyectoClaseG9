@@ -15,9 +15,10 @@ namespace Inventario
         {
 
         }
-
+        int i;
         protected void Button1_Click(object sender, EventArgs e)
         {
+            
             if (txtProducto.Text == "" || txtCantidad.Text == "")
             {
                 Page.ClientScript.RegisterStartupScript(GetType(), "Show Modal Popup", "alert ('Debe llenar todos los campos');", true);
@@ -44,7 +45,7 @@ namespace Inventario
 
                 cmd.Parameters.Add("@Producto", SqlDbType.VarChar).Value = product;
                 cmd.Parameters.Add("@Cantidad", SqlDbType.Int).Value = cantidad;
-                
+
                 int rowsAffected = cmd.ExecuteNonQuery();
 
                 if (rowsAffected > 0)
@@ -57,58 +58,7 @@ namespace Inventario
                 }
 
                 con.Close();
-                /*using (SqlCommand cmd = new SqlCommand())
-                {
-                    cmd.Connection = con;
-                    cmd.CommandType = CommandType.Text;
-                    cmd.CommandText = "Insert into movimiento(fecha_ingreso, descripcion, tipo_movimiento, estado) VALUES (@fecha,@des,@tmovimiento,@est);";
-                    cmd.Parameters.AddWithValue("@fecha", DateTime.Now.ToString("ddd MMM yyy"));
-                    cmd.Parameters.AddWithValue("@des", "Producto en Mal Estado");
-                    cmd.Parameters.AddWithValue("@tmovimiento", "Resta");
-                    cmd.Parameters.AddWithValue("@est", "A");
-                }
 
-                using (SqlCommand cmd = new SqlCommand())
-                {
-                    cmd.Connection = con;
-                    cmd.CommandType = CommandType.Text;
-                    cmd.CommandText = "Insert into movimiento(fecha_ingreso, descripcion, tipo_movimiento, estado) VALUES (@fecha,@des,@tmovimiento,@est);";
-                    cmd.Parameters.AddWithValue("@fecha", DateTime.Now.ToString("ddd MMM yyyy"));
-                    fecha = DateTime.Now.ToString("ddd MMM YYYY");
-                    cmd.Parameters.AddWithValue("@des", "Producto en Mal Estado");
-                    cmd.Parameters.AddWithValue("@tmovimiento", "Resta");
-                    cmd.Parameters.AddWithValue("@est", "A");
-                }
-
-                using (SqlCommand cmd = new SqlCommand())
-                {   
-                    cmd.Connection = con;
-                    cmd.CommandType = CommandType.Text;
-                    cmd.CommandText = "Select idingreso  from movimiento where fecha='@fecha' and tipo_movimiento ='Resta' and descripcion='Mal Estado';";
-                    cmd.Parameters.AddWithValue("@fecha", fecha);
-                    id = Convert.ToInt32(cmd.ExecuteScalar());
-                }
-
-                using (SqlCommand cmd = new SqlCommand())
-                {
-                    
-                    cmd.Connection = con;
-                    cmd.CommandType = CommandType.Text;
-                    cmd.CommandText = "Select idproducto  from producto where descripicion='@des';";
-                    cmd.Parameters.AddWithValue("@des", fecha);
-                    idpr = Convert.ToInt32(cmd.ExecuteScalar());
-                }
-
-                using (SqlCommand cmd = new SqlCommand())
-                {
-                    cmd.Connection = con;
-                    cmd.CommandType = CommandType.Text;
-                    cmd.CommandText = "Insert into det_movimiento(cantidad, idProducto, idIngreso) VALUES (@cant,@idPr,@idIng);";
-                    cmd.Parameters.AddWithValue("@cant", cantidad);
-                    cmd.Parameters.AddWithValue("@idPr", idpr);
-                    cmd.Parameters.AddWithValue("@idIng", id);
-                }
-                con.Close();*/
             }
         }
 
@@ -153,6 +103,39 @@ namespace Inventario
 
                 con.Close();
                 return 1;
+
+                /*
+                 *  string credenciales = "server=RODOLFO-HP\\SQL2017;database=Practica2;integrated security=true";
+            SqlConnection con = new SqlConnection(credenciales);
+            SqlCommand command = new SqlCommand();
+
+            command.Connection = con;
+            command.CommandType = CommandType.Text;
+            command.CommandText = "INSERT INTO empleado (dpi,nombre,direccion,mail,cod_empleado,password,tipoempleado_tipoempleado) VALUES(@dpi,@nombre,@dir, @mail, @cod, @pass,1)";
+            command.Parameters.Add("@dpi", SqlDbType.VarChar).Value = txtdpi.Text;
+            command.Parameters.Add("@nombre", SqlDbType.VarChar).Value = txtNombre.Text;
+            command.Parameters.Add("@dir", SqlDbType.VarChar).Value = txtDireccion.Text;
+            command.Parameters.Add("@mail", SqlDbType.VarChar).Value = txtCorreo.Text;
+            command.Parameters.Add("@cod", SqlDbType.VarChar).Value = txtUsuario.Text;
+            command.Parameters.Add("@pass", SqlDbType.VarChar).Value = txtPassword.Text;
+
+            try {
+                con.Open();
+                //Response.Write("Conexion Establecida");
+                int ok = command.ExecuteNonQuery();
+                con.Close();
+
+                if(ok > 0)
+                {
+                    Response.Write("Usuario Registrado");
+                }
+            }
+            catch(Exception ex)
+            {
+                Console.Write(ex);
+            }*/
             }
         }
+    }
 }
+ 

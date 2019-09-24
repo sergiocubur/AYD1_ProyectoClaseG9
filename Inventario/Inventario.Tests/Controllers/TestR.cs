@@ -13,7 +13,7 @@ namespace Inventario.Tests.Controllers
 
             var result = rme.consulta("producto1", 0);
 
-            Assert.AreEqual(result, 3);
+            Assert.AreEqual(result, 0);
         }
 
         [TestMethod]
@@ -23,7 +23,23 @@ namespace Inventario.Tests.Controllers
 
             var result = rme.consulta("", 1);
 
-            Assert.AreEqual(result, 1);
+            Assert.AreEqual(result, 0);
+        }
+        
+        [TestMethod]
+        public void TestInsert()
+        {
+            var me = new MODRES_MEstado();
+            var result = me.consulta("Producto1", 100);
+            Assert.AreEqual(result, 3);
+        }
+
+        [TestMethod]
+        public void TestConnection()
+        {
+            var me = new MODRES_MEstado();
+            var result = me.consulta("Producto3", 200);
+            Asset.AreEqual(result, 4);
         }
     }
 }
