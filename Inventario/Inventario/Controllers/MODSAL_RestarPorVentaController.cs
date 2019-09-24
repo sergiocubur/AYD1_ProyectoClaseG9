@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.SqlClient;
+using System.Diagnostics;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -17,7 +19,28 @@ namespace Inventario.Controllers
 
         public static DataTable conectarBD(string Consulta)
         {
-            throw new NotImplementedException();
+            string credenciales = "server=DESKTOP-39C8GSB; database=AnalisisP1 ; integrated security = true";
+            SqlConnection conexion = new SqlConnection(credenciales);
+            SqlDataAdapter adaptador = new SqlDataAdapter();
+            DataTable ds = new DataTable();
+            try
+            {
+                conexion.Open();
+                SqlCommand sql = new SqlCommand();
+                sql.CommandText = Consulta;
+                sql.CommandType = CommandType.Text;
+                sql.Connection = conexion;
+
+                adaptador.SelectCommand = sql;
+                adaptador.Fill(ds);
+                conexion.Close();
+                return ds;
+            }
+            catch (Exception ex)
+            {
+                Trace.WriteLine(Consulta);
+                return null;
+            }
         }
     }
 }
