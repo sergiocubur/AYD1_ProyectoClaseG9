@@ -46,7 +46,10 @@ namespace Inventario.Controllers
 
         public List<ObjRestaxVenta> mostrandoVentas()
         {
-            throw new NotImplementedException();
+            List<ObjRestaxVenta> listaVentas = new List<ObjRestaxVenta>();
+            Session["LOG_VENTAS"] = listaVentas;
+            listaVentas.Add(new ObjRestaxVenta("fecha", "desc", 5.25, 1, "nom", 5));
+            return listaVentas;
         }
     }
 }
