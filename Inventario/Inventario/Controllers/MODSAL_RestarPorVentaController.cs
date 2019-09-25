@@ -6,6 +6,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Inventario.Objetos;
 
 namespace Inventario.Controllers
 {
@@ -41,6 +42,11 @@ namespace Inventario.Controllers
                 Trace.WriteLine(Consulta);
                 return null;
             }
+        }
+
+        public List<ObjRestaxVenta> mostrandoVentas()
+        {
+            throw new NotImplementedException();
         }
     }
 }

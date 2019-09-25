@@ -7,6 +7,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Inventario;
 using Inventario.Controllers;
 using System.Data;
+using Inventario.Objetos;
 
 namespace Inventario.Tests.Controllers
 {
@@ -26,6 +27,13 @@ namespace Inventario.Tests.Controllers
         {
             var result = MODSAL_RestarPorVentaController.conectarBD("select * from movimiento;");
             // Assert
+            Assert.IsNotNull(result);
+        }
+        [TestMethod]
+        public void mostrandoVentas_TestRestarPorVenta()
+        {
+            MODSAL_RestarPorVentaController controller = new MODSAL_RestarPorVentaController();
+            List<ObjRestaxVenta> result = controller.mostrandoVentas() as List<ObjRestaxVenta>;
             Assert.IsNotNull(result);
         }
 
