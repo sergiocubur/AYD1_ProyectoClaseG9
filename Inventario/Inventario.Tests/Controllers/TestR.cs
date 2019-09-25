@@ -9,7 +9,7 @@ namespace Inventario.Tests.Controllers
         [TestMethod]
         public void TestRestaCero()
         {
-            var rme = new MODRES_MEstado();
+            var rme = new MODSAL_RestaMalEstado();
 
             var result = rme.consulta("producto1", 0);
 
@@ -19,7 +19,7 @@ namespace Inventario.Tests.Controllers
         [TestMethod]
         public void TestRestaSinNombre()
         {
-            var rme = new MODRES_MEstado();
+            var rme = new MODSAL_RestaMalEstado();
 
             var result = rme.consulta("", 1);
 
@@ -29,7 +29,7 @@ namespace Inventario.Tests.Controllers
         [TestMethod]
         public void TestInsert()
         {
-            var me = new MODRES_MEstado();
+            var me = new MODSAL_RestaMalEstado();
             var result = me.consulta("Producto1", 100);
             Assert.AreEqual(result, 3);
         }
@@ -37,9 +37,9 @@ namespace Inventario.Tests.Controllers
         [TestMethod]
         public void TestConnection()
         {
-            var me = new MODRES_MEstado();
+            var me = new MODSAL_RestaMalEstado();
             var result = me.consulta("Producto3", 200);
-            Asset.AreEqual(result, 4);
+            Assert.AreEqual(result, 4);
         }
     }
 }
