@@ -44,12 +44,12 @@ namespace Inventario.Controllers
             }
         }
 
-        public List<ObjRestaxVenta> mostrandoVentas()
+        public ActionResult mostrandoVentas()
         {
             List<ObjRestaxVenta> listaVentas = new List<ObjRestaxVenta>();
-            Session["LOG_VENTAS"] = listaVentas;
             listaVentas.Add(new ObjRestaxVenta("fecha", "desc", 5.25, 1, "nom", 5));
-            return listaVentas;
+            //Session["LOG_VENTAS"] = listaVentas;
+            return RedirectToAction("vMODSAL_RestarPorVenta", "MODSAL_RestarPorVenta");
         }
     }
 }
