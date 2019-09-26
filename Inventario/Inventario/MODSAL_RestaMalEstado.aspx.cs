@@ -60,7 +60,45 @@ namespace Inventario
 
         public int consulta(string product, int cantidad)
         {
-            return 0;
+            if (txtProducto.Text == "" || txtCantidad.Text == "")
+            {
+                Page.ClientScript.RegisterStartupScript(GetType(), "Show Modal Popup", "alert ('Debe llenar todos los campos');", true);
+                return 0;
+            }
+            else
+            {
+                string credenciales = "server=RODOLFO-HP\\SQL2017;database=Practica2;integrated security=true";
+                SqlConnection con = new SqlConnection(credenciales);
+                SqlCommand command = new SqlCommand();
+
+                command.Connection = con;
+                command.CommandType = CommandType.Text;
+                command.CommandText = "SELECT * FROM producto";
+                /*command.Parameters.Add("@dpi", SqlDbType.VarChar).Value = txtdpi.Text;
+                command.Parameters.Add("@nombre", SqlDbType.VarChar).Value = txtNombre.Text;
+                command.Parameters.Add("@dir", SqlDbType.VarChar).Value = txtDireccion.Text;
+                command.Parameters.Add("@mail", SqlDbType.VarChar).Value = txtCorreo.Text;
+                command.Parameters.Add("@cod", SqlDbType.VarChar).Value = txtUsuario.Text;
+                command.Parameters.Add("@pass", SqlDbType.VarChar).Value = txtPassword.Text;*/
+
+                try
+                {
+                    con.Open();
+                    //Response.Write("Conexion Establecida");
+                    int ok = command.ExecuteNonQuery();
+                    con.Close();
+
+                    if (ok > 0)
+                    {
+                        return 2;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.Write(ex);
+                }
+                return 0;
+            }
         }
     }
 }
