@@ -33,7 +33,8 @@ namespace Inventario.Tests.Controllers
         public void mostrandoVentas_TestRestarPorVenta()
         {
             MODSAL_RestarPorVentaController controller = new MODSAL_RestarPorVentaController();
-            List<ObjRestaxVenta> result = controller.mostrandoVentas() as List<ObjRestaxVenta>;
+            RedirectToRouteResult result = controller.mostrandoVentas() as RedirectToRouteResult;
+            // Assert
             Assert.IsNotNull(result);
         }
 
