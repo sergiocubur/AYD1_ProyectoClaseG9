@@ -31,7 +31,7 @@ namespace Inventario.Tests.Controllers
         {
             var me = new MODSAL_RestaMalEstado();
             var result = me.consulta("Producto1", 100);
-            Assert.AreEqual(result, 3);
+            Assert.AreEqual(result, 1);
         }
 
         [TestMethod]
