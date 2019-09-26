@@ -1,7 +1,62 @@
-﻿
-@{
-    ViewBag.Title = "vMODSAL_RestarPorVenta";
+﻿@{
+    ViewBag.Title = "Restar Por Venta";
+    if (Session["codeU"] == null || Session["nameU"] == null)
+    {
+        Response.Redirect("~/MODINI_Login/vMODINI_Login");
+    }
 }
 
-<h2>vMODSAL_RestarPorVenta</h2>
+<div>
+    <div class="jumbotron text-center" style="margin-bottom:0">
+        <h2>Restar Por Venta</h2>
+    </div>
+
+    <div id="materiales-div">
+        @using (Html.BeginForm("mostrandoVentas", "MODREP_RestarPorVenta", FormMethod.Post))
+        {
+            <input id="btn" name="btn" type="submit" value="Mostrar Ventas" class="btn btn-primary" />
+            <br />
+        }
+        <br />
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <td>Fecha Venta</td>
+                    <td>Descripción</td>
+                    <td>Precio</td>
+                    <td>Cantidad</td>
+                    <td>Nombre</td>
+                    <td>Disponibles</td>
+                </tr>
+            </thead>
+
+            <tbody>
+                @{
+                    if (Session["LOG_VENTAS"] != null)
+                    {
+                        List<Inventario.Objetos.ObjRestaxVenta> listaKardex = Session["LOG_VENTAS"] as List<Inventario.Objetos.ObjRestaxVenta>;
+
+                        foreach (Inventario.Objetos.ObjRestaxVenta Venta in listaKardex)
+                        {
+                            <tr>
+                                <td>@Venta.fechaVenta</td>
+                                <td>@Venta.descripcion</td>
+                                <td>@Venta.precio</td>
+                                <td>@Venta.cantidad</td>
+                                <td>@Venta.nombre</td>
+                                <td>@Venta.total</td>
+                            </tr>
+                        }
+                    }
+                }
+
+            </tbody>
+        </table>
+        <br />
+        <br />
+        <a href="@Url.Action("vMODINI_Logeado", "MODINI_Logeado")" class="btn  btn-warning">Regresar</a>
+    </div>
+
+
+</div>
 
