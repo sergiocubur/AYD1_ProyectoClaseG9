@@ -79,9 +79,13 @@ namespace Inventario.Controllers
             return lista;
         }
 
-        public RedirectToRouteResult mostrandoProductos()
+        public ActionResult mostrandoProductos()
         {
-            throw new NotImplementedException();
+            List<ObjProducto> listaP = new List<ObjProducto>();
+            listaP = getProductos();
+            Session["LOG_PRODUCTOS"] = listaP;
+            return RedirectToAction("vMODSAL_VerProductos", "MODSAL_RestarPorVenta");
         }
+        
     }
 }

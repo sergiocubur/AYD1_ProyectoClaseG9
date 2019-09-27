@@ -17,11 +17,9 @@
             <input id="btn" name="btn" type="submit" value="Mostrar Ventas" class="btn btn-primary" />
             <br />
         }
-        @using (Html.BeginForm("mostrandoProductos", "MODSAL_RestarPorVenta", FormMethod.Post))
-        {
-            <input id="btn" name="btn" type="submit" value="Ver Productos Existentes" class="btn btn-primary" />
-            <br />
-        }
+        <br />
+        <a href="@Url.Action("mostrandoProductos", "MODSAL_RestarPorVenta")" class="btn btn-primary">Ver Productos Existentes</a>
+        <br /><br />
 
         <br />
         <table class="table table-bordered">
