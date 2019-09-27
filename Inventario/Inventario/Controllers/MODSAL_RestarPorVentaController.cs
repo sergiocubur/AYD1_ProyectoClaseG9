@@ -78,5 +78,10 @@ namespace Inventario.Controllers
             }
             return lista;
         }
+
+        public RedirectToRouteResult mostrandoProductos()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

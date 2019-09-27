@@ -12,11 +12,17 @@
     </div>
 
     <div id="materiales-div">
-        @using (Html.BeginForm("mostrandoVentas", "MODREP_RestarPorVenta", FormMethod.Post))
+        @using (Html.BeginForm("mostrandoVentas", "MODSAL_RestarPorVenta", FormMethod.Post))
         {
             <input id="btn" name="btn" type="submit" value="Mostrar Ventas" class="btn btn-primary" />
             <br />
         }
+        @using (Html.BeginForm("mostrandoProductos", "MODSAL_RestarPorVenta", FormMethod.Post))
+        {
+            <input id="btn" name="btn" type="submit" value="Ver Productos Existentes" class="btn btn-primary" />
+            <br />
+        }
+
         <br />
         <table class="table table-bordered">
             <thead>

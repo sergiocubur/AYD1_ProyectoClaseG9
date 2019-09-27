@@ -46,7 +46,14 @@ namespace Inventario.Tests.Controllers
             // Assert
             Assert.IsNotNull(result);
         }
-
+        [TestMethod]
+        public void mostrandoProductos_TestRestarPorVenta()
+        {
+            MODSAL_RestarPorVentaController controller = new MODSAL_RestarPorVentaController();
+            RedirectToRouteResult result = controller.mostrandoProductos() as RedirectToRouteResult;
+            // Assert
+            Assert.IsNotNull(result);
+        }
 
     }
 }
