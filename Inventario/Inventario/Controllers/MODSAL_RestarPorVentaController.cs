@@ -52,9 +52,31 @@ namespace Inventario.Controllers
             return RedirectToAction("vMODSAL_RestarPorVenta", "MODSAL_RestarPorVenta");
         }
 
-        public List<object> getProductos()
+        [HttpGet]
+        public List<ObjProducto> getProductos()
         {
-            throw new NotImplementedException();
+            List<ObjProducto> lista = new List<ObjProducto>();
+            string consulta = "select * from producto;";
+            DataTable dt = consultarBD(consulta);
+            if (dt != null)
+            {
+                if (dt.Rows.Count > 0)
+                {
+                    foreach (DataRow row in dt.Rows)
+                    {
+                        ObjProducto nuevo = new ObjProducto();
+                        nuevo.idproducto = Int16.Parse(row["idproducto"].ToString());
+                        nuevo.descripcion = row["descripcion"].ToString();
+                        nuevo.precio_costo = Double.Parse(row["precio_costo"].ToString());
+                        nuevo.precio_venta = Double.Parse(row["precio_venta"].ToString());
+                        nuevo.fecha_ingreso = row["fecha_ingreso"].ToString();
+                        nuevo.fecha_modificacion = row["fecha_modificacion"].ToString();
+                        nuevo.cantidad = Int16.Parse(row["cantidad"].ToString());
+                        lista.Add(nuevo);
+                    }
+                }
+            }
+            return lista;
         }
     }
 }

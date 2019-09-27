@@ -42,7 +42,7 @@ namespace Inventario.Tests.Controllers
         public void getProductos_TestRestarPorVenta()
         {
             MODSAL_RestarPorVentaController controller = new MODSAL_RestarPorVentaController();
-            List<Object> result = controller.getProductos() as List<Object>;
+            List<ObjProducto> result = controller.getProductos() as List<ObjProducto>;
             // Assert
             Assert.IsNotNull(result);
         }
