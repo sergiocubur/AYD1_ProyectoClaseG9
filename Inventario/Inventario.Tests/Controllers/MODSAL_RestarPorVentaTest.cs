@@ -55,5 +55,13 @@ namespace Inventario.Tests.Controllers
             Assert.IsNotNull(result);
         }
 
+        [TestMethod]
+        public void vMODSAL_VerProductos_Test()
+        {
+            MODSAL_RestarPorVentaController controller = new MODSAL_RestarPorVentaController();
+            ViewResult result = controller.vMODSAL_VerProductos() as ViewResult;
+            // Assert
+            Assert.IsNotNull(result);
+        }
     }
 }
