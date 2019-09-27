@@ -79,9 +79,9 @@ namespace Inventario.Controllers
             return lista;
         }
 
-        public ViewResult vMODSAL_VerProductos()
+        public ActionResult vMODSAL_VerProductos()
         {
-            throw new NotImplementedException();
+            return View();
         }
 
         public ActionResult mostrandoProductos()
