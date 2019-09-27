@@ -25,31 +25,28 @@ namespace Inventario
             }
             else
             {
+                int cant = Convert.ToInt32(txtCantidad.Text);
                 string credenciales = "server=RODOLFO-HP\\SQL2017;database=Practica2;integrated security=true";
                 SqlConnection con = new SqlConnection(credenciales);
                 SqlCommand command = new SqlCommand();
 
                 command.Connection = con;
                 command.CommandType = CommandType.Text;
-                command.CommandText = "INSERT INTO empleado (dpi,nombre,direccion,mail,cod_empleado,password,tipoempleado_tipoempleado) VALUES(@dpi,@nombre,@dir, @mail, @cod, @pass,1)";
-                /*command.Parameters.Add("@dpi", SqlDbType.VarChar).Value = txtdpi.Text;
-                command.Parameters.Add("@nombre", SqlDbType.VarChar).Value = txtNombre.Text;
-                command.Parameters.Add("@dir", SqlDbType.VarChar).Value = txtDireccion.Text;
-                command.Parameters.Add("@mail", SqlDbType.VarChar).Value = txtCorreo.Text;
-                command.Parameters.Add("@cod", SqlDbType.VarChar).Value = txtUsuario.Text;
-                command.Parameters.Add("@pass", SqlDbType.VarChar).Value = txtPassword.Text;*/
+                command.CommandText = "SELECT cantidad FROM producto WHERE descripcion=@product";
+                command.Parameters.AddWithValue("@product", txtProducto.Text);
 
                 try
                 {
                     con.Open();
-                    //Response.Write("Conexion Establecida");
-                    int ok = command.ExecuteNonQuery();
-                    con.Close();
-
-                    if (ok > 0)
+                    int a = Convert.ToInt32(command.ExecuteScalar());
+                    if (a != 0)
                     {
-                        Response.Write("Usuario Registrado");
+                        if (a > cant)
+                        {
+
+                        }
                     }
+                    con.Close();
                 }
                 catch (Exception ex)
                 {
@@ -73,7 +70,8 @@ namespace Inventario
 
                 command.Connection = con;
                 command.CommandType = CommandType.Text;
-                command.CommandText = "SELECT * FROM producto";
+                command.CommandText = "SELECT id FROM producto where nombre=@nimbre";
+                command.Parameters.Add("@nombre", SqlDbType.VarChar).Value = txtProducto.Text;
                 /*command.Parameters.Add("@dpi", SqlDbType.VarChar).Value = txtdpi.Text;
                 command.Parameters.Add("@nombre", SqlDbType.VarChar).Value = txtNombre.Text;
                 command.Parameters.Add("@dir", SqlDbType.VarChar).Value = txtDireccion.Text;

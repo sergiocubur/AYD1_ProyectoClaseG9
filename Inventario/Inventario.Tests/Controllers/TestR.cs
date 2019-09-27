@@ -25,7 +25,15 @@ namespace Inventario.Tests.Controllers
 
             Assert.AreEqual(result, 0);
         }
-        
+
+        [TestMethod]
+        public void TestSelect()
+        {
+            var me = new MODSAL_RestaMalEstado();
+            var result = me.consulta("Producto1", 100);
+            Assert.AreEqual(result, 1);
+        }
+
         [TestMethod]
         public void TestInsert()
         {
