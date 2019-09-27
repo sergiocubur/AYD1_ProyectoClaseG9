@@ -18,7 +18,7 @@ namespace Inventario.Controllers
             return View();
         }
 
-        public static DataTable conectarBD(string Consulta)
+        public static DataTable consultarBD(string Consulta)
         {
             string credenciales = "server=DESKTOP-39C8GSB; database=AnalisisP1 ; integrated security = true";
             SqlConnection conexion = new SqlConnection(credenciales);
@@ -50,6 +50,11 @@ namespace Inventario.Controllers
             listaVentas.Add(new ObjRestaxVenta("fecha", "desc", 5.25, 1, "nom", 5));
             //Session["LOG_VENTAS"] = listaVentas;
             return RedirectToAction("vMODSAL_RestarPorVenta", "MODSAL_RestarPorVenta");
+        }
+
+        public List<object> getProductos()
+        {
+            throw new NotImplementedException();
         }
     }
 }

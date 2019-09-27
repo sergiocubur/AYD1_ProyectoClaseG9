@@ -25,7 +25,7 @@ namespace Inventario.Tests.Controllers
         [TestMethod]
         public void consultarBD_TestRestarPorVenta()
         {
-            var result = MODSAL_RestarPorVentaController.conectarBD("select * from movimiento;");
+            var result = MODSAL_RestarPorVentaController.consultarBD("select * from movimiento;");
             // Assert
             Assert.IsNotNull(result);
         }
@@ -34,6 +34,15 @@ namespace Inventario.Tests.Controllers
         {
             MODSAL_RestarPorVentaController controller = new MODSAL_RestarPorVentaController();
             RedirectToRouteResult result = controller.mostrandoVentas() as RedirectToRouteResult;
+            // Assert
+            Assert.IsNotNull(result);
+        }
+
+        [TestMethod]
+        public void getProductos_TestRestarPorVenta()
+        {
+            MODSAL_RestarPorVentaController controller = new MODSAL_RestarPorVentaController();
+            List<Object> result = controller.getProductos() as List<Object>;
             // Assert
             Assert.IsNotNull(result);
         }
