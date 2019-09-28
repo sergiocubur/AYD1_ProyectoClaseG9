@@ -6,6 +6,18 @@
     }
 }
 
+<head>
+    <style>
+        .correcto {
+            color: limegreen;
+        }
+
+        .incorrecto {
+            color: orangered;
+        }
+    </style>
+</head>
+
 <div>
     <div class="jumbotron text-center" style="margin-bottom:0">
         <h2>Restar Por Venta</h2>
@@ -20,6 +32,52 @@
         <br />
         <a href="@Url.Action("mostrandoProductos", "MODSAL_RestarPorVenta")" class="btn btn-primary">Ver Productos Existentes</a>
         <br /><br />
+
+
+
+        @*------------- Id del producto -------------*@
+        <div class="panel-body">
+            @using (Html.BeginForm("restarPorVenta", "MODSAL_RestarPorVenta", FormMethod.Post))
+            {
+                <label for="producto">Seleccione un producto:</label>
+                <select id="producto" name="producto" class="form-control">
+                    @using (Html.BeginForm())
+                    {
+                        if (Session["LOG_PRODUCTOS"] != null)
+                        {
+                            foreach (Inventario.Objetos.ObjProducto prod in Session["LOG_PRODUCTOS"] as List<Inventario.Objetos.ObjProducto>)
+                            {
+                                <option value=@prod.idproducto> @prod.descripcion</option>
+                            }
+                        }
+                    }
+                </select>
+
+                <br />
+                <label for="habitacion">Cantidad a restar:</label>
+                <br />
+                <input type="number" class="form-control" name=cantidad id="cantidad" placeholder="01234">
+                <br />
+                if (Session["ERROR_RESTA"] != null)
+                {
+                    if (Session["ERROR_RESTA"].ToString().Equals("Yes"))
+                    {
+                        <label class="correcto">Resta Exitosa...!!!</label>
+                        Session["ERROR_RESTA"] = null;
+                    }
+                    else
+                    {
+                        <label class="incorrecto">@Session["ERROR_RESTA"].ToString()</label>
+                        Session["ERROR_RESTA"] = null;
+                    }
+                    <br />
+                }
+                <input id="btn" name="btn" type="submit" value="Restar Por Venta" class="btn alert-success" />
+                <br />
+
+            }
+        </div>
+
 
         <br />
         <table class="table table-bordered">
@@ -63,4 +121,6 @@
 
 
 </div>
+
+
 

@@ -97,6 +97,26 @@ namespace Inventario.Controllers
             return "Yes";
         }
 
+        public ActionResult restarPorVenta(int producto, int cantidad)
+        {
+            Session["ERROR_RESTA"] = null;
+            if (cantidad == 0)
+            {
+                Session["ERROR_RESTA"] = "Ingrese una cantidad";
+                return RedirectToAction("vMODSAL_RestarPorVenta", "MODSAL_RestarPorVenta");
+            }
+
+            foreach (ObjProducto prod in Session["LOG_PRODUCTOS"] as List<ObjProducto>)
+            {
+                if (producto == prod.idproducto)
+                {
+                    Session["ERROR_RESTA"] = restando(prod.cantidad, cantidad, producto);
+                    return RedirectToAction("vMODSAL_RestarPorVenta", "MODSAL_RestarPorVenta");
+                }
+            }
+            return RedirectToAction("vMODSAL_RestarPorVenta", "MODSAL_RestarPorVenta");
+        }
+
         public static bool actualizarBD(int idProducto, int cantidad)
         {
             string credenciales = "server=DESKTOP-39C8GSB; database=AnalisisP1 ; integrated security = true";
