@@ -79,9 +79,22 @@ namespace Inventario.Controllers
             return lista;
         }
 
-        public string restando(int v1, int v2, int v3)
+        public string restando(int cantProducto, int cantIngresada, int producto)
         {
-            throw new NotImplementedException();
+            if (cantIngresada < 0)
+            {
+                return "No se aceptan numeros negativos";
+            }
+            else if (cantIngresada > cantProducto)
+            {
+                return "No se cuenta con el producto suficiente para la venta,\n Cantidad de producto disponible: " + cantProducto;
+            }
+            else
+            {
+                int resta = cantProducto - cantIngresada;
+                actualizarBD(producto, resta);
+            }
+            return "Yes";
         }
 
         public static bool actualizarBD(int idProducto, int cantidad)
