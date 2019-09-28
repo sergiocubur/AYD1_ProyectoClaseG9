@@ -70,7 +70,14 @@ namespace Inventario.Tests.Controllers
             // Assert
             Assert.IsNotNull(result);
         }
-
+        [TestMethod]
+        public void restando_Test()
+        {
+            MODSAL_RestarPorVentaController controller = new MODSAL_RestarPorVentaController();
+            string result = controller.restando(35, 56, 1) as string;
+            // Assert
+            Assert.IsNotNull(result);
+        }
 
     }
 }

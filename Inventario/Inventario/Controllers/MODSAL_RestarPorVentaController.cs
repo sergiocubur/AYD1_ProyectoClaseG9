@@ -79,6 +79,11 @@ namespace Inventario.Controllers
             return lista;
         }
 
+        public string restando(int v1, int v2, int v3)
+        {
+            throw new NotImplementedException();
+        }
+
         public static bool actualizarBD(int idProducto, int cantidad)
         {
             string credenciales = "server=DESKTOP-39C8GSB; database=AnalisisP1 ; integrated security = true";
@@ -120,6 +125,7 @@ namespace Inventario.Controllers
             Session["LOG_PRODUCTOS"] = listaP;
             return RedirectToAction("vMODSAL_VerProductos", "MODSAL_RestarPorVenta");
         }
+
         
     }
 }
