@@ -79,9 +79,33 @@ namespace Inventario.Controllers
             return lista;
         }
 
-        public static object actualizarBD(int v1, int v2)
+        public static bool actualizarBD(int idProducto, int cantidad)
         {
-            throw new NotImplementedException();
+            string credenciales = "server=DESKTOP-39C8GSB; database=AnalisisP1 ; integrated security = true";
+            SqlConnection conexion = new SqlConnection(credenciales);
+            SqlDataAdapter adaptador = new SqlDataAdapter();
+            try
+            {
+                conexion.Open();
+                string sql = "update producto SET cantidad = @param1 where idproducto = @param2";
+                using (SqlCommand cmdU = new SqlCommand(sql, conexion))
+                {
+                    cmdU.Parameters.Add("@param1", SqlDbType.Int).Value = cantidad;
+                    cmdU.Parameters.Add("@param2", SqlDbType.Int).Value = idProducto;
+                    cmdU.CommandType = CommandType.Text;
+                    cmdU.ExecuteNonQuery();
+
+                }
+                conexion.Close();
+
+            }
+            catch (Exception ex)
+            {
+                conexion.Close();
+                Trace.WriteLine(ex.ToString());
+                return false;
+            }
+            return true;
         }
 
         public ActionResult vMODSAL_VerProductos()
