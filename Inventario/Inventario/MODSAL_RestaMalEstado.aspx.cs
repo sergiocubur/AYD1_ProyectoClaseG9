@@ -80,9 +80,12 @@ namespace Inventario
             {
                 con.Open();
                 int r = command.ExecuteNonQuery();
-                if (r == 0)
+                if (r != 0)
                 {
-                    Response.Write("No hubo nada");
+                    Response.Write("Resta Realizada");
+                }else
+                {
+                    Response.Write("Resta no Realizada");
                 }
                 con.Close();
             }
