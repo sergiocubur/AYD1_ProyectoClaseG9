@@ -54,7 +54,7 @@ namespace Inventario.Tests.Controllers
         public void TestUpdate()
         {
             var me = new MODSAL_RestaMalEstado();
-            var result = me.consultaUp("Producto3", 200);
+            var result = me.consultaUp(200, "Producto3");
             Assert.AreEqual(result, 4);
         }
     }

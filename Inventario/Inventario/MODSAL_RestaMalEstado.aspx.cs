@@ -26,7 +26,8 @@ namespace Inventario
             else
             {
                 int cant = Convert.ToInt32(txtCantidad.Text);
-                string credenciales = "server=RODOLFO-HP\\SQL2017;database=Practica2;integrated security=true";
+                int result = 0;
+                string credenciales = "server=RODOLFO-HP\\SQL2017;database=AnalisisP1;integrated security=true";
                 SqlConnection con = new SqlConnection(credenciales);
                 SqlCommand command = new SqlCommand();
 
@@ -34,25 +35,96 @@ namespace Inventario
                 command.CommandType = CommandType.Text;
                 command.CommandText = "SELECT cantidad FROM producto WHERE descripcion=@product";
                 command.Parameters.AddWithValue("@product", txtProducto.Text);
-
+                //Response.Write("Pasa por aca " + cant);
                 try
                 {
                     con.Open();
                     int a = Convert.ToInt32(command.ExecuteScalar());
-                    if (a != 0)
+                    //Response.Write("Consulta: " + a);
+                    if (a > cant)
                     {
-                        if (a > cant)
-                        {
-
-                        }
+                        result = a - cant;
+                        con.Close();
+                        Consultaupdate(result, txtProducto.Text);
+                        txtProducto.Text = "";
+                        txtCantidad.Text = "";
                     }
-                    con.Close();
+                    else
+                    {
+                        Page.ClientScript.RegisterStartupScript(GetType(), "Show Modal Popup", "alert ('No se puede restar mas de lo que hay en inventario');", true);
+                        txtCantidad.Text = "";
+                    }
+
                 }
                 catch (Exception ex)
                 {
                     Console.Write(ex);
                 }
             }
+        }
+
+        public void Consultaupdate(int cantidad, string producto)
+        {
+            Response.Write("update " + cantidad + " " + producto);
+            string credenciales = "server=RODOLFO-HP\\SQL2017;database=AnalisisP1;integrated security=true";
+            SqlConnection con = new SqlConnection(credenciales);
+            SqlCommand command = new SqlCommand();
+
+            command.Connection = con;
+            command.CommandType = CommandType.Text;
+            command.CommandText = "UPDATE producto SET cantidad=@cantidad WHERE descripcion=@product";
+            command.Parameters.AddWithValue("@product", producto);
+            command.Parameters.AddWithValue("@cantidad", cantidad);
+
+            try
+            {
+                con.Open();
+                int r = command.ExecuteNonQuery();
+                if (r == 0)
+                {
+                    Response.Write("No hubo nada");
+                }
+                con.Close();
+            }
+            catch (Exception e)
+            {
+                Response.Write(e);
+            }
+
+        }
+
+        public int consultaUp(int cantidad, string producto)
+        {
+            Response.Write("update " + cantidad + " " + producto);
+            string credenciales = "server=RODOLFO-HP\\SQL2017;database=AnalisisP1;integrated security=true";
+            SqlConnection con = new SqlConnection(credenciales);
+            SqlCommand command = new SqlCommand();
+
+            command.Connection = con;
+            command.CommandType = CommandType.Text;
+            command.CommandText = "UPDATE producto SET cantidad=@cantidad WHERE descripcion=@product";
+            command.Parameters.AddWithValue("@product", producto);
+            command.Parameters.AddWithValue("@cantidad", cantidad);
+
+            try
+            {
+                con.Open();
+                int r = command.ExecuteNonQuery();
+                if (r != 0)
+                {
+                    return 4;
+                }
+                else
+                {
+                    return 0;
+                }
+                con.Close();
+            }
+            catch (Exception e)
+            {
+                Response.Write(e);
+            }
+            return 0;
         }
 
         public int consulta(string product, int cantidad)
