@@ -63,5 +63,14 @@ namespace Inventario.Tests.Controllers
             // Assert
             Assert.IsNotNull(result);
         }
+        [TestMethod]
+        public void actualizarBD_TestRestarPorVenta()
+        {
+            var result = MODSAL_RestarPorVentaController.actualizarBD(1, 35);
+            // Assert
+            Assert.IsNotNull(result);
+        }
+
+
     }
 }

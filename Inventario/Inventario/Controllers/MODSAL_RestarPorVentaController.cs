@@ -79,6 +79,11 @@ namespace Inventario.Controllers
             return lista;
         }
 
+        public static object actualizarBD(int v1, int v2)
+        {
+            throw new NotImplementedException();
+        }
+
         public ActionResult vMODSAL_VerProductos()
         {
             return View();
