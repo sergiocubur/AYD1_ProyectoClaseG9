@@ -1,22 +1,27 @@
 ﻿
 @{
     ViewBag.Title = "agregar";
+    if (Session["codeU"] == null || Session["nameU"] == null)
+    {
+        Response.Redirect("~/MODINI_Login/vMODINI_Login");
+    }
 }
+<a href="@Url.Action("index", "MODPRODU")" class="btn  btn-primary" id="agregar">Regresar</a>
 
 @using (Html.BeginForm("agregar_producto", "MODPRODU", FormMethod.Post))
 {
 <div class="form-group">
     <label for="idproducto">Código:</label>
-    <input type="number" class="form-control" name=idproducto id="idproducto" >
+    <input type="number" class="form-control" name=idproducto id="idproducto"  required>
 
     <label for="descripcion">Descripción:</label>
     <input type="text" class="form-control" name=descripcion id="descripcion" >
 
     <label for="precio_compra">Precio de compra:</label>
-    <input type="number" class="form-control" name=precio_compra id="precio_compra" >
+    <input type="number" class="form-control" name=precio_compra id="precio_compra" required>
 
     <label for="precio_venta">Precio de venta:</label>
-    <input type="number" class="form-control" name=precio_venta id="precio_venta" >
+    <input type="number" class="form-control" name=precio_venta id="precio_venta" required>
 </div>
     <input id="btn" name="btn" type="submit" value="Agregar" class="btn btn-primary" />
     <br />

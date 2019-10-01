@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Inventario", "Inventario\In
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Inventario.Tests", "Inventario.Tests\Inventario.Tests.csproj", "{3836A71F-DACA-404E-8059-AD0EDD5DC95B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bowling.Specflow", "Bowling.Specflow\Bowling.Specflow.csproj", "{D1FC8B4C-8553-4B50-BFC3-1BA12CDABBAC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{3836A71F-DACA-404E-8059-AD0EDD5DC95B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3836A71F-DACA-404E-8059-AD0EDD5DC95B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3836A71F-DACA-404E-8059-AD0EDD5DC95B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D1FC8B4C-8553-4B50-BFC3-1BA12CDABBAC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D1FC8B4C-8553-4B50-BFC3-1BA12CDABBAC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D1FC8B4C-8553-4B50-BFC3-1BA12CDABBAC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D1FC8B4C-8553-4B50-BFC3-1BA12CDABBAC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

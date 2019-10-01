@@ -1,5 +1,9 @@
 ﻿@model List<Inventario.Objetos.ObjDevolucion>
 @{
+    if (Session["codeU"] == null || Session["nameU"] == null)
+    {
+        Response.Redirect("~/MODINI_Login/vMODINI_Login");
+    }
 }
 <br />
 @Html.ActionLink("Regresar", "Index", "MODING", new { area = "" }, new { @class = "btn btn-primary" })
@@ -10,7 +14,7 @@
         {
             <div class="form-group">
                 <label for="descripcion" class="sr-only">Descripcion</label>
-                <textarea class="form-control" name="descripcion" placeholder="Descripcion"></textarea>
+                <textarea class="form-control" name="descripcion" placeholder="Descripcion" required></textarea>
             </div>
             <input type="submit" name="btnIngresarDevolucion" value="Ingresar" class="btn btn-primary" />
         }

@@ -1,6 +1,11 @@
 ﻿@{
     ViewBag.Title = "Resta po Mal Estado";
+    if (Session["codeU"] == null || Session["nameU"] == null)
+    {
+        Response.Redirect("~/MODINI_Login/vMODINI_Login");
+    }
 }
+
 
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
