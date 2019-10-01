@@ -10,7 +10,7 @@
 namespace Inventario {
     
     
-    public partial class MODRES_MEstado {
+    public partial class MODSAL_RestaMalEstado {
         
         /// <summary>
         /// Control form1.
