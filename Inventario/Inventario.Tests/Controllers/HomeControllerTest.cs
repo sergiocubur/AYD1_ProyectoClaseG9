@@ -3,16 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Web.Mvc;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using NUnit.Framework;
 using Inventario;
 using Inventario.Controllers;
 
 namespace practica2_grupo7.Tests.Controllers
 {
-    [TestClass]
+    
     public class HomeControllerTest
     {
-        [TestMethod]
+        [Test]
         public void Index()
         {
             // Arrange
@@ -25,7 +25,7 @@ namespace practica2_grupo7.Tests.Controllers
             Assert.IsNotNull(result);
         }
 
-        [TestMethod]
+        [Test]
         public void About()
         {
             // Arrange
@@ -38,7 +38,7 @@ namespace practica2_grupo7.Tests.Controllers
             Assert.AreEqual("Your application description page.", result.ViewBag.Message);
         }
 
-        [TestMethod]
+        [Test]
         public void Contact()
         {
             // Arrange
@@ -50,5 +50,107 @@ namespace practica2_grupo7.Tests.Controllers
             // Assert
             Assert.IsNotNull(result);
         }
+
+        [Test]
+        public void RestaxVentas()
+        {
+            // Arrange
+            MODSAL_RestaxVentaController controller = new MODSAL_RestaxVentaController();
+
+            int respuesta=controller.restar1(100, 50);            
+
+            // Assert
+            Assert.IsNotNull(respuesta);
+            Assert.AreNotEqual(100, respuesta);
+            //Assert.AreEqual(100,respuesta);
+        }
+
+        [Test]
+        public void VerificarImputs_CrearUsuario()
+        {
+            MODUSRController controller = new MODUSRController();
+            string dpi = "algo";
+            string apellido = "algo";
+            string codUsuario = "algo";
+            string password = "algo";
+            int respuesta = controller.comprobarForm(dpi,apellido,codUsuario,password);
+
+            Assert.IsNotNull(respuesta);
+            Assert.AreNotEqual(0, respuesta);
+        }
+        [Test]
+        public void largoPassword_CrearUsuario()
+        {
+            MODUSRController controller = new MODUSRController();
+            
+            string password = "123456";
+            int respuesta = controller.largoPassword(password);
+
+            Assert.IsNotNull(respuesta);
+            Assert.AreNotEqual(0, respuesta);
+        }
+        [Test]
+        public void numeroPassword_CrearUsuario()
+        {
+            MODUSRController controller = new MODUSRController();
+            
+            string password = "1numero";
+            int respuesta = controller.numeroPassword(password);
+
+            Assert.IsNotNull(respuesta);
+            Assert.AreNotEqual(0, respuesta);
+        }
+        [Test]
+        public void simboloPassword_CrearUsuario()
+        {
+            MODUSRController controller = new MODUSRController();
+            string password = "!simbolo";
+            int respuesta = controller.simboloPassword(password);
+
+            Assert.IsNotNull(respuesta);
+            Assert.AreNotEqual(0, respuesta);
+        }
+        [Test]
+        public void mayuscula_CrearUsuario()
+        {
+            MODUSRController controller = new MODUSRController();
+            
+            string password = "Mayuscula";
+            int respuesta = controller.mayusculaPassword(password);
+
+            Assert.IsNotNull(respuesta);
+            Assert.AreNotEqual(0, respuesta);
+        }
+        [Test]
+        public void largoCodUsuario_CrearUsuario()
+        {
+            MODUSRController controller = new MODUSRController();
+            
+            string codUsuario = "1234";
+            int respuesta = controller.largoCodUsuario(codUsuario);
+
+            Assert.IsNotNull(respuesta);
+            Assert.AreNotEqual(0, respuesta);
+        }
+        [Test]
+        public void largoDpi_CrearUsuario()
+        {
+            MODUSRController controller = new MODUSRController();
+            string dpi = "1234567890123";
+            int respuesta = controller.largoDpi(dpi);
+
+            Assert.IsNotNull(respuesta);
+            Assert.AreNotEqual(0, respuesta);
+        }
+
+        [TestMethod]
+        public void los_input_devolucion_no_pueden_ser_vacios()
+        {
+            MODINGController controller = new MODINGController();
+            Assert.IsNull(controller.insertarDevolucion(String.Empty, String.Empty));
+            //Assert.AreNotEqual(0, respuesta);
+        }
+
+
     }
 }

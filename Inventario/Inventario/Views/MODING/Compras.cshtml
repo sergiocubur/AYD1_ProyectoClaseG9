@@ -1,5 +1,9 @@
-﻿
+﻿@model List<Inventario.Objetos.ObjDevolucion>
 @{
+    if (Session["codeU"] == null || Session["nameU"] == null)
+    {
+        Response.Redirect("~/MODINI_Login/vMODINI_Login");
+    }
 }
 <br />
 @Html.ActionLink("Regresar", "Index", "MODING", new { area = "" }, new { @class = "btn btn-primary" })
@@ -7,34 +11,40 @@
 <br />
 <div class="row">
     <div class="col-md-12 devolucion-factura">
-        <form action="/" method="post" class="form-inline" role="form">
+        @using (Html.BeginForm("insertarCompra", "MODING", FormMethod.Post, new { @class = "frm" }))
+        {
             <div class="form-group">
-                <label for="factura" class="sr-only">Factura</label>
-                <input type="text" name="factura" class="form-control" placeholder="Orden de compra" />
+                <label for="descripcion" class="sr-only">Factura</label>
+                <input class="form-control" name="descripcion" placeholder="Factura" required />
             </div>
-            <input type="button" name="btnIngresarDevolucion" value="Ingresar" class="btn btn-primary" />
-        </form>
+            <input type="submit" name="btnIngresarDevolucion" value="Ingresar" class="btn btn-primary" />
+        }
     </div>
+
     <div class="col-md-12 devolucion-ingreso">
         <br />
         <table class="table table-bordered table-responsive">
             <thead>
                 <tr>
                     <th>Codigo</th>
-                    <th>Orden de compra</th>
+                    <th>Fecha</th>
+                    <th>Factura</th>
                     <th>Estado</th>
-                    <th></th>
+                    <th>Usuario Ingresa</th>
                 </tr>
             </thead>
-            <tr>
-                <td><a href="/MODING/Compra?compra=22">22</a></td>
-                <td>2881</td>
-                <td>3</td>
-                <td>
-                    <a class="btn btn-success">Aprobar</a>
-                    <a class="btn btn-danger">Rechazar</a>
-                </td>
-            </tr>
+            <tbody>
+                @foreach (var devolucion in Model)
+                {
+                    <tr>
+                        <td><a href="/MODING/Compra?compra=@devolucion.idingreso">@devolucion.idingreso.ToString()</a></td>
+                        <td>@devolucion.fecha_ingreso</td>
+                        <td>@devolucion.descripcion</td>
+                        <td>@devolucion.estado</td>
+                        <td>@devolucion.usuario_ingresa</td>
+                    </tr>
+                }
+            </tbody>
         </table>
     </div>
 </div>

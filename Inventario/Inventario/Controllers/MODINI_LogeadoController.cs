@@ -13,5 +13,10 @@ namespace Inventario.Controllers
         {
             return View();
         }
+
+        public ActionResult vRestaME()
+        {
+            return Redirect("/MODSAL_RestaMalEstado.aspx");
+        }
     }
 }
