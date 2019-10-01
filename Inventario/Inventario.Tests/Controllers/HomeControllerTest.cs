@@ -7,7 +7,7 @@ using NUnit.Framework;
 using Inventario;
 using Inventario.Controllers;
 
-namespace Inventario.Tests.Controllers
+namespace practica2_grupo7.Tests.Controllers
 {
     
     public class HomeControllerTest

@@ -14,16 +14,14 @@
     <ProductVersion>
     </ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{3836A71F-DACA-404E-8059-AD0EDD5DC95B}</ProjectGuid>
+    <ProjectGuid>{696649AD-2166-4BC5-9B8D-7D2B4F752C4C}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Inventario.Tests</RootNamespace>
-    <AssemblyName>Inventario.Tests</AssemblyName>
+    <RootNamespace>practica2_grupo7.Tests</RootNamespace>
+    <AssemblyName>practica2_grupo7.Tests</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
-    <NuGetPackageImportStamp>
-    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -139,7 +137,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Inventario\Inventario.csproj">
-      <Project>{70BECC75-EEFA-4449-87F6-CAD1F907DCF6}</Project>
+      <Project>{70becc75-eefa-4449-87f6-cad1f907dcf6}</Project>
       <Name>Inventario</Name>
     </ProjectReference>
   </ItemGroup>
