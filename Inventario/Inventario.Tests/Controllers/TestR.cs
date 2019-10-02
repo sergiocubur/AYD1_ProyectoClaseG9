@@ -1,22 +1,22 @@
 ﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using NUnit.Framework;
 
 namespace Inventario.Tests.Controllers
 {
-    [TestClass]
+    
     public class TestRestarME
     {
-        [TestMethod]
+        [Test]
         public void TestRestaCero()
         {
             var rme = new MODSAL_RestaMalEstado();
-
+            
             var result = rme.consulta("producto1", 0);
 
             Assert.AreEqual(result, 0);
         }
 
-        [TestMethod]
+        [Test]
         public void TestRestaSinNombre()
         {
             var rme = new MODSAL_RestaMalEstado();
@@ -26,15 +26,15 @@ namespace Inventario.Tests.Controllers
             Assert.AreEqual(result, 0);
         }
 
-        [TestMethod]
+        [Test]
         public void TestSelect()
         {
             var me = new MODSAL_RestaMalEstado();
-            var result = me.consulta("Producto1", 100);
+            var result = me.consultaSelect("Producto1");
             Assert.AreEqual(result, 1);
         }
 
-        [TestMethod]
+        [Test]
         public void TestInsert()
         {
             var me = new MODSAL_RestaMalEstado();
@@ -42,7 +42,7 @@ namespace Inventario.Tests.Controllers
             Assert.AreEqual(result, 1);
         }
 
-        [TestMethod]
+        [Test]
         public void TestConnection()
         {
             var me = new MODSAL_RestaMalEstado();
@@ -50,7 +50,7 @@ namespace Inventario.Tests.Controllers
             Assert.AreEqual(result, 4);
         }
 
-        [TestMethod]
+        [Test]
         public void TestUpdate()
         {
             var me = new MODSAL_RestaMalEstado();

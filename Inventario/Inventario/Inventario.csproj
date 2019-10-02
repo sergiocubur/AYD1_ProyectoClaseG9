@@ -97,7 +97,6 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
-
     <Reference Include="nunit.framework, Version=3.11.0.0, Culture=neutral, PublicKeyToken=2638cd05610744eb, processorArchitecture=MSIL">
       <HintPath>..\packages\NUnit.3.11.0\lib\net45\nunit.framework.dll</HintPath>
       <Private>True</Private>
@@ -247,7 +246,6 @@
     <Compile Include="Controllers\MODRES_RestaME.cs" />
     <Compile Include="Controllers\MODREP_RepMovimientosController.cs" />
     <Compile Include="Controllers\MODREP_ReportesController.cs" />
-    <Compile Include="Controllers\MODSAL_RestaxVentaController.cs" />
     <Compile Include="Controllers\MODUS_Modify.aspx.cs">
       <DependentUpon>MODUS_Modify.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

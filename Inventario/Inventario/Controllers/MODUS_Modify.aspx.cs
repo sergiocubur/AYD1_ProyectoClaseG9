@@ -21,7 +21,7 @@ namespace Inventario.Controllers
         {
             if(txtFecha.Text != "")
             {
-                using (SqlConnection connection = new SqlConnection("server=RODOLFO-HP\\SQL2017; database=AnalisisP1; integrated security = true"))
+                using (SqlConnection connection = new SqlConnection("server=LAPTOP-SCUBUR\\SQLEXPRESS02; database=AnalisisP1; integrated security = true"))
                 using (SqlCommand command = connection.CreateCommand())
                 {
                     command.CommandText = "UPDATE usuario (fecha_alta) VALUES(@fecha) WHERE codigo ='"+txtCodigo.Text+"'";
@@ -37,7 +37,7 @@ namespace Inventario.Controllers
             }
             if(txtPass.Text != "")
             {
-                using (SqlConnection connection = new SqlConnection("server=RODOLFO-HP\\SQL2017; database=AnalisisP1; integrated security = true"))
+                using (SqlConnection connection = new SqlConnection("server=LAPTOP-SCUBUR\\SQLEXPRESS02; database=AnalisisP1; integrated security = true"))
                 using (SqlCommand command = connection.CreateCommand())
                 {
                     command.CommandText = "UPDATE usuario (password) VALUES(@pass) WHERE codigo ='" + txtCodigo.Text + "'";
@@ -53,7 +53,7 @@ namespace Inventario.Controllers
             }
             if (txtApellido.Text != "")
             {
-                using (SqlConnection connection = new SqlConnection("server=RODOLFO-HP\\SQL2017; database=AnalisisP1; integrated security = true"))
+                using (SqlConnection connection = new SqlConnection("server=LAPTOP-SCUBUR\\SQLEXPRESS02; database=AnalisisP1; integrated security = true"))
                 using (SqlCommand command = connection.CreateCommand())
                 {
                     command.CommandText = "UPDATE usuario (apellido) VALUES(@apellido) WHERE codigo ='" + txtCodigo.Text + "'";
@@ -69,7 +69,7 @@ namespace Inventario.Controllers
             }
             if(txtEstado.Text != "")
             {
-                using (SqlConnection connection = new SqlConnection("server=RODOLFO-HP\\SQL2017; database=AnalisisP1; integrated security = true"))
+                using (SqlConnection connection = new SqlConnection("server=LAPTOP-SCUBUR\\SQLEXPRESS02; database=AnalisisP1; integrated security = true"))
                 using (SqlCommand command = connection.CreateCommand())
                 {
                     command.CommandText = "UPDATE usuario (estado) VALUES(@state) WHERE codigo ='" + txtCodigo.Text + "'";
@@ -85,7 +85,7 @@ namespace Inventario.Controllers
             }
             if (txtTipo.Text != "")
             {
-                using (SqlConnection connection = new SqlConnection("server=RODOLFO-HP\\SQL2017; database=AnalisisP1; integrated security = true"))
+                using (SqlConnection connection = new SqlConnection("server=LAPTOP-SCUBUR\\SQLEXPRESS02; database=AnalisisP1; integrated security = true"))
                 using (SqlCommand command = connection.CreateCommand())
                 {
                     command.CommandText = "UPDATE usuario (tipo_usuario) VALUES(@type) WHERE codigo ='" + txtCodigo.Text + "'";

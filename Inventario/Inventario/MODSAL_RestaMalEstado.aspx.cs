@@ -27,7 +27,7 @@ namespace Inventario
             {
                 int cant = Convert.ToInt32(txtCantidad.Text);
                 int result = 0;
-                string credenciales = "server=RODOLFO-HP\\SQL2017;database=AnalisisP1;integrated security=true";
+                string credenciales = "server=LAPTOP-SCUBUR\\SQLEXPRESS02;database=AnalisisP1;integrated security=true";
                 SqlConnection con = new SqlConnection(credenciales);
                 SqlCommand command = new SqlCommand();
 
@@ -66,7 +66,7 @@ namespace Inventario
         public void Consultaupdate(int cantidad, string producto)
         {
             Response.Write("update " + cantidad + " " + producto);
-            string credenciales = "server=RODOLFO-HP\\SQL2017;database=AnalisisP1;integrated security=true";
+            string credenciales = "server=LAPTOP-SCUBUR\\SQLEXPRESS02;database=AnalisisP1;integrated security=true";
             SqlConnection con = new SqlConnection(credenciales);
             SqlCommand command = new SqlCommand();
 
@@ -99,7 +99,7 @@ namespace Inventario
         public int consultaUp(int cantidad, string producto)
         {
             Response.Write("update " + cantidad + " " + producto);
-            string credenciales = "server=RODOLFO-HP\\SQL2017;database=AnalisisP1;integrated security=true";
+            string credenciales = "server=LAPTOP-SCUBUR\\SQLEXPRESS02;database=AnalisisP1;integrated security=true";
             SqlConnection con = new SqlConnection(credenciales);
             SqlCommand command = new SqlCommand();
 
@@ -147,7 +147,7 @@ namespace Inventario
         public int consultaSelect(string product)
         {
             int cant = Convert.ToInt32(txtCantidad.Text);
-            string credenciales = "server=RODOLFO-HP\\SQL2017;database=Practica2;integrated security=true";
+            string credenciales = "server=LAPTOP-SCUBUR\\SQLEXPRESS02;database=Practica2;integrated security=true";
             SqlConnection con = new SqlConnection(credenciales);
             SqlCommand command = new SqlCommand();
 
