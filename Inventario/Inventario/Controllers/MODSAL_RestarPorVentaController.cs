@@ -20,7 +20,7 @@ namespace Inventario.Controllers
 
         public static DataTable consultarBD(string Consulta)
         {
-            string credenciales = "server=DESKTOP-39C8GSB; database=AnalisisP1 ; integrated security = true";
+            string credenciales = "server=LAPTOP-SCUBUR\\SQLEXPRESS02; database=AnalisisP1 ; integrated security = true";
             SqlConnection conexion = new SqlConnection(credenciales);
             SqlDataAdapter adaptador = new SqlDataAdapter();
             DataTable ds = new DataTable();
@@ -47,7 +47,8 @@ namespace Inventario.Controllers
         public ActionResult mostrandoVentas()
         {
             List<ObjRestaxVenta> listaVentas = new List<ObjRestaxVenta>();
-            listaVentas.Add(new ObjRestaxVenta("fecha", "desc", 5.25, 1, "nom", 5));
+            //listaVentas = get
+            //listaVentas.Add(new ObjRestaxVenta("fecha", "desc", 5.25, 1, "nom", 5));
             //Session["LOG_VENTAS"] = listaVentas;
             return RedirectToAction("vMODSAL_RestarPorVenta", "MODSAL_RestarPorVenta");
         }
@@ -119,7 +120,7 @@ namespace Inventario.Controllers
 
         public static bool actualizarBD(int idProducto, int cantidad)
         {
-            string credenciales = "server=DESKTOP-39C8GSB; database=AnalisisP1 ; integrated security = true";
+            string credenciales = "server=LAPTOP-SCUBUR\\SQLEXPRESS02; database=AnalisisP1 ; integrated security = true";
             SqlConnection conexion = new SqlConnection(credenciales);
             SqlDataAdapter adaptador = new SqlDataAdapter();
             try

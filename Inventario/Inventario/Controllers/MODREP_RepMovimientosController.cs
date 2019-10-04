@@ -32,11 +32,11 @@ namespace Inventario.Controllers
             List<ObjRepKardex> lista = new List<ObjRepKardex>();
             if (tipoMovimiento.Equals("in"))    //Reporte de entradas
             {
-                string consulta = "select MO.proveedor, MO.descripcion, MO.fecha_ingreso, DMO.cantidad, (DMO.cantidad * PRO.precio_costo) total " +
+                string consulta = "select MO.descripcion, MO.fecha_ingreso, DMO.cantidad, (DMO.cantidad * PRO.precio_costo) total " +
                                     "from movimiento as MO, det_movimiento DMO, producto as PRO " +
                                     "where DMO.movimiento_idingreso = MO.idingreso " +
-                                    "and DMO.producto_idproducto = PRO.idproducto " +
-                                    "and MO.fecha_ingreso between '" + fechaIni.ToShortDateString() + "' and '" + fechaFin.ToShortDateString() + "'";
+                                    "and DMO.producto_idproducto = PRO.idproducto ";
+                                    //"and MO.fecha_ingreso between '" + fechaIni.ToShortDateString() + "' and '" + fechaFin.ToShortDateString() + "'";
                 DataTable dt = consultarBD(consulta);
                 if (dt != null)
                 {
@@ -45,9 +45,8 @@ namespace Inventario.Controllers
                         foreach (DataRow row in dt.Rows)
                         {
                             ObjRepKardex nuevo = new ObjRepKardex();
-                            nuevo.cliente_proveedor = row["nombre_cliente"].ToString();
                             nuevo.descripcion = row["descripcion"].ToString();
-                            nuevo.fecha = row["fecha_pedido"].ToString();
+                            nuevo.fecha = row["fecha_ingreso"].ToString();
                             nuevo.cantidad = row["cantidad"].ToString();
                             nuevo.total = row["total"].ToString();
                             lista.Add(nuevo);
@@ -60,8 +59,8 @@ namespace Inventario.Controllers
                 string consulta = "select PE.nombre_cliente, PRO.descripcion, PE.fecha_pedido, DPE.cantidad, PE.total " +
                                     "from pedido as PE, det_pedido as DPE, producto as PRO" +
                                     "where DPE.pedido_idpedido = PE.idpedido" +
-                                    "and DPE.producto_idproducto = PRO.idproducto" +
-                                    "and PE.fecha_pedido between '" + fechaIni.ToShortDateString() + "' and '" + fechaFin.ToShortDateString() + "'";
+                                    "and DPE.producto_idproducto = PRO.idproducto";
+                                    //"and PE.fecha_pedido between '" + fechaIni.ToShortDateString() + "' and '" + fechaFin.ToShortDateString() + "'";
                 DataTable dt = consultarBD(consulta);
                 if (dt != null)
                 {

@@ -187,9 +187,9 @@ namespace Inventario.Controllers
         public ActionResult insertarDevolucion(string descripcion, string usuario_ingresa)
         {
             //string usuario= Session["idU"].ToString();
-            if (this.comprobarinputForm(descripcion) + this.comprobarinputForm(usuario_ingresa) > 0) {
+            /*if (this.comprobarinputForm(descripcion) + this.comprobarinputForm(usuario_ingresa) > 0) {
                 return null;
-            }
+            }*/
             consulta("INSERT INTO MOVIMIENTO(fecha_ingreso,descripcion,tipo_movimiento,estado,usuario_idusuario,pais_idpais) VALUES(getdate(),'" + descripcion + "','DEVOLUCION',0,1,1)");
             return RedirectToAction("Devoluciones");
         }
