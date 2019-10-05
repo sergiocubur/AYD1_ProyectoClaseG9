@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="MODRES_MEstado.aspx.cs" Inherits="Inventario.MODRES_MEstado" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="MODSAL_RestaMalEstado.aspx.cs" Inherits="Inventario.MODSAL_RestaMalEstado" %>
 
 <!DOCTYPE html>
 
@@ -10,7 +10,8 @@
 <body>
     <form id="form1" runat="server">
     <div>
-    
+        <h1>Operacion Resta en Mal Estado</h1>
+        <br />
         <br />
         <asp:Label ID="Label1" runat="server" Text="Producto"></asp:Label>
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;

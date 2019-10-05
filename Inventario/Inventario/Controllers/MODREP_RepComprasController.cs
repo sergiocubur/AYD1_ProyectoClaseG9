@@ -30,12 +30,12 @@ namespace Inventario.Controllers
             List<ObjRepKardex> lista = new List<ObjRepKardex>();
             if (tipoCompras.Equals("nac"))    //Reporte de compras nacionales
             {
-                string consulta = "select MO.proveedor,  MO.descripcion, PA.nombre, MO.fecha_ingreso, DMO.cantidad, PRO.precio_costo, (DMO.cantidad * PRO.precio_costo) as total " +
+                string consulta = "select MO.descripcion, PA.nombre, MO.fecha_ingreso, DMO.cantidad, PRO.precio_costo, (DMO.cantidad * PRO.precio_costo) as total " +
                                     "from movimiento as MO, det_movimiento DMO, producto as PRO, pais as PA " +
                                     "where PA.idpais = MO.pais_idpais " +
                                     "and PA.nombre = 'Guatemala' " +
                                     "and DMO.movimiento_idingreso = MO.idingreso " +
-                                    "and DMO.producto_idproducto = PRO.idproducto " +
+                                    "and DMO.producto_idproducto = PRO.idproducto "+
                                     "and MO.fecha_ingreso between '" + fechaIni.ToShortDateString() + "' and '" + fechaFin.ToShortDateString() + "'";
                 DataTable dt = consultarBD(consulta);
                 if (dt != null)
@@ -45,7 +45,6 @@ namespace Inventario.Controllers
                         foreach (DataRow row in dt.Rows)
                         {
                             ObjRepKardex nuevo = new ObjRepKardex();
-                            nuevo.cliente_proveedor = row["proveedor"].ToString();
                             nuevo.descripcion = row["descripcion"].ToString();
                             nuevo.pais = row["nombre"].ToString();
                             nuevo.fecha = row["fecha_ingreso"].ToString();
@@ -59,12 +58,12 @@ namespace Inventario.Controllers
             }
             else //Reporte de compras internacionales
             {
-                string consulta = "select MO.proveedor,  MO.descripcion, PA.nombre, MO.fecha_ingreso, DMO.cantidad, PRO.precio_costo, (DMO.cantidad * PRO.precio_costo) as total " +
+                string consulta = "select MO.descripcion, PA.nombre, MO.fecha_ingreso, DMO.cantidad, PRO.precio_costo, (DMO.cantidad * PRO.precio_costo) as total " +
                                     "from movimiento as MO, det_movimiento DMO, producto as PRO, pais as PA " +
                                     "where PA.idpais = MO.pais_idpais " +
                                     "and PA.nombre <> 'Guatemala' " +
                                     "and DMO.movimiento_idingreso = MO.idingreso " +
-                                    "and DMO.producto_idproducto = PRO.idproducto " +
+                                    "and DMO.producto_idproducto = PRO.idproducto "+
                                     "and MO.fecha_ingreso between '" + fechaIni.ToShortDateString() + "' and '" + fechaFin.ToShortDateString() + "'";
                 DataTable dt = consultarBD(consulta);
                 if (dt != null)
@@ -74,7 +73,6 @@ namespace Inventario.Controllers
                         foreach (DataRow row in dt.Rows)
                         {
                             ObjRepKardex nuevo = new ObjRepKardex();
-                            nuevo.cliente_proveedor = row["proveedor"].ToString();
                             nuevo.descripcion = row["descripcion"].ToString();
                             nuevo.pais = row["nombre"].ToString();
                             nuevo.fecha = row["fecha_ingreso"].ToString();
@@ -92,7 +90,7 @@ namespace Inventario.Controllers
 
         public static DataTable consultarBD(string Consulta)
         {
-            string credenciales = "server=DESKTOP-39C8GSB; database=AnalisisP1 ; integrated security = true";
+            string credenciales = "server=LAPTOP-SCUBUR\\SQLEXPRESS02; database=AnalisisP1 ; integrated security = true";
             SqlConnection conexion = new SqlConnection(credenciales);
             SqlDataAdapter adaptador = new SqlDataAdapter();
             DataTable ds = new DataTable();

@@ -1,0 +1,56 @@
+﻿@{
+    ViewBag.Title = "Restar Por Venta";
+    if (Session["codeU"] == null || Session["nameU"] == null)
+    {
+        Response.Redirect("~/MODINI_Login/vMODINI_Login");
+    }
+}
+
+<div>
+    <div class="jumbotron text-center" style="margin-bottom:0">
+        <h2>Productos En Existencia</h2>
+    </div>
+
+    <div id="materiales-div">
+        
+        <br />
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <td>Id</td>
+                    <td>Descripción</td>
+                    <td>Precio</td>
+                    <td>Fecha de Ingreso</td>
+                    <td>Existencias</td>
+                </tr>
+            </thead>
+
+            <tbody>
+                @{
+                    if (Session["LOG_PRODUCTOS"] != null)
+                    {
+                        List<Inventario.Objetos.ObjProducto> listaKardex = Session["LOG_PRODUCTOS"] as List<Inventario.Objetos.ObjProducto>;
+
+                        foreach (Inventario.Objetos.ObjProducto Producto in listaKardex)
+                        {
+                            <tr>
+                                <td>@Producto.idproducto</td>
+                                <td>@Producto.descripcion</td>
+                                <td>@Producto.precio_venta</td>
+                                <td>@Producto.fecha_ingreso</td>
+                                <td>@Producto.cantidad</td>
+                            </tr>
+                        }
+                    }
+                }
+
+            </tbody>
+        </table>
+        <br />
+        <br />
+        <a href="@Url.Action("vMODSAL_RestarPorVenta", "MODSAL_RestarPorVenta")" class="btn  btn-warning">Regresar</a>
+    </div>
+
+
+</div>
+

@@ -3,69 +3,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Web.Mvc;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using NUnit.Framework;
 using Inventario;
 using Inventario.Controllers;
 
-namespace Inventario.Tests.Controllers
+namespace practica2_grupo7.Tests.Controllers
 {
-    [TestClass]
+    
     public class HomeControllerTest
     {
-        [TestMethod]
-        public void Index()
-        {
-            // Arrange
-            HomeController controller = new HomeController();
-
-            // Act
-            ViewResult result = controller.Index() as ViewResult;
-
-            // Assert
-            Assert.IsNotNull(result);
-        }
-
-        [TestMethod]
-        public void About()
-        {
-            // Arrange
-            HomeController controller = new HomeController();
-
-            // Act
-            ViewResult result = controller.About() as ViewResult;
-
-            // Assert
-            Assert.AreEqual("Your application description page.", result.ViewBag.Message);
-        }
-
-        [TestMethod]
-        public void Contact()
-        {
-            // Arrange
-            HomeController controller = new HomeController();
-
-            // Act
-            ViewResult result = controller.Contact() as ViewResult;
-
-            // Assert
-            Assert.IsNotNull(result);
-        }
-
-        [TestMethod]
-        public void RestaxVentas()
-        {
-            // Arrange
-            MODSAL_RestaxVentaController controller = new MODSAL_RestaxVentaController();
-
-            int respuesta=controller.restar1(100, 50);            
-
-            // Assert
-            Assert.IsNotNull(respuesta);
-            Assert.AreNotEqual(100, respuesta);
-            //Assert.AreEqual(100,respuesta);
-        }
-
-        [TestMethod]
+        
+        [Test]
         public void VerificarImputs_CrearUsuario()
         {
             MODUSRController controller = new MODUSRController();
@@ -78,7 +26,7 @@ namespace Inventario.Tests.Controllers
             Assert.IsNotNull(respuesta);
             Assert.AreNotEqual(0, respuesta);
         }
-        [TestMethod]
+        [Test]
         public void largoPassword_CrearUsuario()
         {
             MODUSRController controller = new MODUSRController();
@@ -89,7 +37,7 @@ namespace Inventario.Tests.Controllers
             Assert.IsNotNull(respuesta);
             Assert.AreNotEqual(0, respuesta);
         }
-        [TestMethod]
+        [Test]
         public void numeroPassword_CrearUsuario()
         {
             MODUSRController controller = new MODUSRController();
@@ -100,7 +48,7 @@ namespace Inventario.Tests.Controllers
             Assert.IsNotNull(respuesta);
             Assert.AreNotEqual(0, respuesta);
         }
-        [TestMethod]
+        [Test]
         public void simboloPassword_CrearUsuario()
         {
             MODUSRController controller = new MODUSRController();
@@ -110,7 +58,7 @@ namespace Inventario.Tests.Controllers
             Assert.IsNotNull(respuesta);
             Assert.AreNotEqual(0, respuesta);
         }
-        [TestMethod]
+        [Test]
         public void mayuscula_CrearUsuario()
         {
             MODUSRController controller = new MODUSRController();
@@ -121,7 +69,7 @@ namespace Inventario.Tests.Controllers
             Assert.IsNotNull(respuesta);
             Assert.AreNotEqual(0, respuesta);
         }
-        [TestMethod]
+        [Test]
         public void largoCodUsuario_CrearUsuario()
         {
             MODUSRController controller = new MODUSRController();
@@ -132,7 +80,7 @@ namespace Inventario.Tests.Controllers
             Assert.IsNotNull(respuesta);
             Assert.AreNotEqual(0, respuesta);
         }
-        [TestMethod]
+        [Test]
         public void largoDpi_CrearUsuario()
         {
             MODUSRController controller = new MODUSRController();
@@ -142,5 +90,15 @@ namespace Inventario.Tests.Controllers
             Assert.IsNotNull(respuesta);
             Assert.AreNotEqual(0, respuesta);
         }
+
+        [Test]
+        public void los_input_devolucion_no_pueden_ser_vacios()
+        {
+            MODINGController controller = new MODINGController();
+            Assert.IsNull(controller.insertarDevolucion(String.Empty, String.Empty));
+            //Assert.AreNotEqual(0, respuesta);
+        }
+
+
     }
 }

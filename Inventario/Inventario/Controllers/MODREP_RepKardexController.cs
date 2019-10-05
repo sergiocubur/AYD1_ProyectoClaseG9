@@ -33,8 +33,8 @@ namespace Inventario.Controllers
             string consulta = "select PE.nombre_cliente, PE.fecha_pedido, DPE.cantidad, PRO.descripcion, PE.total " +
                                 "from pedido as PE, det_pedido as DPE, producto as PRO " +
                                 "where DPE.pedido_idpedido = PE.idpedido " +
-                                "and DPE.producto_idproducto = PRO.idproducto " +
-                                "and PE.fecha_pedido between '" + fechaIni.ToShortDateString() + "' and '" + fechaFin.ToShortDateString() + "'";
+                                "and DPE.producto_idproducto = PRO.idproducto ";
+                                //"and PE.fecha_pedido between '" + fechaIni.ToShortDateString() + "' and '" + fechaFin.ToShortDateString() + "'";
             DataTable dt = consultarBD(consulta);
             if (dt != null)
             {
@@ -57,11 +57,11 @@ namespace Inventario.Controllers
              ******************* ingresos ************************
              ***************************************************/
 
-            consulta = "select MO.proveedor, MO.fecha_ingreso, DMO.cantidad, MO.descripcion, (DMO.cantidad * PRO.precio_costo) total " +
+            consulta = "select MO.fecha_ingreso, DMO.cantidad, MO.descripcion, (DMO.cantidad * PRO.precio_costo) total " +
                         "from movimiento as MO, det_movimiento DMO, producto as PRO " +
                         "where DMO.movimiento_idingreso = MO.idingreso " +
-                        "and DMO.producto_idproducto = PRO.idproducto " +
-                        "and MO.fecha_ingreso between '" + fechaIni.ToShortDateString() + "' and '" + fechaFin.ToShortDateString() + "'";
+                        "and DMO.producto_idproducto = PRO.idproducto ";
+                        //"and MO.fecha_ingreso between '" + fechaIni.ToShortDateString() + "' and '" + fechaFin.ToShortDateString() + "'";
             dt = consultarBD(consulta);
             if (dt != null)
             {
@@ -71,7 +71,6 @@ namespace Inventario.Controllers
                     {
                         ObjRepKardex nuevo = new ObjRepKardex();
                         nuevo.tipo = "Ingreso";
-                        nuevo.cliente_proveedor = row["proveedor"].ToString();
                         nuevo.fecha = row["fecha_ingreso"].ToString();
                         nuevo.cantidad = row["cantidad"].ToString();
                         nuevo.descripcion = row["descripcion"].ToString();
@@ -84,7 +83,7 @@ namespace Inventario.Controllers
         }
         public static DataTable consultarBD(string Consulta)
         {
-            string credenciales = "server=DESKTOP-39C8GSB; database=AnalisisP1 ; integrated security = true";
+            string credenciales = "server=LAPTOP-SCUBUR\\SQLEXPRESS02; database=AnalisisP1 ; integrated security = true";
             SqlConnection conexion = new SqlConnection(credenciales);
             SqlDataAdapter adaptador = new SqlDataAdapter();
             DataTable ds = new DataTable();

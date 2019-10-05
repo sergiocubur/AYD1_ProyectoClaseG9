@@ -1,10 +1,6 @@
 ﻿@model List<Inventario.Objetos.ObjRestaxVenta>
 @{
     ViewBag.Title = "Resta Por Venta";
-    if (Session["codeU"] == null || Session["nameU"] == null)
-    {
-        Response.Redirect("~/MODINI_Login/vMODINI_Login");
-    }
 }
 
 <div>

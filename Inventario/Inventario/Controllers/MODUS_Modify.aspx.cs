@@ -21,82 +21,96 @@ namespace Inventario.Controllers
         {
             if(txtFecha.Text != "")
             {
-                using (SqlConnection connection = new SqlConnection("server=RODOLFO-HP\\SQL2017; database=AnalisisP1; integrated security = true"))
-                using (SqlCommand command = connection.CreateCommand())
+                using (SqlConnection con = new SqlConnection("server=LAPTOP-SCUBUR\\SQLEXPRESS02; database=AnalisisP1; integrated security = true"))
+                using (SqlCommand command = con.CreateCommand())
                 {
-                    command.CommandText = "UPDATE usuario (fecha_alta) VALUES(@fecha) WHERE codigo ='"+txtCodigo.Text+"'";
+                    command.Connection = con;
+                    command.CommandType = CommandType.Text;
+                    command.CommandText = "UPDATE usuario SET fecha_alta=@date WHERE codUsuario=@codigo";
 
-                    command.Parameters.Add("@Fecha", SqlDbType.Date).Value = txtFecha.Text;
+                    command.Parameters.AddWithValue("@date", txtFecha.Text);
+                    command.Parameters.AddWithValue("@codigo", txtCodigo.Text);
 
-                    connection.Open();
+                    con.Open();
 
                     command.ExecuteNonQuery();
 
-                    connection.Close();
+                    con.Close();
                 }
             }
             if(txtPass.Text != "")
             {
-                using (SqlConnection connection = new SqlConnection("server=RODOLFO-HP\\SQL2017; database=AnalisisP1; integrated security = true"))
-                using (SqlCommand command = connection.CreateCommand())
+                using (SqlConnection con = new SqlConnection("server=LAPTOP-SCUBUR\\SQLEXPRESS02; database=AnalisisP1; integrated security = true"))
+                using (SqlCommand command = con.CreateCommand())
                 {
-                    command.CommandText = "UPDATE usuario (password) VALUES(@pass) WHERE codigo ='" + txtCodigo.Text + "'";
+                    command.Connection = con;
+                    command.CommandType = CommandType.Text;
+                    command.CommandText = "UPDATE usuario SET password=@pass WHERE codUsuario=@codigo";
 
-                    command.Parameters.Add("@pass", SqlDbType.VarChar).Value = txtPass.Text;
-
-                    connection.Open();
+                    command.Parameters.AddWithValue("@pass", txtPass.Text);
+                    command.Parameters.AddWithValue("@codigo", txtCodigo.Text);
+                    con.Open();
 
                     command.ExecuteNonQuery();
 
-                    connection.Close();
+                    con.Close();
                 }
             }
             if (txtApellido.Text != "")
             {
-                using (SqlConnection connection = new SqlConnection("server=RODOLFO-HP\\SQL2017; database=AnalisisP1; integrated security = true"))
-                using (SqlCommand command = connection.CreateCommand())
+                using (SqlConnection con = new SqlConnection("server=LAPTOP-SCUBUR\\SQLEXPRESS02; database=AnalisisP1; integrated security = true"))
+                using (SqlCommand command = con.CreateCommand())
                 {
-                    command.CommandText = "UPDATE usuario (apellido) VALUES(@apellido) WHERE codigo ='" + txtCodigo.Text + "'";
+                    command.Connection = con;
+                    command.CommandType = CommandType.Text;
+                    command.CommandText = "UPDATE usuario SET apellido=@apellido WHERE codUsuario=@codigo";
 
-                    command.Parameters.Add("@papellido", SqlDbType.VarChar).Value = txtPass.Text;
+                    command.Parameters.AddWithValue("@apellido", txtApellido.Text);
+                    command.Parameters.AddWithValue("@codigo", txtCodigo.Text);
 
-                    connection.Open();
+                    con.Open();
 
                     command.ExecuteNonQuery();
 
-                    connection.Close();
+                    con.Close();
                 }
             }
             if(txtEstado.Text != "")
             {
-                using (SqlConnection connection = new SqlConnection("server=RODOLFO-HP\\SQL2017; database=AnalisisP1; integrated security = true"))
-                using (SqlCommand command = connection.CreateCommand())
+                using (SqlConnection con = new SqlConnection("server=LAPTOP-SCUBUR\\SQLEXPRESS02; database=AnalisisP1; integrated security = true"))
+                using (SqlCommand command = con.CreateCommand())
                 {
-                    command.CommandText = "UPDATE usuario (estado) VALUES(@state) WHERE codigo ='" + txtCodigo.Text + "'";
+                    command.Connection = con;
+                    command.CommandType = CommandType.Text;
+                    command.CommandText = "UPDATE usuario SET estado=@state WHERE codUsuario=@codigo";
 
-                    command.Parameters.Add("@state", SqlDbType.Char).Value = txtPass.Text;
+                    command.Parameters.AddWithValue("@state", txtEstado.Text);
+                    command.Parameters.AddWithValue("@codigo", txtCodigo.Text);
 
-                    connection.Open();
+                    con.Open();
 
                     command.ExecuteNonQuery();
 
-                    connection.Close();
+                    con.Close();
                 }
             }
             if (txtTipo.Text != "")
             {
-                using (SqlConnection connection = new SqlConnection("server=RODOLFO-HP\\SQL2017; database=AnalisisP1; integrated security = true"))
-                using (SqlCommand command = connection.CreateCommand())
+                using (SqlConnection con = new SqlConnection("server=LAPTOP-SCUBUR\\SQLEXPRESS02; database=AnalisisP1; integrated security = true"))
+                using (SqlCommand command = con.CreateCommand())
                 {
-                    command.CommandText = "UPDATE usuario (tipo_usuario) VALUES(@type) WHERE codigo ='" + txtCodigo.Text + "'";
+                    command.Connection = con;
+                    command.CommandType = CommandType.Text;
+                    command.CommandText = "UPDATE usuario SET tipo_usuario=@type WHERE codUsuario=@codigo";
 
-                    command.Parameters.Add("@ptype", SqlDbType.VarChar).Value = txtPass.Text;
+                    command.Parameters.AddWithValue("@type", txtTipo.Text);
+                    command.Parameters.AddWithValue("@codigo", txtCodigo.Text);
 
-                    connection.Open();
+                    con.Open();
 
                     command.ExecuteNonQuery();
 
-                    connection.Close();
+                    con.Close();
                 }
             }
 

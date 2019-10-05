@@ -30,16 +30,20 @@
         <br />
         <h2>Ir a:</h2>
         <br />
-        <a href="@Url.Action("index", "MODPRODU")" class="btn btn-primary">Productos</a>
+        <a href="@Url.Action("index", "MODPRODU")" class="btn btn-primary" id="productos">Productos</a>
         <br /><br />
+        <a href="@Url.Action("vMODSAL_RestarPorVenta", "MODSAL_RestarPorVenta")" class="btn btn-primary">Venta</a>
         <a href="@Url.Action("index", "MODING")" class="btn btn-primary">Ingresos</a>
         <br /><br />
         <a href="@Url.Action("vMODSAL_RestaxVenta", "MODSAL_RestaxVenta")" class="btn btn-primary">Salidas</a>
         <br /><br />
-        <a href="@Url.Action("index", "MODUSR")" class="btn btn-primary">Usuarios</a>
+        <a href="@Url.Action("index", "MODUSR")" class="btn btn-primary" id="usuarios">Usuarios</a>
         <br /><br />
         <a href="@Url.Action("vMODREP_Reportes", "MODREP_Reportes")" class="btn btn-primary">Reportes del Sistema</a>
         <br /><br /><br />
+        <a href="/MODSAL_RestaMalEstado.aspx" class="btn btn-primary">Resta Mal Estado</a>
+        <br /><br /><br />
+        <a href="/Controllers/MODUS_Modify.aspx" class="btn btn-primary">Resta Mal Estado</a>
     </div>
 
 </div>
