@@ -134,7 +134,7 @@ namespace Inventario
         {
             if (txtProducto.Text == "" || txtCantidad.Text == "")
             {
-                Page.ClientScript.RegisterStartupScript(GetType(), "Show Modal Popup", "alert ('Debe llenar todos los campos');", true);
+                //Page.ClientScript.RegisterStartupScript(GetType(), "Show Modal Popup", "alert ('Debe llenar todos los campos');", true);
                 return 0;
             }
             else

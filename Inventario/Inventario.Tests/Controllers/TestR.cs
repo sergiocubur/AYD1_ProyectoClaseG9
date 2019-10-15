@@ -30,7 +30,7 @@ namespace Inventario.Tests.Controllers
         public void TestSelect()
         {
             var me = new MODSAL_RestaMalEstado();
-            var result = me.consulta("Producto1", 100);
+            var result = me.consultaSelect("MAD");
             Assert.AreEqual(result, 1);
         }
 
@@ -38,8 +38,8 @@ namespace Inventario.Tests.Controllers
         public void TestInsert()
         {
             var me = new MODSAL_RestaMalEstado();
-            var result = me.consulta("Producto1", 100);
-            Assert.AreEqual(result, 1);
+            var result = me.consultaUp(100, "MAD");
+            Assert.AreEqual(result, 4);
         }
 
         [TestMethod]
@@ -47,7 +47,7 @@ namespace Inventario.Tests.Controllers
         {
             var me = new MODSAL_RestaMalEstado();
             var result = me.consulta("Producto3", 200);
-            Assert.AreEqual(result, 4);
+            Assert.AreEqual(result, 0);
         }
 
         [TestMethod]
@@ -55,7 +55,7 @@ namespace Inventario.Tests.Controllers
         {
             var me = new MODSAL_RestaMalEstado();
             var result = me.consultaUp(200, "Producto3");
-            Assert.AreEqual(result, 4);
+            Assert.AreEqual(result, 0);
         }
     }
 }
