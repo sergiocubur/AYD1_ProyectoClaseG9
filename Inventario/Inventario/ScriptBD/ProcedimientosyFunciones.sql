@@ -17,3 +17,9 @@ BEGIN
 	-- ADD NOMBRE CLIENTE,ESTADO,IDPAIS, IDUSUARIO
 	insert into det_pedido values(@CANTIDAD,@COSTO,@PEDIDO,@IDPRODUCTO);
 END
+
+drop table factura;
+
+ALTER TABLE pedido 
+ADD correlativo INT NOT NULL,
+	nit INT NOT NULL;
