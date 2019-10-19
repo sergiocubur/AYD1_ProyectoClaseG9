@@ -1,5 +1,5 @@
 ﻿@{
-    ViewBag.Title = "Restar Por Venta";
+    ViewBag.Title = "Venta";
     if (Session["codeU"] == null || Session["nameU"] == null)
     {
         Response.Redirect("~/MODINI_Login/vMODINI_Login");
@@ -24,11 +24,7 @@
     </div>
 
     <div id="materiales-div">
-        @using (Html.BeginForm("mostrandoVentas", "MODSAL_RestarPorVenta", FormMethod.Post))
-        {
-            <input id="btn" name="btn" type="submit" value="Mostrar Ventas" class="btn btn-primary" />
-            <br />
-        }
+        
         <br />
         <a href="@Url.Action("mostrandoProductos", "MODSAL_RestarPorVenta")" class="btn btn-primary">Ver Productos Existentes</a>
         <br /><br />
@@ -39,6 +35,29 @@
         <div class="panel-body">
             @using (Html.BeginForm("restarPorVenta", "MODSAL_RestarPorVenta", FormMethod.Post))
             {
+                <br />
+                <label for="a">Nombr del Cliente:</label>
+                <br />
+                <input type="text" class="form-control" name=nombre id="nombre" placeholder="Nombre">
+                <br />
+
+                <label for="aa">Pais de origen:</label>
+                <select id="pais" name="pais" class="form-control">
+                    @using (Html.BeginForm())
+                    {
+                        if (Session["LOG_PAISES"] != null)
+                        {
+                            foreach (Inventario.Objetos.ObjProducto prod in Session["LOG_PAISES"] as List<Inventario.Objetos.ObjProducto>)
+                            {
+                                <option value=@prod.idproducto> @prod.descripcion</option>
+                            }
+                        }
+                    }
+                </select>
+
+                <br />
+
+
                 <label for="producto">Seleccione un producto:</label>
                 <select id="producto" name="producto" class="form-control">
                     @using (Html.BeginForm())
@@ -72,7 +91,7 @@
                     }
                     <br />
                 }
-                <input id="btn" name="btn" type="submit" value="Restar Por Venta" class="btn alert-success" />
+                <input id="btn" name="btn" type="submit" value="Agregar Producto a Lista Ventas" class="btn alert-success" />
                 <br />
 
             }
@@ -114,6 +133,11 @@
 
             </tbody>
         </table>
+        <br />
+        <input id="btn" name="btn" type="submit" value="Registrar Venta" class="btn btn-sm" />
+        <br />
+        <br />
+        <input id="btn" name="btn" type="submit" value="Cancelar" class="btn btn-danger" />
         <br />
         <br />
         <a href="@Url.Action("vMODINI_Logeado", "MODINI_Logeado")" class="btn  btn-warning">Regresar</a>
