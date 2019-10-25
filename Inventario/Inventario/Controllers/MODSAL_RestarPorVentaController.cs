@@ -12,47 +12,22 @@ namespace Inventario.Controllers
 {
     public class MODSAL_RestarPorVentaController : Controller
     {
+        public static string server = "DESKTOP-39C8GSB";
+        
         // GET: MODSAL_RestarPorVenta
         public ActionResult vMODSAL_RestarPorVenta()
         {
+            
             return View();
         }
-
-        public static DataTable consultarBD(string Consulta)
+        public ActionResult addDatosCliente(string nombre, string pais, string nit)
         {
-            string credenciales = "server=LAPTOP-SCUBUR\\SQLEXPRESS02; database=AnalisisP1 ; integrated security = true";
-            SqlConnection conexion = new SqlConnection(credenciales);
-            SqlDataAdapter adaptador = new SqlDataAdapter();
-            DataTable ds = new DataTable();
-            try
-            {
-                conexion.Open();
-                SqlCommand sql = new SqlCommand();
-                sql.CommandText = Consulta;
-                sql.CommandType = CommandType.Text;
-                sql.Connection = conexion;
-
-                adaptador.SelectCommand = sql;
-                adaptador.Fill(ds);
-                conexion.Close();
-                return ds;
-            }
-            catch (Exception ex)
-            {
-                Trace.WriteLine(Consulta);
-                return null;
-            }
-        }
-
-        public ActionResult mostrandoVentas()
-        {
-            List<ObjRestaxVenta> listaVentas = new List<ObjRestaxVenta>();
-            //listaVentas = get
-            //listaVentas.Add(new ObjRestaxVenta("fecha", "desc", 5.25, 1, "nom", 5));
-            //Session["LOG_VENTAS"] = listaVentas;
+            Session["CLIENTE"] = nombre;
+            Session["PAIS"] = pais;
+            Session["NIT"] = nit;
             return RedirectToAction("vMODSAL_RestarPorVenta", "MODSAL_RestarPorVenta");
         }
-
+        
         [HttpGet]
         public List<ObjProducto> getProductos()
         {
@@ -73,6 +48,27 @@ namespace Inventario.Controllers
                         nuevo.fecha_ingreso = row["fecha_ingreso"].ToString();
                         nuevo.fecha_modificacion = row["fecha_modificacion"].ToString();
                         nuevo.cantidad = Int16.Parse(row["cantidad"].ToString());
+                        lista.Add(nuevo);
+                    }
+                }
+            }
+            return lista;
+        }
+        [HttpGet]
+        public List<ObjPais> getPaises()
+        {
+            List<ObjPais> lista = new List<ObjPais>();
+            string consulta = "select idpais,nombre from pais";
+            DataTable dt = consultarBD(consulta);
+            if (dt != null)
+            {
+                if (dt.Rows.Count > 0)
+                {
+                    foreach (DataRow row in dt.Rows)
+                    {
+                        ObjPais nuevo = new ObjPais();
+                        nuevo.id = Int16.Parse(row["idpais"].ToString());
+                        nuevo.nombre = row["nombre"].ToString();
                         lista.Add(nuevo);
                     }
                 }
@@ -118,9 +114,66 @@ namespace Inventario.Controllers
             return RedirectToAction("vMODSAL_RestarPorVenta", "MODSAL_RestarPorVenta");
         }
 
+
+        public ActionResult vMODSAL_VerProductos()
+        {
+            return View();
+        }
+
+        public ActionResult mostrandoProductos()
+        {
+            return RedirectToAction("vMODSAL_VerProductos", "MODSAL_RestarPorVenta");
+        }
+
+        public ActionResult addCarretilla(int cantidad, int producto)
+        {
+            List<ObjRestaxVenta> carretilla = Session["CARRETILLA"] as List<ObjRestaxVenta>;
+            foreach(ObjProducto a in getProductos())
+            {
+                if(a.idproducto == producto)
+                {
+                    ObjRestaxVenta n = new ObjRestaxVenta("", a.descripcion, a.precio_venta, cantidad, "", a.precio_venta * cantidad);
+                    carretilla.Add(n);
+                    Session["CARRETILLA"] = carretilla;
+                }
+            }
+            return RedirectToAction("vMODSAL_RestarPorVenta", "MODSAL_RestarPorVenta");
+        }
+        public ActionResult cancelarVenta()
+        {
+            Session["CARRETILLA"] = null;
+            return RedirectToAction("vMODINI_Logeado", "MODINI_Logeado");
+        }
+
+        public static DataTable consultarBD(string Consulta)
+        {
+            string credenciales = "server=" + server + "; database=AnalisisP1 ; integrated security = true";
+            SqlConnection conexion = new SqlConnection(credenciales);
+            SqlDataAdapter adaptador = new SqlDataAdapter();
+            DataTable ds = new DataTable();
+            try
+            {
+                conexion.Open();
+                SqlCommand sql = new SqlCommand();
+                sql.CommandText = Consulta;
+                sql.CommandType = CommandType.Text;
+                sql.Connection = conexion;
+
+                adaptador.SelectCommand = sql;
+                adaptador.Fill(ds);
+                conexion.Close();
+                return ds;
+            }
+            catch (Exception ex)
+            {
+                Trace.WriteLine(Consulta);
+                return null;
+            }
+        }
+
         public static bool actualizarBD(int idProducto, int cantidad)
         {
-            string credenciales = "server=LAPTOP-SCUBUR\\SQLEXPRESS02; database=AnalisisP1 ; integrated security = true";
+            string credenciales = "server=" + server + "; database=AnalisisP1 ; integrated security = true";
             SqlConnection conexion = new SqlConnection(credenciales);
             SqlDataAdapter adaptador = new SqlDataAdapter();
             try
@@ -146,20 +199,5 @@ namespace Inventario.Controllers
             }
             return true;
         }
-
-        public ActionResult vMODSAL_VerProductos()
-        {
-            return View();
-        }
-
-        public ActionResult mostrandoProductos()
-        {
-            List<ObjProducto> listaP = new List<ObjProducto>();
-            listaP = getProductos();
-            Session["LOG_PRODUCTOS"] = listaP;
-            return RedirectToAction("vMODSAL_VerProductos", "MODSAL_RestarPorVenta");
-        }
-
-        
     }
 }

@@ -12,9 +12,9 @@ namespace Inventario.Objetos
         public double precio { get; set; }
         public int cantidad { get; set; }
         public string nombre { get; set; }
-        public int total { get; set; }
+        public double total { get; set; }
 
-        public ObjRestaxVenta(string fechaV, string desc, double prec, int cant, string nomb, int tot)
+        public ObjRestaxVenta(string fechaV, string desc, double prec, int cant, string nomb, double tot)
         {
             fechaVenta = fechaV;
             descripcion = desc;

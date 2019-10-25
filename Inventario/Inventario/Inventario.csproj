@@ -269,6 +269,7 @@
       <DependentUpon>MODSAL_RestaMalEstado.aspx</DependentUpon>
     </Compile>
     <Compile Include="Objetos\ObjDetMovimiento.cs" />
+    <Compile Include="Objetos\ObjPais.cs" />
     <Compile Include="Objetos\ObjUsuario.cs" />
     <Compile Include="Objetos\ObjDevolucion.cs" />
     <Compile Include="Objetos\ObjMuestra.cs" />
