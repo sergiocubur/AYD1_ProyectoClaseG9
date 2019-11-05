@@ -12,6 +12,7 @@ namespace Inventario.Controllers
 {
     public class MODREP_RepMovimientosController : Controller
     {
+        static string credenciales = "server=LAPTOP-SCUBUR\\SQLEXPRESS02; database=AnalisisP1 ; integrated security = true";
         // GET: MODREP_RepMovimientos
         public ActionResult vMODREP_RepMovimientos()
         {
@@ -85,7 +86,7 @@ namespace Inventario.Controllers
 
         public static DataTable consultarBD(string Consulta)
         {
-            string credenciales = "server=LAPTOP-SCUBUR\\SQLEXPRESS02; database=AnalisisP1 ; integrated security = true";
+            
             SqlConnection conexion = new SqlConnection(credenciales);
             SqlDataAdapter adaptador = new SqlDataAdapter();
             DataTable ds = new DataTable();
