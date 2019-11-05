@@ -12,8 +12,7 @@ namespace Inventario.Controllers
 {
     public class MODSAL_RestarPorVentaController : Controller
     {
-        public static string server = "DESKTOP-39C8GSB";
-        
+        static string credenciales = "server=LAPTOP-SCUBUR\\SQLEXPRESS02; database=AnalisisP1 ; integrated security = true";
         // GET: MODSAL_RestarPorVenta
         public ActionResult vMODSAL_RestarPorVenta()
         {
@@ -25,6 +24,7 @@ namespace Inventario.Controllers
             Session["CLIENTE"] = nombre;
             Session["PAIS"] = pais;
             Session["NIT"] = nit;
+
             return RedirectToAction("vMODSAL_RestarPorVenta", "MODSAL_RestarPorVenta");
         }
         

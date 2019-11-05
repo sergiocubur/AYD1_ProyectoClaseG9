@@ -12,6 +12,7 @@ namespace Inventario.Controllers
 {
     public class MODINI_LoginController : Controller
     {
+        static string credenciales = "server=LAPTOP-SCUBUR\\SQLEXPRESS02; database=AnalisisP1 ; integrated security = true";
         // GET: MODINI_Login
         public ActionResult vMODINI_Login()
         {
@@ -53,7 +54,6 @@ namespace Inventario.Controllers
 
         public static DataTable consultarBD(string Consulta)
         {
-            string credenciales = "server=DESKTOP-39C8GSB; database=AnalisisP1 ; integrated security = true";
             SqlConnection conexion = new SqlConnection(credenciales);
             SqlDataAdapter adaptador = new SqlDataAdapter();
             DataTable ds = new DataTable();
