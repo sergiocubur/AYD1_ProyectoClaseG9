@@ -269,6 +269,7 @@
       <DependentUpon>MODSAL_RestaMalEstado.aspx</DependentUpon>
     </Compile>
     <Compile Include="Objetos\ObjDetMovimiento.cs" />
+    <Compile Include="Objetos\ObjPais.cs" />
     <Compile Include="Objetos\ObjUsuario.cs" />
     <Compile Include="Objetos\ObjDevolucion.cs" />
     <Compile Include="Objetos\ObjMuestra.cs" />
@@ -291,6 +292,7 @@
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="MODSAL_RestaMalEstado.aspx" />
+    <Content Include="ScriptBD\ProcedimientosyFunciones.sql" />
     <Content Include="Scripts\ai.0.22.9-build00167.js" />
     <Content Include="Scripts\ai.0.22.9-build00167.min.js" />
     <Content Include="Scripts\bootstrap.js" />

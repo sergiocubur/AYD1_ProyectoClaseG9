@@ -13,9 +13,9 @@ namespace Inventario
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            
         }
-
+        static string credenciales = "server=LAPTOP-SCUBUR\\SQLEXPRESS02; database=AnalisisP1 ; integrated security = true";
         protected void Button1_Click(object sender, EventArgs e)
         {
             if (txtProducto.Text == "" || txtCantidad.Text == "")
@@ -27,7 +27,7 @@ namespace Inventario
             {
                 int cant = Convert.ToInt32(txtCantidad.Text);
                 int result = 0;
-                string credenciales = "server=LAPTOP-SCUBUR\\SQLEXPRESS02;database=AnalisisP1;integrated security=true";
+                //string credenciales = "server=LAPTOP-SCUBUR\\SQLEXPRESS02;database=AnalisisP1;integrated security=true";
                 SqlConnection con = new SqlConnection(credenciales);
                 SqlCommand command = new SqlCommand();
 
@@ -99,7 +99,7 @@ namespace Inventario
         public int consultaUp(int cantidad, string producto)
         {
             Response.Write("update " + cantidad + " " + producto);
-            string credenciales = "server=LAPTOP-SCUBUR\\SQLEXPRESS02;database=AnalisisP1;integrated security=true";
+            //string credenciales = "server=LAPTOP-SCUBUR\\SQLEXPRESS02;database=AnalisisP1;integrated security=true";
             SqlConnection con = new SqlConnection(credenciales);
             SqlCommand command = new SqlCommand();
 
@@ -147,7 +147,7 @@ namespace Inventario
         public int consultaSelect(string product)
         {
             int cant = Convert.ToInt32(txtCantidad.Text);
-            string credenciales = "server=LAPTOP-SCUBUR\\SQLEXPRESS02;database=Practica2;integrated security=true";
+            //string credenciales = "server=LAPTOP-SCUBUR\\SQLEXPRESS02;database=Practica2;integrated security=true";
             SqlConnection con = new SqlConnection(credenciales);
             SqlCommand command = new SqlCommand();
 

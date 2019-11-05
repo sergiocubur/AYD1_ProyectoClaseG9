@@ -16,12 +16,12 @@ namespace Inventario.Controllers
         {
 
         }
-
+        static string credenciales = "server=LAPTOP-SCUBUR\\SQLEXPRESS02; database=AnalisisP1 ; integrated security = true";
         protected void Button1_Click(object sender, EventArgs e)
         {
             if(txtFecha.Text != "")
             {
-                using (SqlConnection con = new SqlConnection("server=LAPTOP-SCUBUR\\SQLEXPRESS02; database=AnalisisP1; integrated security = true"))
+                using (SqlConnection con = new SqlConnection(credenciales))
                 using (SqlCommand command = con.CreateCommand())
                 {
                     command.Connection = con;
@@ -40,7 +40,7 @@ namespace Inventario.Controllers
             }
             if(txtPass.Text != "")
             {
-                using (SqlConnection con = new SqlConnection("server=LAPTOP-SCUBUR\\SQLEXPRESS02; database=AnalisisP1; integrated security = true"))
+                using (SqlConnection con = new SqlConnection(credenciales))
                 using (SqlCommand command = con.CreateCommand())
                 {
                     command.Connection = con;
@@ -58,7 +58,7 @@ namespace Inventario.Controllers
             }
             if (txtApellido.Text != "")
             {
-                using (SqlConnection con = new SqlConnection("server=LAPTOP-SCUBUR\\SQLEXPRESS02; database=AnalisisP1; integrated security = true"))
+                using (SqlConnection con = new SqlConnection(credenciales))
                 using (SqlCommand command = con.CreateCommand())
                 {
                     command.Connection = con;
@@ -77,7 +77,7 @@ namespace Inventario.Controllers
             }
             if(txtEstado.Text != "")
             {
-                using (SqlConnection con = new SqlConnection("server=LAPTOP-SCUBUR\\SQLEXPRESS02; database=AnalisisP1; integrated security = true"))
+                using (SqlConnection con = new SqlConnection(credenciales))
                 using (SqlCommand command = con.CreateCommand())
                 {
                     command.Connection = con;
@@ -96,7 +96,7 @@ namespace Inventario.Controllers
             }
             if (txtTipo.Text != "")
             {
-                using (SqlConnection con = new SqlConnection("server=LAPTOP-SCUBUR\\SQLEXPRESS02; database=AnalisisP1; integrated security = true"))
+                using (SqlConnection con = new SqlConnection(credenciales))
                 using (SqlCommand command = con.CreateCommand())
                 {
                     command.Connection = con;
