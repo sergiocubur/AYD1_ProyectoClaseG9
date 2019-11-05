@@ -147,7 +147,7 @@ namespace Inventario.Controllers
 
         public static DataTable consultarBD(string Consulta)
         {
-            string credenciales = "server=" + server + "; database=AnalisisP1 ; integrated security = true";
+            //string credenciales = "server=" + server + "; database=AnalisisP1 ; integrated security = true";
             SqlConnection conexion = new SqlConnection(credenciales);
             SqlDataAdapter adaptador = new SqlDataAdapter();
             DataTable ds = new DataTable();
@@ -173,7 +173,7 @@ namespace Inventario.Controllers
 
         public static bool actualizarBD(int idProducto, int cantidad)
         {
-            string credenciales = "server=" + server + "; database=AnalisisP1 ; integrated security = true";
+            //string credenciales = "server=" + server + "; database=AnalisisP1 ; integrated security = true";
             SqlConnection conexion = new SqlConnection(credenciales);
             SqlDataAdapter adaptador = new SqlDataAdapter();
             try

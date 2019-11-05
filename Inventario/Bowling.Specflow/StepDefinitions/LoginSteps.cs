@@ -99,8 +99,23 @@ namespace Bowling.Specflow.StepDefinitions
 
             Thread.Sleep(mil);
         }
-        
-        
+
+        [When(@"Navigate to root page")]
+        public void Navigatetorootpage()
+        {
+            driver.Navigate().GoToUrl("http://localhost:3252/");
+
+            Thread.Sleep(mil);
+        }
+
+        [Then(@"Result should be visible home")]
+        public void Resultshouldbevisiblehome()
+        {
+            Thread.Sleep(mil);
+            driver.Quit();
+        }
+
+
         [Then(@"Result should be visible login fail mesage")]
         public void ThenResultShouldBeVisibleLoginFailMesage()
         {
