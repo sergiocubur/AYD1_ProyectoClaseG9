@@ -27,11 +27,8 @@
 
             <tbody>
                 @{
-                    if (Session["LOG_PRODUCTOS"] != null)
-                    {
-                        List<Inventario.Objetos.ObjProducto> listaKardex = Session["LOG_PRODUCTOS"] as List<Inventario.Objetos.ObjProducto>;
-
-                        foreach (Inventario.Objetos.ObjProducto Producto in listaKardex)
+                        Inventario.Controllers.MODSAL_RestarPorVentaController listaProductos = new Inventario.Controllers.MODSAL_RestarPorVentaController();
+                        foreach (Inventario.Objetos.ObjProducto Producto in listaProductos.getProductos())
                         {
                             <tr>
                                 <td>@Producto.idproducto</td>
@@ -41,7 +38,7 @@
                                 <td>@Producto.cantidad</td>
                             </tr>
                         }
-                    }
+                    
                 }
 
             </tbody>
