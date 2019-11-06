@@ -1,0 +1,11 @@
+﻿
+@{
+    ViewBag.Title = "Restar Producto";
+    if (Session["codeU"] == null || Session["nameU"] == null)
+    {
+        Response.Redirect("~/MODINI_Login/vMODINI_Login");
+    }
+}
+
+<h2>Restar Producto En Mal Estado</h2>
+

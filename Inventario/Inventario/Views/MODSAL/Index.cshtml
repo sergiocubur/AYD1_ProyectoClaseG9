@@ -1,0 +1,29 @@
+﻿@{
+    ViewBag.Title = "Salidas";
+    if (Session["codeU"] == null || Session["nameU"] == null)
+    {
+        Response.Redirect("~/MODINI_Login/vMODINI_Login");
+    }
+}
+
+<div class="jumbotron">
+    <h1>Salidas</h1>
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <h2>Agregar Venta</h2>
+        <p>
+            @Html.ActionLink("Nueva Venta", "vMODSAL_RestarPorVenta", "MODSAL_RestarPorVenta", new { area = "" }, new { @class = "btn btn-primary" })
+        </p>
+    </div>
+    <div class="col-md-6">
+        <h2>Producto En Mal Estado</h2>
+        <p>
+            @Html.ActionLink("Restar Producto", "vRestarMalEstado", "MODSAL", new { area = "" }, new { @class = "btn btn-primary" })
+        </p>
+    </div>
+</div>
+<br /><br />
+<a href="@Url.Action("vMODINI_Logeado", "MODINI_Logeado")" class="btn  btn-warning" id="regresar">Regresar</a>
+<br /><br />

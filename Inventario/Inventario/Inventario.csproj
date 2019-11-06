@@ -254,6 +254,7 @@
     <Compile Include="Controllers\MODRES_RestaME.cs" />
     <Compile Include="Controllers\MODREP_RepMovimientosController.cs" />
     <Compile Include="Controllers\MODREP_ReportesController.cs" />
+    <Compile Include="Controllers\MODSALController.cs" />
     <Compile Include="Controllers\MODSAL_RestarPorVentaController.cs" />
     <Compile Include="Controllers\MODUS_Modify.aspx.cs">
       <DependentUpon>MODUS_Modify.aspx</DependentUpon>
@@ -379,6 +380,8 @@
     <Content Include="Views\MODREP_RepKardex\vMODREP_RepKardex.cshtml" />
     <Content Include="Views\MODSAL_RestarPorVenta\vMODSAL_VerProductos.cshtml" />
     <Content Include="Views\MODSAL_RestaxVenta\vMODSAL_RestaxVenta.cshtml" />
+    <Content Include="Views\MODSAL\Index.cshtml" />
+    <Content Include="Views\MODSAL\vRestarMalEstado.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
