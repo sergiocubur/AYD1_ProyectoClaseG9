@@ -5,9 +5,13 @@
         Response.Redirect("~/MODINI_Login/vMODINI_Login");
     }
 }
-
+<div class="jumbotron text-center" style="margin-bottom:0">
+    <h1>Gestión de Productos</h1>
+</div>
+<br />
 <a href="@Url.Action("agregar", "MODPRODU" )" class="btn  btn-primary" id="agregar">Agregar</a>
-<a href="@Url.Action("vMODINI_Logeado", "MODINI_Logeado")" class="btn  btn-primary" id="regresar">Regresar</a>
+<br />
+<br />
 <div class="row">
     <div class="col-md-12 devolucion-ingreso">
         <br />
@@ -37,6 +41,9 @@
                 }
             </tbody>
         </table>
+        <br />
+        <br />
+        <a href="@Url.Action("vMODINI_Logeado", "MODINI_Logeado")" class="btn  btn-warning" id="regresar">Regresar</a>
     </div>
 </div>
 

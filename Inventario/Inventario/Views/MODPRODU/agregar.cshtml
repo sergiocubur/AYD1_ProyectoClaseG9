@@ -6,8 +6,9 @@
         Response.Redirect("~/MODINI_Login/vMODINI_Login");
     }
 }
-<a href="@Url.Action("index", "MODPRODU")" class="btn  btn-primary" id="agregar">Regresar</a>
-
+<br /><br />
+<h1>Agregar Producto</h1>
+<br /><br />
 @using (Html.BeginForm("agregar_producto", "MODPRODU", FormMethod.Post))
 {
 <div class="form-group">
@@ -26,4 +27,5 @@
     <input id="btn" name="btn" type="submit" value="Agregar" class="btn btn-primary" />
     <br />
 }
-
+<br /><br />
+<a href="@Url.Action("index", "MODPRODU")" class="btn  btn-warning" id="agregar">Regresar</a>

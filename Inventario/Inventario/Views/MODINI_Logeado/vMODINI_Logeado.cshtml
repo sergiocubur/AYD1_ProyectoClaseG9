@@ -41,12 +41,12 @@
                         <fieldset>
                             <br />
                             <a href="@Url.Action("index", "MODPRODU")" class="btn btn-lg btn-primary btn-block" id="productos">Productos</a>
-                            <br />
-                            <a href="@Url.Action("vMODSAL_RestarPorVenta", "MODSAL_RestarPorVenta")" class="btn btn-lg btn-primary btn-block">Venta</a>
+                            @*<br />
+                            <a href="@Url.Action("vMODSAL_RestarPorVenta", "MODSAL_RestarPorVenta")" class="btn btn-lg btn-primary btn-block">Venta</a>*@
                             <br />
                             <a href="@Url.Action("index", "MODING")" class="btn btn-lg btn-primary btn-block">Ingresos</a>
                             <br />
-                            <a href="@Url.Action("vMODSAL_RestaxVenta", "MODSAL_RestaxVenta")" class="btn btn-lg btn-primary btn-block">Salidas</a>
+                            <a href="@Url.Action("vMODSAL_RestarPorVenta", "MODSAL_RestarPorVenta")" class="btn btn-lg btn-primary btn-block">Salidas</a>
                             <br />
                             <a href="@Url.Action("index", "MODUSR")" class="btn btn-lg btn-primary btn-block" id="usuarios">Usuarios</a>
                             <br />
@@ -54,7 +54,7 @@
                             <br />
                             <a href="/MODSAL_RestaMalEstado.aspx" class="btn btn-lg btn-primary btn-block">Resta Mal Estado</a>
                             <br />
-                            <a href="/Controllers/MODUS_Modify.aspx" class="btn btn-lg btn-primary btn-block">Resta Mal Estado</a>
+                            <a href="/Controllers/MODUS_Modify.aspx" class="btn btn-lg btn-primary btn-block">Modificar Usuarios</a>
 
                         </fieldset>
                     </div>

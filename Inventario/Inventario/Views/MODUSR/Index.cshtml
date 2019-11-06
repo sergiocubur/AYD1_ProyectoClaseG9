@@ -6,9 +6,13 @@
     }
 
 }
+<div class="jumbotron text-center" style="margin-bottom:0">
+    <h1>Gestión de Usuarios</h1>
+</div>
 
+<br /><br />
 <a href="@Url.Action("Add", "MODUSR")" class="btn  btn-primary" id="agregar">Agregar</a>
-<a href="@Url.Action("vMODINI_Logeado", "MODINI_Logeado")" class="btn  btn-primary" id="regresar">Regresar</a>
+<br />
 <div class="row">
     <div class="col-md-12 usuario">
         <br />
@@ -39,5 +43,7 @@
                 }
             </tbody>
         </table>
+        <a href="@Url.Action("vMODINI_Logeado", "MODINI_Logeado")" class="btn  btn-warning" id="regresar">Regresar</a>
+
     </div>
 </div>

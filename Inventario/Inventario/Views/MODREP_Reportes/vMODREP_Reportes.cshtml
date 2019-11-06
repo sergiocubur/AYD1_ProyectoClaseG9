@@ -21,18 +21,23 @@
     <div class="jumbotron text-center" style="margin-bottom:0">
         <h2>Modulo de Reportes</h2>
     </div>
-
-    <div id="form-div">
-        <br />
-        <br />
-        <a href="@Url.Action("vMODREP_RepCompras", "MODREP_RepCompras")" class="btn btn-success">Reportes de Compras</a>
-        <br /><br />
-        <a href="@Url.Action("vMODREP_RepMovimientos", "MODREP_RepMovimientos")" class="btn btn-success">Reportes de Movimientos</a>
-        <br /><br />
-        <a href="@Url.Action("vMODREP_RepKardex", "MODREP_RepKardex")" class="btn btn-success">Reporte Kardex</a>
-        <br /><br /><br />
+    <br /><br /><br />
+    <div class="row">
+        <div class="col-md-4">
+            <h2>Compras</h2>
+            <a href="@Url.Action("vMODREP_RepCompras", "MODREP_RepCompras")" class="btn btn-success">Reportes de Compras</a>
+        </div>
+        <div class="col-md-4">
+            <h2>Movimientos</h2>
+            <a href="@Url.Action("vMODREP_RepMovimientos", "MODREP_RepMovimientos")" class="btn btn-success">Reportes de Movimientos</a>
+        </div>
+        <div class="col-md-4">
+            <h2>General</h2>
+            <a href="@Url.Action("vMODREP_RepKardex", "MODREP_RepKardex")" class="btn btn-success">Reporte Kardex</a>
+        </div>
     </div>
-    <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+
+    <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
     <a href="@Url.Action("vMODINI_Logeado", "MODINI_Logeado")" class="btn  btn-warning">Regresar</a>
 
 </div>
