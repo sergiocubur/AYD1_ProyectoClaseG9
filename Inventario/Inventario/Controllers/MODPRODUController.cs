@@ -12,7 +12,7 @@ namespace Inventario.Views.MODPROD
 {
     public class MODPRODUController : Controller
     {
-        public static string credenciales = "server=LAPTOP-SCUBUR\\SQLEXPRESS02;database=AnalisisP1;integrated security=true";
+        public static string credenciales = "server=.;database=AnalisisP1;integrated security=true";
         // GET: MODPRODU
         public ActionResult Index()
         {

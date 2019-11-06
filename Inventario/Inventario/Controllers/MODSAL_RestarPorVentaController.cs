@@ -12,7 +12,7 @@ namespace Inventario.Controllers
 {
     public class MODSAL_RestarPorVentaController : Controller
     {
-        static string credenciales = "server=LAPTOP-SCUBUR\\SQLEXPRESS02; database=AnalisisP1 ; integrated security = true";
+        static string credenciales = "server=.; database=AnalisisP1 ; integrated security = true";
         // GET: MODSAL_RestarPorVenta
         public ActionResult vMODSAL_RestarPorVenta()
         {
@@ -147,7 +147,7 @@ namespace Inventario.Controllers
 
         public static DataTable consultarBD(string Consulta)
         {
-            string credenciales = "server=" + server + "; database=AnalisisP1 ; integrated security = true";
+            //string credenciales = "server=" + credenciales + "; database=AnalisisP1 ; integrated security = true";
             SqlConnection conexion = new SqlConnection(credenciales);
             SqlDataAdapter adaptador = new SqlDataAdapter();
             DataTable ds = new DataTable();
@@ -173,7 +173,7 @@ namespace Inventario.Controllers
 
         public static bool actualizarBD(int idProducto, int cantidad)
         {
-            string credenciales = "server=" + server + "; database=AnalisisP1 ; integrated security = true";
+            //string credenciales = "server=" + server + "; database=AnalisisP1 ; integrated security = true";
             SqlConnection conexion = new SqlConnection(credenciales);
             SqlDataAdapter adaptador = new SqlDataAdapter();
             try

@@ -12,7 +12,7 @@ namespace Inventario.Controllers
 {
     public class MODINI_LoginController : Controller
     {
-        static string credenciales = "server=LAPTOP-SCUBUR\\SQLEXPRESS02; database=AnalisisP1 ; integrated security = true";
+        static string credenciales = "server=.; database=AnalisisP1 ; integrated security = true";
         // GET: MODINI_Login
         public ActionResult vMODINI_Login()
         {

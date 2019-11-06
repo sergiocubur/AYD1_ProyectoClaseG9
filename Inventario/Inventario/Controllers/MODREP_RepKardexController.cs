@@ -12,7 +12,7 @@ namespace Inventario.Controllers
 {
     public class MODREP_RepKardexController : Controller
     {
-        static string credenciales = "server=LAPTOP-SCUBUR\\SQLEXPRESS02; database=AnalisisP1 ; integrated security = true";
+        static string credenciales = "server=.; database=AnalisisP1 ; integrated security = true";
         // GET: MODREP_RepKardex
         public ActionResult vMODREP_RepKardex()
         {
