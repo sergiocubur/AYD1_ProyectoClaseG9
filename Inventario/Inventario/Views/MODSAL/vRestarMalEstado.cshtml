@@ -9,3 +9,57 @@
 
 <h2>Restar Producto En Mal Estado</h2>
 
+<div class="panel-body">
+    @using (Html.BeginForm("restarProducto", "MODSAL", FormMethod.Post))
+    {
+        <label for="producto">Producto:</label>
+        <select id="producto" name="producto" class="form-control">
+            @using (Html.BeginForm())
+            {
+                Inventario.Controllers.MODSAL_RestarPorVentaController lista = new Inventario.Controllers.MODSAL_RestarPorVentaController();
+                foreach (Inventario.Objetos.ObjProducto prod in lista.getProductos())
+                {
+                    <option value=@prod.idproducto> @prod.descripcion</option>
+                }
+            }
+        </select>
+        <br />
+        <label for="habitacion">Cantidad:</label>
+        <br />
+        <input type="number" class="form-control" name=cantidad id="cantidad" placeholder="01234">
+        <br />
+        <input id="btn" name="btn" type="submit" value="Eliminar Producto" class="btn btn-danger" />
+        <br />
+    }
+</div>
+
+<div id="materiales-div">
+    <br />
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <td>Id</td>
+                <td>Descripción</td>
+                <td>Existencias</td>
+            </tr>
+        </thead>
+        <tbody>
+            @{
+                Inventario.Controllers.MODSAL_RestarPorVentaController listaProductos = new Inventario.Controllers.MODSAL_RestarPorVentaController();
+                foreach (Inventario.Objetos.ObjProducto Producto in listaProductos.getProductos())
+                {
+                    <tr>
+                        <td>@Producto.idproducto</td>
+                        <td>@Producto.descripcion</td>
+                        <td>@Producto.cantidadBD</td>
+                    </tr>
+                }
+
+            }
+
+        </tbody>
+    </table>
+    <br />
+    <br />
+    <a href="@Url.Action("Index", "MODSAL")" class="btn  btn-warning">Regresar</a>
+</div>
