@@ -1,4 +1,4 @@
-﻿
+﻿@model Inventario.Objetos.ObjUsuario
 @{
     ViewBag.Title = "Editar";
     if (Session["codeU"] == null || Session["nameU"] == null)
@@ -7,5 +7,26 @@
     }
 }
 
-<h2>Editar</h2>
+<br /><br />
+<h1>Editar Usuario</h1>
+<br /><br />
+@using (Html.BeginForm("modificar_usuario", "MODUSR", FormMethod.Post))
+{
+    <div class="form-group">
+        <br /><label for="dpi">DPI:</label>
+        <input type="text" class="form-control" name=dpi id="dpi" value=@Model.dpi>
+
+        <label for="nombre">Nombre:</label>
+        <input type="text" class="form-control" name=nombre id="nombre" value=@Model.apellido required>
+
+        <label for="codUsuario">Código:</label>
+        <input type="text" class="form-control" name=codUsuario id="codUsuario" value=@Model.codUsuario required>
+
+        <label for="password">Contraseña:</label>
+        <input type="text" class="form-control" name=password id="password" value=@Model.password required> <label>(Al menos 1 Mayuscula, 1 Numero, y 1 (!,#,_,$,%,&,/,¡,?,¿))</label>
+    </div>
+    <input id="btn" name="btn" type="submit" value="Modificar" class="btn btn-success" />
+    <br /><br />
+}
+<a href="@Url.Action("index", "MODUSR")" class="btn  btn-warning" id="agregar">Regresar</a>
 

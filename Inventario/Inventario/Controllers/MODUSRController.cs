@@ -40,10 +40,8 @@ namespace Inventario.Controllers
         }
         public ActionResult Add()
         {
-
             return View();
         }
-
         public ActionResult agregar_usuario(string dpi, string apellido,string codUsuario, string password)
         {
             int formula=comprobarForm(dpi,apellido,codUsuario,password);
@@ -142,6 +140,42 @@ namespace Inventario.Controllers
                 Trace.WriteLine(consulta);
                 return null;
             }
+        }
+
+
+        public ActionResult Edit(int id, string dpi, string nombre, string codigo,string password)
+        {
+            ObjUsuario userMod = new ObjUsuario();
+            userMod.idusuario = id;
+            userMod.dpi = dpi;
+            userMod.apellido = nombre;
+            userMod.codUsuario = codigo;
+            userMod.password = password;
+            Session["MODIFICANDO"] = id;
+            return View(userMod);
+        }
+        public ActionResult modificar_usuario(string dpi, string nombre, string codUsuario, string password)
+        {
+            int formula = comprobarForm(dpi, nombre, codUsuario, password);
+            int largo_pass = largoPassword(password);
+            int numero_pass = numeroPassword(password);
+            int simbolo_pass = simboloPassword(password);
+            int mayuscula_pass = mayusculaPassword(password);
+            int largo_cod = largoCodUsuario(codUsuario);
+            int largo_dpi = largoDpi(dpi);
+
+            if (formula == 0 || largo_pass == 0 || numero_pass == 0 || simbolo_pass == 0 || mayuscula_pass == 0 || largo_cod == 0 || largo_dpi == 0) {
+                return RedirectToAction("Index");
+            }
+            consulta("UPDATE usuario SET dpi = '" + dpi + "',apellido='" + nombre + "',codUsuario='" + codUsuario + "',password='" + password + "' where idusuario =" + Session["MODIFICANDO"].ToString());
+            Session["MODIFICANDO"] = null;
+            return RedirectToAction("Index");
+        }
+
+        public ActionResult darBajaUsuario(int id)
+        {
+            consulta("UPDATE usuario SET estado = 0 where idusuario =" + id);
+            return RedirectToAction("Index");
         }
     }
 }

@@ -6,8 +6,10 @@
         Response.Redirect("~/MODINI_Login/vMODINI_Login");
     }
 }
-<a href="@Url.Action("index", "MODUSR")" class="btn  btn-primary" id="agregar">Regresar</a>
 
+<br /><br />
+<h1>Agregar Usuario</h1>
+<br /><br />
 @using (Html.BeginForm("agregar_usuario", "MODUSR", FormMethod.Post))
 {
 <div class="form-group">
@@ -24,5 +26,6 @@
     <input type="text" class="form-control" name=password id="password" required>
 </div>
     <input id="btn" name="btn" type="submit" value="Agregar" class="btn btn-primary" />
-    <br />
+    <br /><br />
 }
+<a href="@Url.Action("index", "MODUSR")" class="btn  btn-warning" id="agregar">Regresar</a>

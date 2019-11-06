@@ -25,7 +25,7 @@
                     <th>DPI</th>
                     <th>Fecha de alta</th>
                     <th>Estado</th>
-                    <th></th>
+                    <th>Acciones</th>
                 </tr>
             </thead>
             <tbody>
@@ -38,7 +38,11 @@
                         <td>@usuario.dpi</td>
                         <td>@usuario.fecha_alta</td>
                         <td>@usuario.estado</td>
-                        <td><a href="/MODUSR/delete/@usuario.idusuario.ToString()"><span class="label label-warning">Eliminar</span></a></td>
+                        @*<td><a href="/MODUSR/delete/@usuario.idusuario.ToString()"><span class="label label-warning">Eliminar</span></a></td>*@
+                        <td>
+                            <a href="@Url.Action("Edit","MODUSR", new { id = @usuario.idusuario, dpi = @usuario.dpi, nombre = @usuario.apellido, codigo = @usuario.codUsuario, password = @usuario.password })" class="btn  btn-success right">Modificar</a>
+                            <a href="@Url.Action("darBajaUsuario","MODUSR", new { id = @usuario.idusuario })" class="btn  btn-danger right">Dar de Baja</a>
+                        </td>
                     </tr>
                 }
             </tbody>
