@@ -34,6 +34,19 @@ namespace Inventario.Objetos
             this.fecha_modificacion = fecha_modificacion;
             this.cantidad = cantidad;
         }
+        
+        public double subtotal{ get; set; }
+        public double precioUnitario { get; set; }
+        public int cantidadBD { get; set; }
+        public ObjProducto(int cantidad, double precioUnitario, int idproducto, string descripcion, double subtotal, int cantidadBD )
+        {
+            this.cantidad = cantidad;
+            this.precioUnitario = precioUnitario;
+            this.idproducto = idproducto;
+            this.descripcion = descripcion;
+            this.subtotal = subtotal;
+            this.cantidadBD = cantidadBD;
+        }
 
         public ObjProducto()
         {

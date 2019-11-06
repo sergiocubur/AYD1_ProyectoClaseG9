@@ -7,6 +7,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Inventario.Objetos;
+using System.Configuration;
 
 namespace Inventario.Controllers
 {
@@ -47,7 +48,7 @@ namespace Inventario.Controllers
                         nuevo.precio_venta = Double.Parse(row["precio_venta"].ToString());
                         nuevo.fecha_ingreso = row["fecha_ingreso"].ToString();
                         nuevo.fecha_modificacion = row["fecha_modificacion"].ToString();
-                        nuevo.cantidad = Int16.Parse(row["cantidad"].ToString());
+                        nuevo.cantidadBD = Int16.Parse(row["cantidad"].ToString());
                         lista.Add(nuevo);
                     }
                 }
@@ -75,7 +76,6 @@ namespace Inventario.Controllers
             }
             return lista;
         }
-
         public string restando(int cantProducto, int cantIngresada, int producto)
         {
             if (cantIngresada < 0)
@@ -93,7 +93,6 @@ namespace Inventario.Controllers
             }
             return "Yes";
         }
-
         public ActionResult restarPorVenta(int producto, int cantidad)
         {
             Session["ERROR_RESTA"] = null;
@@ -113,8 +112,6 @@ namespace Inventario.Controllers
             }
             return RedirectToAction("vMODSAL_RestarPorVenta", "MODSAL_RestarPorVenta");
         }
-
-
         public ActionResult vMODSAL_VerProductos()
         {
             return View();
@@ -127,27 +124,31 @@ namespace Inventario.Controllers
 
         public ActionResult addCarretilla(int cantidad, int producto)
         {
-            List<ObjRestaxVenta> carretilla = Session["CARRETILLA"] as List<ObjRestaxVenta>;
+            List<ObjProducto> carretilla = Session["CARRETILLA"] as List<ObjProducto>;
             foreach(ObjProducto a in getProductos())
             {
                 if(a.idproducto == producto)
                 {
-                    ObjRestaxVenta n = new ObjRestaxVenta("", a.descripcion, a.precio_venta, cantidad, "", a.precio_venta * cantidad);
+                    ObjProducto n = new ObjProducto(cantidad, a.precio_venta, a.idproducto, a.descripcion, a.precio_venta * cantidad,a.cantidadBD);
                     carretilla.Add(n);
                     Session["CARRETILLA"] = carretilla;
+                    Session["TOTAL"] = Double.Parse(Session["TOTAL"].ToString()) + a.precio_venta * cantidad;
                 }
             }
             return RedirectToAction("vMODSAL_RestarPorVenta", "MODSAL_RestarPorVenta");
         }
         public ActionResult cancelarVenta()
         {
+            Session["CLIENTE"] = null;
+            Session["PAIS"] = null;
+            Session["NIT"] = null;
             Session["CARRETILLA"] = null;
+            Session["TOTAL"] = 0;
             return RedirectToAction("vMODINI_Logeado", "MODINI_Logeado");
         }
 
         public static DataTable consultarBD(string Consulta)
         {
-            //string credenciales = "server=" + credenciales + "; database=AnalisisP1 ; integrated security = true";
             SqlConnection conexion = new SqlConnection(credenciales);
             SqlDataAdapter adaptador = new SqlDataAdapter();
             DataTable ds = new DataTable();
@@ -173,7 +174,6 @@ namespace Inventario.Controllers
 
         public static bool actualizarBD(int idProducto, int cantidad)
         {
-            //string credenciales = "server=" + server + "; database=AnalisisP1 ; integrated security = true";
             SqlConnection conexion = new SqlConnection(credenciales);
             SqlDataAdapter adaptador = new SqlDataAdapter();
             try
@@ -186,10 +186,8 @@ namespace Inventario.Controllers
                     cmdU.Parameters.Add("@param2", SqlDbType.Int).Value = idProducto;
                     cmdU.CommandType = CommandType.Text;
                     cmdU.ExecuteNonQuery();
-
                 }
                 conexion.Close();
-
             }
             catch (Exception ex)
             {
@@ -199,5 +197,71 @@ namespace Inventario.Controllers
             }
             return true;
         }
+
+        public ActionResult registrarVenta()
+        {
+            string insert = "insert into pedido(fecha_pedido,nombre_cliente,estado,total,nit,pais_idpais,usuario_idusuario, correlativo) "+
+                "values(GETDATE(),'"+Session["CLIENTE"].ToString()+ "',1," + Session["TOTAL"].ToString() + "," + Session["NIT"].ToString() + "," + Session["PAIS"].ToString() + "," + Session["idU"].ToString() + ",0)";
+            consultarBD(insert);
+
+            ObjPedido pedido = getPedido();
+            if( pedido != null)
+            {
+                List<ObjProducto> detallePedido = Session["CARRETILLA"] as List<ObjProducto>;
+               foreach(ObjProducto a in detallePedido)
+                {
+                    if(a.cantidadBD > a.cantidad)
+                    {
+                        insert = "insert into det_pedido(cantidad,precio,pedido_idpedido,producto_idproducto)" +
+                        "values (" + a.cantidad + "," + a.precioUnitario + "," + pedido.id + "," + a.idproducto + ")";
+                        consultarBD(insert);
+                        actualizarBD(a.idproducto, a.cantidadBD - a.cantidad);
+                    }
+                    
+                }
+
+                Session["CLIENTE"] = null;
+                Session["PAIS"] = null;
+                Session["NIT"] = null;
+                Session["CARRETILLA"] = null;
+                Session["TOTAL"] = 0;
+            }
+
+
+
+            return RedirectToAction("vMODINI_Logeado", "MODINI_Logeado");
+        }
+
+        [HttpGet]
+        public ObjPedido getPedido()
+        {
+            string consulta = "select top(1) idpedido,fecha_pedido,nombre_cliente,total,pais_idpais,usuario_idusuario,correlativo,nit from pedido order by idpedido desc";
+            DataTable dt = consultarBD(consulta);
+            if (dt != null)
+            {
+                if (dt.Rows.Count > 0)
+                {
+                    foreach (DataRow row in dt.Rows)
+                    {
+                        ObjPedido n = new ObjPedido();
+                        n.id = Int16.Parse(row["idpedido"].ToString());
+                        n.fecha = row["fecha_pedido"].ToString();
+                        n.cliente = row["nombre_cliente"].ToString();
+                        n.total = Double.Parse(row["total"].ToString());
+                        n.idpais = Int16.Parse(row["pais_idpais"].ToString());
+                        n.idusuario = Int16.Parse(row["usuario_idusuario"].ToString());
+                        n.correlativo = row["correlativo"].ToString();
+                        n.nit = row["nit"].ToString();
+                        return n;
+                    }
+                }
+
+
+            }
+            return null;
+        }
+
+
+
     }
 }

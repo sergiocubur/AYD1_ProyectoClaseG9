@@ -14,6 +14,9 @@
         .incorrecto {
             color: orangered;
         }
+        .negrita{
+            font: bold;
+        }
     </style>
 </head>
 
@@ -86,7 +89,7 @@
                             Inventario.Controllers.MODSAL_RestarPorVentaController lista = new Inventario.Controllers.MODSAL_RestarPorVentaController();
                             foreach (Inventario.Objetos.ObjProducto prod in lista.getProductos())
                             {
-                                <option value=@prod.idproducto> @prod.descripcion - Existencias: @prod.cantidad </option>
+                                <option value=@prod.idproducto> @prod.descripcion - Existencias: @prod.cantidadBD </option>
                             }
                         }
                     </select>
@@ -121,10 +124,10 @@
             <table class="table table-bordered">
                 <thead>
                     <tr>
-                        <td>Descripción</td>
-                        <td>Precio Unitario</td>
-                        <td>Cantidad</td>
-                        <td>Subtotal</td>
+                        <td><b>Descripción</b></td>
+                        <td><b>Precio Unitario</b></td>
+                        <td><b>Cantidad</b></td>
+                        <td><b>Subtotal</b></td>
                     </tr>
                 </thead>
 
@@ -132,17 +135,23 @@
                     @{
                         if (Session["CARRETILLA"] != null)
                         {
-                            List<Inventario.Objetos.ObjRestaxVenta> listaKardex = Session["CARRETILLA"] as List<Inventario.Objetos.ObjRestaxVenta>;
-
-                            foreach (Inventario.Objetos.ObjRestaxVenta Venta in listaKardex)
+                            List<Inventario.Objetos.ObjProducto> listaCarretilla = Session["CARRETILLA"] as List<Inventario.Objetos.ObjProducto>;
+                            foreach (Inventario.Objetos.ObjProducto Venta in listaCarretilla)
                             {
                                 <tr>
                                     <td>@Venta.descripcion</td>
-                                    <td>@Venta.precio</td>
+                                    <td>@Venta.precioUnitario</td>
                                     <td>@Venta.cantidad</td>
-                                    <td>@Venta.total</td>
+                                    <td>@Venta.subtotal</td>
                                 </tr>
                             }
+                            <tr class="negrita">
+                                <td><b>TOTAL</b></td>
+                                <td></td>
+                                <td></td>
+                                <td> <b>@Session["TOTAL"]</b> </td>
+
+                            </tr>
                         }
                     }
                 </tbody>

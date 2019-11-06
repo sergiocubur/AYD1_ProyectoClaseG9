@@ -11,6 +11,27 @@
 </head>
 <body>
 
+    @{
+        if (Session["codeU"] != null && Session["nameU"] != null)
+        {
+            <div class="navbar navbar-inverse navbar-fixed-top">
+                <div class="container">
+                    <div class="navbar-collapse collapse">
+
+                        <ul class="nav navbar-nav navbar-right">
+                            <li>
+                                @Html.ActionLink("Hola " + Session["nameU"] + "! - (" + Session["codeU"] + ")", "vMODINI_Logeado", "MODINI_Logeado", routeValues: null, htmlAttributes: new { title = "Manage" })
+                            </li>
+                            <li>@Html.ActionLink("Cerrar Sesión", "CerrarSesion", "MODINI_Login", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        }
+    }
+
+    
+
     @*<div class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
