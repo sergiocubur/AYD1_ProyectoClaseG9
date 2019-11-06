@@ -18,7 +18,6 @@ namespace Inventario.Controllers
         {
             return View();
         }
-
         public ActionResult mostrandoRepCompras(DateTime fechaIni, DateTime fechaFin, string tipoCompras)
         {
             List<ObjRepKardex> listaCompras = getCompras(fechaIni, fechaFin, tipoCompras);
