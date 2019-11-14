@@ -15,6 +15,7 @@ namespace Inventario.Controllers
         [HttpGet]
         public ActionResult Devoluciones()
         {
+            .
             List<Objetos.ObjDevolucion> devoluciones = new List<Objetos.ObjDevolucion>();
             DataTable tabla = consulta("SELECT * FROM MOVIMIENTO WHERE tipo_movimiento='DEVOLUCION'");
             if (tabla != null)
